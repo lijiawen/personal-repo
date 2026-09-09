@@ -7,8 +7,10 @@
 | 页面 | 文件 | 内容 |
 | --- | --- | --- |
 | 🗂️ **导航首页** | [index.html](./index.html) | 全部课程入口 |
-| 🔬 小学一年级科普教程 | [kexue.html](./kexue.html) | 6 大领域 30 个主题，含动手实验步骤 |
+| 🔬 小学一年级科普教程 | [kexue.html](./kexue.html) | 6 大领域拆成 30 周，每周一个主题 + 动画演示 + 动手实验 |
 | 🧠 一年级思维课堂 | [siwei.html](./siwei.html) | 6 大思维模块 + 8 关互动闯关游戏 |
+| ⚫ 五子棋成长课 | [wuziqi.html](./wuziqi.html) | 6 级 30 课 + 九种棋型图鉴 + 10 关实战 + 人机对弈 |
+| ⚪ 围棋启蒙课 | [weiqi.html](./weiqi.html) | 从吃子到围空的启蒙路径 |
 
 > 注：原先科普教程占用 `index.html`，现已让位给导航页，改名为 `kexue.html`。旧链接不会 404，只会落到导航页。
 
@@ -53,3 +55,24 @@
 - 所有页面都是**单文件 HTML**，无构建步骤、无依赖，双击即可本地预览。
 - 字体走 Google Fonts（站酷快乐体 + Fredoka），断网时自动降级为系统圆体，不影响阅读。
 - `.nojekyll` 用于关闭 GitHub Pages 的 Jekyll 处理。
+
+## ⚙️ kexue.html 的例外：由脚本生成
+
+科普教程是唯一**不要直接手改**的页面 —— 它由 `~/Work/kexue-build/` 下的脚本拼装：
+
+| 文件 | 作用 |
+| --- | --- |
+| `kexue_backup.html` | 改版前的原始教案，是全部课文的唯一来源 |
+| `extract_kexue.py` | 从原始教案切出 30 课 + 模块简介 → `kexue_data.json` |
+| `kexue_shell.html` | 页面外壳：样式、侧栏、路由，含 `<!--WEEKS-->` 等占位符 |
+| `kexue_anims.js` | 动画引擎 + 各周动画（目前第 1~5 周） |
+| `build_kexue.py` | 注入并输出到 `deploy-site/kexue.html`，自带校验 |
+
+改样式改 `kexue_shell.html`，加动画改 `kexue_anims.js`，然后：
+
+```bash
+cd ~/Work/kexue-build && python3 build_kexue.py
+```
+
+第 6~30 周目前是「动画演示制作中」占位，在 `kexue_anims.js` 里补 `ANIMS[n]`、
+并在 `build_kexue.py` 的 `ANIM_TITLES` 里加一行标题，重新构建即可点亮。

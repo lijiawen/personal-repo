@@ -3,206 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔬 小学一年级科普教程·完整教案</title>
+<title>🔬 小学一年级科普教程 · 30周课程</title>
+<meta name="description" content="面向小学一年级的科普课程，30周主题教案，含交互动画演示与动手实验">
 <style>
-  :root {
-    --text-main: #1f2329;
-    --text-sub: #646a73;
-    --border: #e5e6eb;
-    --accent: #4a90e2;
-    --bg: #f7f8fa;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
-                 "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text-main);
-    line-height: 1.75;
-  }
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: linear-gradient(120deg, #4a90e2, #6f5ee0);
-    color: #fff;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 12px rgba(0,0,0,.08);
-  }
-  .topbar .brand { font-weight: 700; font-size: 16px; letter-spacing: .5px; margin-right: auto; }
-  .topbar .home-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    flex: 0 0 auto;
-    margin-right: 14px;
-    background: rgba(255,255,255,.18);
-    color: #fff;
-    text-decoration: none;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: background .18s, transform .18s;
-  }
-  .topbar .home-link:hover { background: rgba(255,255,255,.34); transform: translateX(-2px); }
-  @media (max-width: 640px) {
-    .topbar .home-link .t { display: none; }
-    .topbar .home-link { padding: 6px 10px; }
-  }
-  .topbar .toc-toggle {
-    display: none;
-    background: rgba(255,255,255,.18);
-    border: none;
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  .layout {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: flex-start;
-  }
-  .sidebar {
-    width: 240px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 68px;
-    max-height: calc(100vh - 90px);
-    overflow-y: auto;
-    padding: 20px 12px;
-  }
-  .sidebar h4 {
-    font-size: 13px;
-    color: var(--text-sub);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 6px 0 12px 8px;
-  }
-  .sidebar a {
-    display: block;
-    padding: 6px 10px;
-    font-size: 13.5px;
-    color: var(--text-sub);
-    text-decoration: none;
-    border-radius: 6px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .sidebar a.level-1 { font-weight: 700; color: var(--text-main); margin-top: 10px; }
-  .sidebar a:hover { background: #eef2f8; color: var(--accent); }
-  .content {
-    flex: 1;
-    min-width: 0;
-    background: #fff;
-    margin: 20px;
-    padding: 40px 56px 80px;
-    border-radius: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.04);
-  }
-  h1, h2, h3, h4 {
-    scroll-margin-top: 84px;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-  h1 { font-size: 30px; margin: 0 0 24px; border-bottom: 3px solid var(--accent); padding-bottom: 16px;}
-  h2 { font-size: 24px; margin: 48px 0 20px; padding-left: 12px; border-left: 5px solid var(--accent); }
-  h3 { font-size: 19px; margin: 32px 0 14px; color: #2b3a55; }
-  h4 { font-size: 16px; margin: 22px 0 10px; color: var(--text-sub); }
-  p { margin: 0 0 14px; color: var(--text-main); }
-  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
-  ul, ol { margin: 0 0 16px; padding-left: 26px; }
-  li { margin-bottom: 6px; }
-  blockquote {
-    margin: 16px 0;
-    padding: 12px 18px;
-    background: #f4f6fb;
-    border-left: 4px solid #b7c3d9;
-    border-radius: 6px;
-    color: #4a5468;
-  }
-  code {
-    background: #f0f1f3;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 90%;
-    color: #c0392b;
-  }
-  a { color: var(--accent); }
-  .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
-  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
-  th, td { padding: 10px 14px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); text-align: left; vertical-align: top; }
-  th:last-child, td:last-child { border-right: none; }
-  thead th { background: #eef2f8; color: #2b3a55; font-weight: 700; }
-  tbody tr:hover { background: #fafbfd; }
+:root{
+  --text-main:#1f2329; --text-sub:#646a73; --border:#e5e6eb;
+  --accent:#4a90e2; --accent2:#6f5ee0; --bg:#f7f8fa;
+  --m0:#3fa653; --m1:#e5484d; --m2:#0e9bb8; --m3:#f0921c; --m4:#7c5cff; --m5:#4353c9;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);color:var(--text-main);line-height:1.75;
+}
 
-  .callout {
-    display: flex;
-    gap: 12px;
-    margin: 16px 0;
-    padding: 16px 18px;
-    border-radius: 12px;
-    border-left: 4px solid;
-  }
-  .callout-emoji { font-size: 22px; line-height: 1.5; }
-  .callout-body p:last-child { margin-bottom: 0; }
-  .callout-body ul, .callout-body ol { margin-bottom: 0; }
+/* ---------- 顶栏 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:100;background:linear-gradient(120deg,#4a90e2,#6f5ee0);
+  color:#fff;padding:12px 22px;display:flex;align-items:center;gap:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,.10);
+}
+.topbar .brand{font-weight:700;font-size:16px;letter-spacing:.5px;margin-right:auto;}
+.topbar .home-link,.topbar .toc-toggle{
+  display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;
+  background:rgba(255,255,255,.18);color:#fff;text-decoration:none;border:none;
+  padding:6px 14px;border-radius:8px;font-size:14px;white-space:nowrap;cursor:pointer;
+  transition:background .18s,transform .18s;font-family:inherit;
+}
+.topbar .home-link:hover,.topbar .toc-toggle:hover{background:rgba(255,255,255,.34);}
+.topbar .home-link:hover{transform:translateX(-2px);}
+.topbar .toc-toggle{display:none;}
+.topbar .progress-pill{
+  background:rgba(255,255,255,.2);border-radius:99px;padding:4px 14px;font-size:13px;
+  white-space:nowrap;font-variant-numeric:tabular-nums;
+}
+@media(max-width:900px){
+  .topbar .toc-toggle{display:inline-flex;}
+  .topbar .home-link .t{display:none;}
+  .topbar .progress-pill{display:none;}
+}
 
-  .grid { display: grid; gap: 16px; margin: 16px 0; }
-  .grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .grid-3 { grid-template-columns: repeat(3, 1fr); }
-  .grid-4 { grid-template-columns: repeat(4, 1fr); }
-  .grid-col { min-width: 0; }
-  .grid-col > .callout { margin: 0; height: 100%; }
-  .grid-col p:last-child { margin-bottom: 0; }
+/* ---------- 布局 ---------- */
+.layout{display:flex;max-width:1240px;margin:0 auto;align-items:flex-start;}
 
-  .back-to-top {
-    position: fixed;
-    right: 28px;
-    bottom: 28px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 18px;
-    box-shadow: 0 4px 14px rgba(74,144,226,.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s;
-  }
-  .back-to-top.show { opacity: 1; pointer-events: auto; }
+.sidebar{
+  width:262px;flex-shrink:0;position:sticky;top:60px;
+  max-height:calc(100vh - 76px);overflow-y:auto;padding:16px 10px 40px;
+  scrollbar-width:thin;
+}
+.sidebar::-webkit-scrollbar{width:7px;}
+.sidebar::-webkit-scrollbar-thumb{background:#d4d8e0;border-radius:99px;}
 
-  @media (max-width: 900px) {
-    .sidebar { display: none; }
-    .content { margin: 12px; padding: 24px 18px 56px; border-radius: 12px; }
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+.side-search{
+  width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:9px;
+  font-size:13.5px;font-family:inherit;margin-bottom:12px;background:#fff;
+}
+.side-search:focus{outline:2px solid rgba(74,144,226,.4);border-color:var(--accent);}
+
+.nav-special{
+  display:flex;align-items:center;gap:8px;padding:8px 11px;font-size:13.5px;
+  color:var(--text-sub);text-decoration:none;border-radius:8px;cursor:pointer;
+  border:1px dashed transparent;
+}
+.nav-special:hover{background:#eef2f8;color:var(--accent);}
+.nav-special.active{background:#e8f2ff;color:var(--accent);font-weight:700;border-color:#b9d6f7;}
+
+.mod-group{margin-top:14px;}
+.mod-head{
+  display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;
+  color:var(--text-sub);letter-spacing:.6px;padding:6px 10px;
+  border-left:3px solid var(--mc);margin-bottom:4px;
+}
+.mod-head .cnt{margin-left:auto;font-weight:400;opacity:.65;}
+
+.wk{
+  display:flex;align-items:center;gap:9px;padding:6px 10px;font-size:13.5px;
+  color:var(--text-sub);text-decoration:none;border-radius:8px;cursor:pointer;
+  transition:background .15s,color .15s;
+}
+.wk:hover{background:#eef2f8;color:var(--accent);}
+.wk .no{
+  flex:0 0 26px;height:22px;border-radius:6px;background:#eef0f4;color:var(--text-sub);
+  display:grid;place-items:center;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums;
+}
+.wk .tt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.wk.active{background:#e8f2ff;color:var(--accent);font-weight:700;}
+.wk.active .no{background:var(--mc);color:#fff;}
+.wk.seen .tt::after{content:"✓";margin-left:5px;color:#3fa653;font-size:11px;}
+.wk.hide{display:none;}
+
+/* ---------- 内容 ---------- */
+.content{
+  flex:1;min-width:0;background:#fff;margin:18px;padding:34px 46px 70px;
+  border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+@media(max-width:900px){
+  .sidebar{
+    position:fixed;top:56px;left:0;bottom:0;width:280px;background:#fff;z-index:99;
+    box-shadow:4px 0 20px rgba(0,0,0,.13);transform:translateX(-102%);
+    transition:transform .26s cubic-bezier(.22,1,.36,1);max-height:none;padding-top:14px;
   }
+  .sidebar.open{transform:none;}
+  .content{margin:12px;padding:24px 20px 56px;}
+  .scrim{
+    position:fixed;inset:56px 0 0 0;background:rgba(0,0,0,.35);z-index:98;
+    opacity:0;pointer-events:none;transition:opacity .26s;
+  }
+  .scrim.show{opacity:1;pointer-events:auto;}
+}
+
+/* 周头部 */
+.wk-head{border-bottom:3px solid var(--mc,#4a90e2);padding-bottom:16px;margin-bottom:22px;}
+.wk-crumb{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:9px;}
+.pill{
+  font-size:12.5px;padding:3px 12px;border-radius:99px;background:var(--mc,#4a90e2);
+  color:#fff;font-weight:700;letter-spacing:.4px;
+}
+.pill.ghost{background:#eef2f8;color:var(--text-sub);font-weight:400;}
+.wk-head h1{font-size:28px;margin:0;font-weight:700;line-height:1.35;}
+
+/* 模块简介折叠条 */
+.mod-note{
+  margin:0 0 18px;border:1px solid #e3e9f2;border-radius:11px;background:#f8fafd;
+  font-size:13.5px;overflow:hidden;
+}
+.mod-note summary{
+  cursor:pointer;padding:9px 15px;color:var(--text-sub);font-weight:700;
+  list-style:none;user-select:none;transition:background .15s;
+}
+.mod-note summary:hover{background:#eef2f8;}
+.mod-note summary::-webkit-details-marker{display:none;}
+.mod-note summary::before{content:"▸ ";color:var(--mc,#4a90e2);}
+.mod-note[open] summary::before{content:"▾ ";}
+.mod-note .in{padding:0 15px 12px;}
+.mod-note .in .callout{margin:0;}
+
+/* ---------- 动画演示区 ---------- */
+.demo{
+  margin:22px 0 28px;border:1px solid #dbe6f5;border-radius:14px;overflow:hidden;
+  background:linear-gradient(160deg,#f4f9ff,#eef4fd);
+}
+.demo-bar{
+  display:flex;align-items:center;gap:10px;padding:10px 16px;
+  background:rgba(255,255,255,.72);border-bottom:1px solid #dbe6f5;flex-wrap:wrap;
+}
+.demo-bar .t{font-weight:700;font-size:14.5px;color:#2b3a55;margin-right:auto;}
+.demo-btn{
+  border:1px solid #c5d9f2;background:#fff;color:var(--accent);cursor:pointer;
+  padding:5px 14px;border-radius:8px;font-size:13px;font-family:inherit;font-weight:700;
+  transition:background .16s,transform .16s;
+}
+.demo-btn:hover{background:#e8f2ff;}
+.demo-btn:active{transform:scale(.95);}
+.demo-btn.sec{color:var(--text-sub);font-weight:400;border-color:var(--border);}
+.demo-stage{
+  padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:290px;position:relative;
+}
+.demo-stage svg{max-width:100%;height:auto;display:block;}
+/* 注意：这里不能用 flex —— 字幕里的 <b> 会各自变成 flex item，
+   一旦文字换行就会被拆散错位。用 block + line-height 保证正常的行内文本流。 */
+.demo-cap{
+  font-size:13.5px;color:#4a5468;background:rgba(255,255,255,.8);border-radius:9px;
+  padding:9px 15px;margin-top:14px;text-align:center;max-width:620px;min-height:38px;
+  line-height:1.7;transition:opacity .2s;
+}
+.demo-slider{width:min(420px,90%);margin-top:14px;display:flex;align-items:center;gap:12px;}
+.demo-slider input{flex:1;accent-color:var(--accent);cursor:pointer;}
+.demo-slider .lab{font-size:12.5px;color:var(--text-sub);white-space:nowrap;font-variant-numeric:tabular-nums;}
+
+/* 占位（尚未制作动画的周） */
+.demo.soon{background:repeating-linear-gradient(45deg,#fafbfd,#fafbfd 12px,#f2f5f9 12px,#f2f5f9 24px);border-style:dashed;}
+.demo.soon .demo-stage{min-height:150px;color:var(--text-sub);text-align:center;gap:6px;}
+.demo.soon .em{font-size:38px;opacity:.5;}
+.demo.soon .msg{font-size:14px;}
+.demo.soon .sub{font-size:12.5px;opacity:.7;}
+
+/* ---------- 教案正文（沿用原样式）---------- */
+.content h2{font-size:22px;margin:42px 0 18px;padding-left:12px;border-left:5px solid var(--accent);font-weight:700;line-height:1.4;}
+.content h3{font-size:18px;margin:30px 0 13px;color:#2b3a55;font-weight:700;line-height:1.4;}
+.content h4{font-size:15.5px;margin:22px 0 9px;color:var(--text-sub);font-weight:700;line-height:1.4;}
+.content p{margin:0 0 13px;}
+.content hr{border:none;border-top:1px solid var(--border);margin:32px 0;}
+.content ul,.content ol{margin:0 0 15px;padding-left:25px;}
+.content li{margin-bottom:5px;}
+blockquote{margin:15px 0;padding:11px 17px;background:#f4f6fb;border-left:4px solid #b7c3d9;border-radius:6px;color:#4a5468;}
+code{background:#f0f1f3;padding:2px 6px;border-radius:4px;font-size:90%;color:#c0392b;}
+a{color:var(--accent);}
+.table-wrap{overflow-x:auto;margin:15px 0;border-radius:10px;border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:14.5px;}
+th,td{padding:10px 14px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);text-align:left;vertical-align:top;}
+th:last-child,td:last-child{border-right:none;}
+thead th{background:#eef2f8;color:#2b3a55;font-weight:700;}
+tbody tr:hover{background:#fafbfd;}
+.callout{display:flex;gap:12px;margin:15px 0;padding:15px 17px;border-radius:12px;border-left:4px solid;}
+.callout-emoji{font-size:21px;line-height:1.5;}
+.callout-body p:last-child{margin-bottom:0;}
+.callout-body ul,.callout-body ol{margin-bottom:0;}
+.grid{display:grid;gap:15px;margin:15px 0;}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.grid-col{min-width:0;}
+.grid-col>.callout{margin:0;height:100%;}
+.grid-col p:last-child{margin-bottom:0;}
+@media(max-width:700px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+  .content h2{font-size:19px;}
+  .wk-head h1{font-size:22px;}
+}
+
+/* ---------- 上一周 / 下一周 ---------- */
+.wk-foot{display:flex;gap:12px;margin-top:44px;padding-top:22px;border-top:1px solid var(--border);}
+.wk-foot a{
+  flex:1;display:flex;flex-direction:column;gap:2px;padding:12px 16px;border:1px solid var(--border);
+  border-radius:11px;text-decoration:none;color:var(--text-main);transition:border-color .16s,background .16s,transform .16s;
+  min-width:0;
+}
+.wk-foot a:hover{border-color:var(--accent);background:#f6faff;transform:translateY(-2px);}
+.wk-foot a.next{text-align:right;align-items:flex-end;}
+.wk-foot .k{font-size:12px;color:var(--text-sub);}
+.wk-foot .v{font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;}
+.wk-foot a.disabled{opacity:.35;pointer-events:none;}
+
+/* 页面切换动画 */
+.page{display:none;}
+.page.on{display:block;animation:fade .32s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+.back-to-top{
+  position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:18px;box-shadow:0 4px 14px rgba(74,144,226,.4);
+  opacity:0;pointer-events:none;transition:opacity .2s;border:none;cursor:pointer;z-index:90;
+}
+.back-to-top.show{opacity:1;pointer-events:auto;}
+
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 </style>
 </head>
 <body>
-  <div class="topbar">
-    <a href="index.html" class="home-link">←<span class="t">全部课程</span></a>
-    <div class="brand">🔬 小学一年级科普教程·完整教案</div>
-  </div>
-  <div class="layout">
-    <nav class="sidebar" id="toc"></nav>
-    <main class="content" id="content">
-      <h1>🔬 小学一年级科普教程·完整教案</h1>
+
+<div class="topbar">
+  <a href="index.html" class="home-link">←<span class="t">全部课程</span></a>
+  <button class="toc-toggle" id="tocToggle">☰ 目录</button>
+  <div class="brand">🔬 小学一年级科普教程</div>
+  <span class="progress-pill" id="progressPill">已读 0 / 30 周</span>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <input class="side-search" id="search" type="search" placeholder="🔍 搜索周次或主题…" autocomplete="off">
+    <a class="nav-special" data-go="intro">📘 <span>课程总览与设计</span></a>
+    <div id="navList"></div>
+    <a class="nav-special" data-go="appendix" style="margin-top:14px">📊 <span>评估体系与附录</span></a>
+  </nav>
+
+  <main class="content" id="content">
+    <!-- 课程总览 -->
+    <div class="page" id="page-intro">
+      <div class="wk-head" style="--mc:#4a90e2">
+        <div class="wk-crumb"><span class="pill">课程总览</span><span class="pill ghost">6 大领域 · 30 周</span></div>
+        <h1>🔬 小学一年级科普教程</h1>
+      </div>
       <div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌟</div><div class="callout-body"><p><strong>欢迎来到科学的奇妙世界！</strong><br>本教程专为小学一年级学生（6~7岁）设计，涵盖6大科学领域、30个趣味主题，每节课15~20分钟，通过故事、游戏与动手实验点燃孩子对科学的热爱！</p></div></div>
 <hr>
 <div class="grid grid-3"><div class="grid-col"><div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🎯</div><div class="callout-body"><p><strong>适用年龄</strong>小学一年级6 ~ 7 岁</p></div></div></div><div class="grid-col"><div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">📚</div><div class="callout-body"><p><strong>主题数量</strong>6大领域30个主题</p></div></div></div><div class="grid-col"><div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">⏰</div><div class="callout-body"><p><strong>课程时长</strong>每节15~20分钟全年覆盖</p></div></div></div></div>
@@ -222,11 +287,32 @@
 <hr>
 <blockquote>💡 <strong>教程核心理念</strong>：一年级的科普不需要让孩子"学会"知识，而是要点燃他们 <strong>"想知道为什么"</strong> 的那颗好奇心 🔥</blockquote>
 <hr>
-<h2>🌿 模块一：自然与生命</h2>
-<div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>模块简介</strong>：通过观察植物生长、了解动物习性，让孩子感受生命的神奇与多样，培养对自然的敬畏和爱护之心。</p></div></div>
-<hr>
-<h3>第1课｜植物是怎么喝水的？</h3>
-<h4>🎯 教学目标</h4>
+    </div>
+
+    <!-- 30 周 -->
+    <div class="page" id="page-w1" style="--mc:var(--m0)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 1 周</span>
+          <span class="pill ghost">🌿 自然与生命</span>
+          <span class="pill ghost">1 / 30</span>
+        </div>
+        <h1>植物是怎么喝水的？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌿 模块一：自然与生命 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>模块简介</strong>：通过观察植物生长、了解动物习性，让孩子感受生命的神奇与多样，培养对自然的敬畏和爱护之心。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo" data-anim="1">
+        <div class="demo-bar">
+          <span class="t">🎬 看一看：水怎么从杯子走到叶子</span>
+          <button class="demo-btn" data-act="play">▶ 播放</button>
+          <button class="demo-btn sec" data-act="reset">重置</button>
+        </div>
+        <div class="demo-stage"><div class="demo-cap"></div></div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>知道植物需要水才能生长</li><li>了解植物靠"茎"输送水分（毛细现象）</li><li>培养对植物的关爱意识</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>小明发现花瓶里的花朵，没有嘴巴却能喝水……花是怎么把水喝进去的呢？</blockquote>
@@ -243,8 +329,31 @@
 <h4>✏️ 课后小任务</h4>
 <p>在科学小日记上画出植物喝水的路线图（根 → 茎 → 叶），并写上今天学到的一句话。</p>
 <hr>
-<h3>第2课｜种一颗豆子，看它长大</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a class="prev disabled"><span class="k">← 上一周</span><span class="v">已是第一周</span></a><a data-go="w2" class="next"><span class="k">下一周 →</span><span class="v">第2周 · 种一颗豆子，看它长大</span></a></div>
+    </div>
+<div class="page" id="page-w2" style="--mc:var(--m0)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 2 周</span>
+          <span class="pill ghost">🌿 自然与生命</span>
+          <span class="pill ghost">2 / 30</span>
+        </div>
+        <h1>种一颗豆子，看它长大</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌿 模块一：自然与生命 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>模块简介</strong>：通过观察植物生长、了解动物习性，让孩子感受生命的神奇与多样，培养对自然的敬畏和爱护之心。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo" data-anim="2">
+        <div class="demo-bar">
+          <span class="t">🎬 拖一拖：10 天里豆子发生了什么</span>
+          <button class="demo-btn" data-act="play">▶ 播放</button>
+          <button class="demo-btn sec" data-act="reset">重置</button>
+        </div>
+        <div class="demo-stage"><div class="demo-cap"></div></div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解种子发芽需要的条件（水、空气、温度）</li><li>观察并记录植物生长的过程</li><li>培养耐心观察的科学精神</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>一颗小小的豆子，埋进土里，加点水，等几天，它就变成了小苗！这是魔法吗？</blockquote>
@@ -257,8 +366,31 @@
 <p><strong>观察记录表</strong>：</p>
 <div class="table-wrap"><table><colgroup><col style="width:13.70%"><col style="width:24.66%"><col style="width:24.66%"><col style="width:36.99%"></colgroup><thead><tr><th><p><strong>天数</strong></p></th><th><p><strong>豆子的样子</strong></p></th><th><p><strong>有没有变化</strong></p></th><th><p><strong>我的发现</strong></p></th></tr></thead><tbody><tr><td><p>第1天</p></td><td><p>圆圆的，硬硬的</p></td><td><p>还没有变化</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第3天</p></td><td><p>豆子变大，皮裂开</p></td><td><p>冒出了白色小芽</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第5天</p></td><td><p>长出了小叶子<br>      向着光的方向弯曲</p></td><td><p>（孩子填写）</p></td><td></td></tr><tr><td><p>第7天</p></td><td><p>小苗越长越高</p></td><td><p>有了2~3片叶子</p></td><td><p>（孩子填写）</p></td></tr></tbody></table></div>
 <hr>
-<h3>第3课｜蚂蚁的大家庭</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w1" class="prev"><span class="k">← 上一周</span><span class="v">第1周 · 植物是怎么喝水的？</span></a><a data-go="w3" class="next"><span class="k">下一周 →</span><span class="v">第3周 · 蚂蚁的大家庭</span></a></div>
+    </div>
+<div class="page" id="page-w3" style="--mc:var(--m0)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 3 周</span>
+          <span class="pill ghost">🌿 自然与生命</span>
+          <span class="pill ghost">3 / 30</span>
+        </div>
+        <h1>蚂蚁的大家庭</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌿 模块一：自然与生命 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>模块简介</strong>：通过观察植物生长、了解动物习性，让孩子感受生命的神奇与多样，培养对自然的敬畏和爱护之心。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo" data-anim="3">
+        <div class="demo-bar">
+          <span class="t">🎬 看一看：蚂蚁怎么找到食物并告诉同伴</span>
+          <button class="demo-btn" data-act="play">▶ 播放</button>
+          <button class="demo-btn sec" data-act="reset">重置</button>
+        </div>
+        <div class="demo-stage"><div class="demo-cap"></div></div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解蚂蚁的社会结构（蚁后、工蚁、兵蚁）</li><li>知道蚂蚁靠气味交流</li><li>培养对小生命的尊重和关爱</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>小红在公园发现了一排蚂蚁，它们排成一条直线搬运食物……蚂蚁怎么知道路在哪里？它们有没有"队长"？</blockquote>
@@ -272,8 +404,31 @@
 <ol><li>找到一条正在行走的蚂蚁队伍</li><li>用棉签蘸取糖水，在蚂蚁队伍的路线旁边画一条新路线</li><li>观察：蚂蚁会不会跟着新的糖水路线走？</li><li>用纸巾擦掉一段原来的路线，蚂蚁会怎么做？</li></ol>
 <p><strong>引导问题</strong>：蚂蚁是用眼睛找路还是用鼻子找路？</p>
 <hr>
-<h3>第4课｜四季为什么会变化？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w2" class="prev"><span class="k">← 上一周</span><span class="v">第2周 · 种一颗豆子，看它长大</span></a><a data-go="w4" class="next"><span class="k">下一周 →</span><span class="v">第4周 · 四季为什么会变化？</span></a></div>
+    </div>
+<div class="page" id="page-w4" style="--mc:var(--m0)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 4 周</span>
+          <span class="pill ghost">🌿 自然与生命</span>
+          <span class="pill ghost">4 / 30</span>
+        </div>
+        <h1>四季为什么会变化？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌿 模块一：自然与生命 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>模块简介</strong>：通过观察植物生长、了解动物习性，让孩子感受生命的神奇与多样，培养对自然的敬畏和爱护之心。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo" data-anim="4">
+        <div class="demo-bar">
+          <span class="t">🎬 转一转：地球绕太阳一圈 = 一年</span>
+          <button class="demo-btn" data-act="play">▶ 播放</button>
+          <button class="demo-btn sec" data-act="reset">重置</button>
+        </div>
+        <div class="demo-stage"><div class="demo-cap"></div></div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解地球公转导致四季变化</li><li>认识春夏秋冬的特征</li><li>能将季节与生活现象联系起来</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>地球像一个陀螺，一边自转，一边绕着太阳转（公转）。地球是<strong>斜着</strong>的，所以转到不同位置时，太阳照射到的角度不同，就产生了四季！</p>
@@ -281,8 +436,31 @@
 <h4>🧪 动手活动：四季树绘画</h4>
 <p>用4张纸画出同一棵树在四个季节的样子，比较它们的不同，然后贴在一起成为"四季对比图"。</p>
 <hr>
-<h3>第5课｜动物的睡眠——谁在冬眠？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w3" class="prev"><span class="k">← 上一周</span><span class="v">第3周 · 蚂蚁的大家庭</span></a><a data-go="w5" class="next"><span class="k">下一周 →</span><span class="v">第5周 · 动物的睡眠——谁在冬眠？</span></a></div>
+    </div>
+<div class="page" id="page-w5" style="--mc:var(--m0)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 5 周</span>
+          <span class="pill ghost">🌿 自然与生命</span>
+          <span class="pill ghost">5 / 30</span>
+        </div>
+        <h1>动物的睡眠——谁在冬眠？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌿 模块一：自然与生命 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>模块简介</strong>：通过观察植物生长、了解动物习性，让孩子感受生命的神奇与多样，培养对自然的敬畏和爱护之心。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo" data-anim="5">
+        <div class="demo-bar">
+          <span class="t">🎬 比一比：冬眠时身体开启"省电模式"</span>
+          <button class="demo-btn" data-act="play">▶ 播放</button>
+          <button class="demo-btn sec" data-act="reset">重置</button>
+        </div>
+        <div class="demo-stage"><div class="demo-cap"></div></div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解冬眠的概念和原因</li><li>认识常见的冬眠动物</li><li>理解动物与环境的适应关系</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>冬天食物少、天气冷，一些动物选择<strong>睡大觉</strong>来节省能量，等到春天暖和了再醒来，这就叫<strong>冬眠</strong>！</p>
@@ -291,11 +469,30 @@
 <ul><li>🐧 企鹅（抱团取暖）</li><li>🐿️ 松鼠（提前存粮食）</li><li>🐦 候鸟（飞去温暖的地方）</li><li>🐺 狼（厚毛抵御寒冬）</li><li>🐟 鱼（在水下活动）</li></ul></div></div>
 <div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">💡</div><div class="callout-body"><p><strong>小知识</strong>：熊在冬眠期间心跳会从每分钟40次降到8次，体温也会下降，但它们偶尔会醒来一下再继续睡！</p></div></div>
 <hr>
-<h2>❤️ 模块二：身体与健康</h2>
-<div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🏥</div><div class="callout-body"><p><strong>模块简介</strong>：认识自己的身体，了解各器官的功能，养成健康的生活习惯，学会保护自己的身体。</p></div></div>
-<hr>
-<h3>第6课｜我们的心脏在"扑通扑通"做什么？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w4" class="prev"><span class="k">← 上一周</span><span class="v">第4周 · 四季为什么会变化？</span></a><a data-go="w6" class="next"><span class="k">下一周 →</span><span class="v">第6周 · 我们的心脏在"扑通扑通"做什么？</span></a></div>
+    </div>
+<div class="page" id="page-w6" style="--mc:var(--m1)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 6 周</span>
+          <span class="pill ghost">❤️ 身体与健康</span>
+          <span class="pill ghost">6 / 30</span>
+        </div>
+        <h1>我们的心脏在"扑通扑通"做什么？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>❤️ 模块二：身体与健康 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🏥</div><div class="callout-body"><p><strong>模块简介</strong>：认识自己的身体，了解各器官的功能，养成健康的生活习惯，学会保护自己的身体。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>知道心脏的位置和功能</li><li>了解心跳与运动的关系</li><li>认识血液循环的简单概念</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>小明跑完步后，把手放在胸口，感觉"扑通扑通"跳得很快……这是什么？它为什么要一直跳？</blockquote>
@@ -311,8 +508,30 @@
 <div class="table-wrap"><table><colgroup><col style="width:33.33%"><col style="width:33.33%"><col style="width:33.33%"></colgroup><thead><tr><th><p>状态</p></th><th><p>30秒脉搏次数</p></th><th><p>每分钟心跳</p></th></tr></thead><tbody><tr><td><p>安静时</p></td><td></td><td></td></tr><tr><td><p>运动后</p></td><td></td><td></td></tr><tr><td><p>休息2分钟后</p></td><td></td><td></td></tr></tbody></table></div>
 <p><strong>引导问题</strong>：为什么运动后心跳会加快？心脏是在偷懒还是在更努力地工作？</p>
 <hr>
-<h3>第7课｜食物去哪里了？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w5" class="prev"><span class="k">← 上一周</span><span class="v">第5周 · 动物的睡眠——谁在冬眠？</span></a><a data-go="w7" class="next"><span class="k">下一周 →</span><span class="v">第7周 · 食物去哪里了？</span></a></div>
+    </div>
+<div class="page" id="page-w7" style="--mc:var(--m1)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 7 周</span>
+          <span class="pill ghost">❤️ 身体与健康</span>
+          <span class="pill ghost">7 / 30</span>
+        </div>
+        <h1>食物去哪里了？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>❤️ 模块二：身体与健康 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🏥</div><div class="callout-body"><p><strong>模块简介</strong>：认识自己的身体，了解各器官的功能，养成健康的生活习惯，学会保护自己的身体。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解消化系统的基本组成</li><li>知道食物在体内的旅行路线</li><li>养成细嚼慢咽的好习惯</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>小红吃了一个苹果，苹果去哪儿了？它没有变成"苹果便便"，而是变成了我们身体的一部分……这是怎么回事？</blockquote>
@@ -326,8 +545,30 @@
 <ol><li><strong>模拟口腔</strong>：把面包放进嘴里充分咀嚼（感受牙齿的工作）</li><li><strong>模拟胃</strong>：把一小块饼干放入密封袋，加少量水，用手揉捏搓揉2分钟，观察饼干变成什么样子</li><li><strong>对比</strong>：揉捏前后的饼干有什么不同？</li></ol>
 <p><strong>引导问题</strong>：为什么要细嚼慢咽，而不是直接把食物整个吞下去？</p>
 <hr>
-<h3>第8课｜为什么要刷牙？细菌的秘密</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w6" class="prev"><span class="k">← 上一周</span><span class="v">第6周 · 我们的心脏在"扑通扑通"做什么？</span></a><a data-go="w8" class="next"><span class="k">下一周 →</span><span class="v">第8周 · 为什么要刷牙？细菌的秘密</span></a></div>
+    </div>
+<div class="page" id="page-w8" style="--mc:var(--m1)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 8 周</span>
+          <span class="pill ghost">❤️ 身体与健康</span>
+          <span class="pill ghost">8 / 30</span>
+        </div>
+        <h1>为什么要刷牙？细菌的秘密</h1>
+      </div>
+      <details class="mod-note">
+        <summary>❤️ 模块二：身体与健康 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🏥</div><div class="callout-body"><p><strong>模块简介</strong>：认识自己的身体，了解各器官的功能，养成健康的生活习惯，学会保护自己的身体。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解龋齿的形成原因</li><li>知道正确的刷牙方法</li><li>养成早晚刷牙的好习惯</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>牙齿小怪兽——细菌，就住在我们的嘴巴里！它们最爱吃糖，吃完糖会产生酸，把牙齿慢慢腐蚀成一个小洞……</blockquote>
@@ -341,8 +582,30 @@
 <ol><li>将一片鸡蛋壳放入装有可乐的杯子，另一片放入清水杯子</li><li>等待2~3天后取出，用手轻轻捏捏两片鸡蛋壳</li><li>对比两片蛋壳的硬度和颜色</li></ol>
 <p><strong>预期结果</strong>：可乐中的磷酸会让蛋壳变软、变黑，就像酸腐蚀牙齿一样！<br><strong>结论</strong>：牙釉质和蛋壳的成分相似，都怕酸！</p>
 <hr>
-<h3>第9课｜眼睛是怎么看东西的？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w7" class="prev"><span class="k">← 上一周</span><span class="v">第7周 · 食物去哪里了？</span></a><a data-go="w9" class="next"><span class="k">下一周 →</span><span class="v">第9周 · 眼睛是怎么看东西的？</span></a></div>
+    </div>
+<div class="page" id="page-w9" style="--mc:var(--m1)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 9 周</span>
+          <span class="pill ghost">❤️ 身体与健康</span>
+          <span class="pill ghost">9 / 30</span>
+        </div>
+        <h1>眼睛是怎么看东西的？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>❤️ 模块二：身体与健康 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🏥</div><div class="callout-body"><p><strong>模块简介</strong>：认识自己的身体，了解各器官的功能，养成健康的生活习惯，学会保护自己的身体。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解眼睛的基本结构和功能</li><li>知道近视的原因和预防方法</li><li>养成保护眼睛的好习惯</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>眼睛就像一台<strong>照相机</strong>！光线进入眼睛后，经过晶状体（相当于镜头）聚焦，在视网膜（相当于底片）上成像，再由视神经把信息传给大脑。</p>
@@ -354,8 +617,30 @@
 <div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">👀</div><div class="callout-body"><p><strong>护眼小贴士</strong></p>
 <ul><li>📱 看屏幕20分钟，休息看20英尺（6米）外20秒（20-20-20法则）</li><li>📚 读书时保持30厘米距离</li><li>☀️ 每天户外活动至少1~2小时</li><li>🌙 不在黑暗中看手机</li></ul></div></div>
 <hr>
-<h3>第10课｜为什么我们要睡觉？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w8" class="prev"><span class="k">← 上一周</span><span class="v">第8周 · 为什么要刷牙？细菌的秘密</span></a><a data-go="w10" class="next"><span class="k">下一周 →</span><span class="v">第10周 · 为什么我们要睡觉？</span></a></div>
+    </div>
+<div class="page" id="page-w10" style="--mc:var(--m1)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 10 周</span>
+          <span class="pill ghost">❤️ 身体与健康</span>
+          <span class="pill ghost">10 / 30</span>
+        </div>
+        <h1>为什么我们要睡觉？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>❤️ 模块二：身体与健康 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🏥</div><div class="callout-body"><p><strong>模块简介</strong>：认识自己的身体，了解各器官的功能，养成健康的生活习惯，学会保护自己的身体。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解睡眠对身体和大脑的重要性</li><li>知道一年级学生需要的睡眠时长</li><li>养成规律作息的好习惯</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>睡觉不是在"浪费时间"！睡眠期间，大脑在<strong>整理记忆</strong>（把今天学到的东西储存好），身体在<strong>分泌生长激素</strong>（帮助长高），免疫系统在<strong>修复身体</strong>。</p>
@@ -364,11 +649,30 @@
 <h4>🧪 互动活动：睡眠时间调查</h4>
 <p>制作"我的一周睡眠记录表"，连续记录7天每天的睡眠时间，画成柱状图，看看哪天睡得最多、最少。</p>
 <hr>
-<h2>🌍 模块三：地球与环境</h2>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>模块简介</strong>：认识地球上的自然现象，了解水循环、天气变化，培养爱护地球、保护环境的意识。</p></div></div>
-<hr>
-<h3>第11课｜云是怎么来的？（水循环）</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w9" class="prev"><span class="k">← 上一周</span><span class="v">第9周 · 眼睛是怎么看东西的？</span></a><a data-go="w11" class="next"><span class="k">下一周 →</span><span class="v">第11周 · 云是怎么来的？（水循环）</span></a></div>
+    </div>
+<div class="page" id="page-w11" style="--mc:var(--m2)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 11 周</span>
+          <span class="pill ghost">🌍 地球与环境</span>
+          <span class="pill ghost">11 / 30</span>
+        </div>
+        <h1>云是怎么来的？（水循环）</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌍 模块三：地球与环境 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>模块简介</strong>：认识地球上的自然现象，了解水循环、天气变化，培养爱护地球、保护环境的意识。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解水循环的基本过程</li><li>知道云、雨、雪是水的不同形态</li><li>建立地球水资源循环利用的概念</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>水从天上下来，落到地上……然后呢？它消失了吗？还是又悄悄飞回天上去了？</blockquote>
@@ -382,8 +686,30 @@
 <ol><li>将热水（60~70℃，由家长操作）倒入玻璃杯，约1/3满</li><li>将冷盘子（或装冰的盘子）放在杯口上方</li><li>等待1~2分钟，观察盘子底部</li></ol>
 <p><strong>预期结果</strong>：盘子底部会聚集小水珠，慢慢变大后滴落，就像下雨一样！这正是水循环的缩小版。</p>
 <hr>
-<h3>第12课｜彩虹是怎么形成的？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w10" class="prev"><span class="k">← 上一周</span><span class="v">第10周 · 为什么我们要睡觉？</span></a><a data-go="w12" class="next"><span class="k">下一周 →</span><span class="v">第12周 · 彩虹是怎么形成的？</span></a></div>
+    </div>
+<div class="page" id="page-w12" style="--mc:var(--m2)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 12 周</span>
+          <span class="pill ghost">🌍 地球与环境</span>
+          <span class="pill ghost">12 / 30</span>
+        </div>
+        <h1>彩虹是怎么形成的？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌍 模块三：地球与环境 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>模块简介</strong>：认识地球上的自然现象，了解水循环、天气变化，培养爱护地球、保护环境的意识。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解彩虹形成的原理（光的折射和色散）</li><li>认识白光是由七种颜色组成的</li><li>能够自制彩虹</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>下雨后太阳出来，天空出现了彩虹！彩虹是怎么来的？它在哪里？为什么一会儿就消失了？</blockquote>
@@ -395,8 +721,30 @@
 <p><strong>方法二（户外）</strong>：水管喷水</p>
 <ul><li>背对太阳，用水管喷出细水雾</li><li>在水雾中寻找彩虹的影子</li></ul></div></div>
 <hr>
-<h3>第13课｜地球是圆的，为什么我们不掉下去？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w11" class="prev"><span class="k">← 上一周</span><span class="v">第11周 · 云是怎么来的？（水循环）</span></a><a data-go="w13" class="next"><span class="k">下一周 →</span><span class="v">第13周 · 地球是圆的，为什么我们不掉下去？</span></a></div>
+    </div>
+<div class="page" id="page-w13" style="--mc:var(--m2)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 13 周</span>
+          <span class="pill ghost">🌍 地球与环境</span>
+          <span class="pill ghost">13 / 30</span>
+        </div>
+        <h1>地球是圆的，为什么我们不掉下去？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌍 模块三：地球与环境 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>模块简介</strong>：认识地球上的自然现象，了解水循环、天气变化，培养爱护地球、保护环境的意识。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>知道地球是球形的</li><li>了解重力的基本概念</li><li>初步理解"下面"是相对的</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>如果地球是圆的，那住在地球另一面的人，不是头朝下站着吗？他们怎么不掉下去呢？</blockquote>
@@ -406,16 +754,60 @@
 <h4>🧪 动手活动：重力小实验</h4>
 <ol><li>拿一个球（地球模型）</li><li>把小纸片人贴在球的不同位置（顶部、底部、侧面）</li><li>用箭头画出每个小人"向下"的方向</li><li>发现：所有箭头都指向球心！</li></ol>
 <hr>
-<h3>第14课｜垃圾分类小达人</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w12" class="prev"><span class="k">← 上一周</span><span class="v">第12周 · 彩虹是怎么形成的？</span></a><a data-go="w14" class="next"><span class="k">下一周 →</span><span class="v">第14周 · 垃圾分类小达人</span></a></div>
+    </div>
+<div class="page" id="page-w14" style="--mc:var(--m2)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 14 周</span>
+          <span class="pill ghost">🌍 地球与环境</span>
+          <span class="pill ghost">14 / 30</span>
+        </div>
+        <h1>垃圾分类小达人</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌍 模块三：地球与环境 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>模块简介</strong>：认识地球上的自然现象，了解水循环、天气变化，培养爱护地球、保护环境的意识。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解垃圾分类的四种类型</li><li>知道垃圾分类的重要性</li><li>养成垃圾分类的好习惯</li></ul>
 <h4>🔬 核心知识点</h4>
 <div class="table-wrap"><table><colgroup><col style="width:16.44%"><col style="width:21.92%"><col style="width:17.81%"><col style="width:43.84%"></colgroup><thead><tr><th><p><strong>垃圾类型</strong></p></th><th><p><strong>颜色标识</strong></p></th><th><p><strong>代表垃圾</strong></p></th><th><p><strong>处理方式</strong></p></th></tr></thead><tbody><tr><td><p>♻️ 可回收物</p></td><td><p>蓝色桶</p></td><td><p>纸板、塑料瓶、金属罐</p></td><td><p>回收再利用，变成新产品</p></td></tr><tr><td><p>🍎 厨余垃圾</p></td><td><p>绿色桶</p></td><td><p>菜叶、剩饭、果皮</p></td><td><p>堆肥，变成肥料</p></td></tr><tr><td><p>🗑️ 其他垃圾</p></td><td><p>灰色桶</p></td><td><p>纸巾、一次性筷子</p></td><td><p>焚烧或填埋处理</p></td></tr><tr><td><p>☠️ 有害垃圾</p></td><td><p>红色桶</p></td><td><p>电池、药品、灯管</p></td><td><p>特殊处理，防止污染环境</p></td></tr></tbody></table></div>
 <h4>🧪 互动游戏：垃圾分类大挑战</h4>
 <p>准备20张垃圾卡片，孩子们抢答把垃圾投入正确的垃圾桶（可用纸盒代替），答对1个得1分，看谁得分最高！</p>
 <hr>
-<h3>第15课｜为什么会下雷雨？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w13" class="prev"><span class="k">← 上一周</span><span class="v">第13周 · 地球是圆的，为什么我们不掉下去？</span></a><a data-go="w15" class="next"><span class="k">下一周 →</span><span class="v">第15周 · 为什么会下雷雨？</span></a></div>
+    </div>
+<div class="page" id="page-w15" style="--mc:var(--m2)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 15 周</span>
+          <span class="pill ghost">🌍 地球与环境</span>
+          <span class="pill ghost">15 / 30</span>
+        </div>
+        <h1>为什么会下雷雨？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌍 模块三：地球与环境 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>模块简介</strong>：认识地球上的自然现象，了解水循环、天气变化，培养爱护地球、保护环境的意识。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解雷雨天气的成因</li><li>知道打雷闪电的注意事项</li><li>消除对雷雨的恐惧</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>雷雨形成过程：热空气带着水蒸气上升 → 形成积雨云 → 云中冰晶和水滴摩擦产生电 → 电荷积累到一定程度，放电形成<strong>闪电</strong> → 闪电加热空气迅速膨胀，发出<strong>雷声</strong></p>
@@ -423,11 +815,30 @@
 <ul><li>🏠 待在室内，远离窗户</li><li>🌳 不在大树下避雨</li><li>📱 减少使用有线电话</li><li>🏊 不在雨天游泳、玩水</li><li>🚴 不骑自行车</li></ul></div></div>
 <p><strong>为什么先看到闪电再听到雷声？</strong>因为光速（30万千米/秒）远比声速（约340米/秒）快！光瞬间就到了，声音要慢慢传过来。</p>
 <hr>
-<h2>⚡ 模块四：物理与能量</h2>
-<div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🔭</div><div class="callout-body"><p><strong>模块简介</strong>：通过有趣的物理现象和小实验，让孩子感受磁力、光、声音、空气等神奇的物理世界，建立基础科学思维。</p></div></div>
-<hr>
-<h3>第16课｜磁铁有魔法吗？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w14" class="prev"><span class="k">← 上一周</span><span class="v">第14周 · 垃圾分类小达人</span></a><a data-go="w16" class="next"><span class="k">下一周 →</span><span class="v">第16周 · 磁铁有魔法吗？</span></a></div>
+    </div>
+<div class="page" id="page-w16" style="--mc:var(--m3)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 16 周</span>
+          <span class="pill ghost">⚡ 物理与能量</span>
+          <span class="pill ghost">16 / 30</span>
+        </div>
+        <h1>磁铁有魔法吗？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>⚡ 模块四：物理与能量 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🔭</div><div class="callout-body"><p><strong>模块简介</strong>：通过有趣的物理现象和小实验，让孩子感受磁力、光、声音、空气等神奇的物理世界，建立基础科学思维。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解磁铁的基本性质</li><li>认识磁极（N极和S极）</li><li>知道哪些物体能被磁铁吸引</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>神奇的磁铁，不用碰就能抓住铁钉！它是有魔法吗？磁铁能吸住什么？不能吸住什么？</blockquote>
@@ -443,8 +854,30 @@
 <div class="table-wrap"><table><colgroup><col style="width:25.00%"><col style="width:25.00%"><col style="width:25.00%"><col style="width:25.00%"></colgroup><thead><tr><th><p>物品</p></th><th><p>我的预测</p></th><th><p>实际结果</p></th><th><p>材质</p></th></tr></thead><tbody><tr><td><p>铁钉</p></td><td><p>能</p></td><td><p>能</p></td><td><p>铁</p></td></tr><tr><td><p>硬币</p></td><td><p>能</p></td><td><p>不一定</p></td><td><p>不锈钢/铜</p></td></tr><tr><td><p>铝箔</p></td><td><p>能</p></td><td><p>不能</p></td><td><p>铝</p></td></tr><tr><td><p>橡皮</p></td><td><p>不能</p></td><td><p>不能</p></td><td><p>橡胶</p></td></tr></tbody></table></div>
 <p><strong>结论</strong>：磁铁只能吸含铁的金属，不能吸所有金属！</p>
 <hr>
-<h3>第17课｜影子会变大变小——光与影</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w15" class="prev"><span class="k">← 上一周</span><span class="v">第15周 · 为什么会下雷雨？</span></a><a data-go="w17" class="next"><span class="k">下一周 →</span><span class="v">第17周 · 影子会变大变小——光与影</span></a></div>
+    </div>
+<div class="page" id="page-w17" style="--mc:var(--m3)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 17 周</span>
+          <span class="pill ghost">⚡ 物理与能量</span>
+          <span class="pill ghost">17 / 30</span>
+        </div>
+        <h1>影子会变大变小——光与影</h1>
+      </div>
+      <details class="mod-note">
+        <summary>⚡ 模块四：物理与能量 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🔭</div><div class="callout-body"><p><strong>模块简介</strong>：通过有趣的物理现象和小实验，让孩子感受磁力、光、声音、空气等神奇的物理世界，建立基础科学思维。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解影子的形成原理</li><li>知道影子大小与光源角度的关系</li><li>能通过影子判断时间（日晷原理）</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>小明发现，早晨他的影子很长，中午影子变很短，下午又变长了……影子为什么会变呢？</blockquote>
@@ -456,8 +889,30 @@
 <h4>🌞 户外实验：影子时钟</h4>
 <ol><li>在晴天，在地上插一根小棍（或用水彩笔直立）</li><li>每隔1小时，用粉笔画下影子的位置和方向</li><li>下午比较早晨的影子：方向和长短有什么不同？</li></ol>
 <hr>
-<h3>第18课｜为什么气球会飞？（空气与浮力）</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w16" class="prev"><span class="k">← 上一周</span><span class="v">第16周 · 磁铁有魔法吗？</span></a><a data-go="w18" class="next"><span class="k">下一周 →</span><span class="v">第18周 · 为什么气球会飞？（空气与浮力）</span></a></div>
+    </div>
+<div class="page" id="page-w18" style="--mc:var(--m3)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 18 周</span>
+          <span class="pill ghost">⚡ 物理与能量</span>
+          <span class="pill ghost">18 / 30</span>
+        </div>
+        <h1>为什么气球会飞？（空气与浮力）</h1>
+      </div>
+      <details class="mod-note">
+        <summary>⚡ 模块四：物理与能量 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🔭</div><div class="callout-body"><p><strong>模块简介</strong>：通过有趣的物理现象和小实验，让孩子感受磁力、光、声音、空气等神奇的物理世界，建立基础科学思维。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解空气有重量（空气是物质）</li><li>了解氦气比空气轻的原理</li><li>初步了解浮力概念</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>充了氦气的气球会飞，充了嘴巴吹的气的气球不会飞……同样是气球，为什么差别这么大？</blockquote>
@@ -470,8 +925,30 @@
 <ol><li>将细线穿过吸管，拉紧固定在两端（如两把椅子之间）</li><li>吹大气球，捏紧口部（先不要打结）</li><li>用胶带把吹大的气球（捏紧口部）贴在吸管上</li><li>松开气球口——气球会沿着绳子飞出去！</li></ol>
 <p><strong>原理</strong>：气球里的气体往后喷出，气球就向前飞（牛顿第三定律：作用力与反作用力）——和火箭的原理一样！</p>
 <hr>
-<h3>第19课｜声音是怎么传播的？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w17" class="prev"><span class="k">← 上一周</span><span class="v">第17周 · 影子会变大变小——光与影</span></a><a data-go="w19" class="next"><span class="k">下一周 →</span><span class="v">第19周 · 声音是怎么传播的？</span></a></div>
+    </div>
+<div class="page" id="page-w19" style="--mc:var(--m3)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 19 周</span>
+          <span class="pill ghost">⚡ 物理与能量</span>
+          <span class="pill ghost">19 / 30</span>
+        </div>
+        <h1>声音是怎么传播的？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>⚡ 模块四：物理与能量 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🔭</div><div class="callout-body"><p><strong>模块简介</strong>：通过有趣的物理现象和小实验，让孩子感受磁力、光、声音、空气等神奇的物理世界，建立基础科学思维。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解声音是由振动产生的</li><li>知道声音需要介质传播</li><li>了解不同材料传声效果不同</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>当你在游泳池里把耳朵放到水下，还能听到岸上的声音吗？声音能在水里传播吗？</blockquote>
@@ -486,8 +963,30 @@
 <h4>🧪 动手实验二：振动可视化</h4>
 <p>将纸片放在蓝牙音箱上，播放音乐，观察纸片有什么变化——纸片会随音乐振动！</p>
 <hr>
-<h3>第20课｜为什么铁会生锈？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w18" class="prev"><span class="k">← 上一周</span><span class="v">第18周 · 为什么气球会飞？（空气与浮力）</span></a><a data-go="w20" class="next"><span class="k">下一周 →</span><span class="v">第20周 · 为什么铁会生锈？</span></a></div>
+    </div>
+<div class="page" id="page-w20" style="--mc:var(--m3)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 20 周</span>
+          <span class="pill ghost">⚡ 物理与能量</span>
+          <span class="pill ghost">20 / 30</span>
+        </div>
+        <h1>为什么铁会生锈？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>⚡ 模块四：物理与能量 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🔭</div><div class="callout-body"><p><strong>模块简介</strong>：通过有趣的物理现象和小实验，让孩子感受磁力、光、声音、空气等神奇的物理世界，建立基础科学思维。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解铁生锈的原因（氧化反应）</li><li>知道防止生锈的方法</li><li>了解化学变化与物理变化的区别</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>铁生锈是铁与空气中的<strong>氧气</strong>和<strong>水</strong>发生化学反应，生成<strong>氧化铁</strong>（铁锈）的过程。这是一种化学变化，生锈后的铁很难变回原来的铁。</p>
@@ -498,11 +997,30 @@
 <div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🔩</div><div class="callout-body"><p><strong>实验材料</strong>：铁钉4颗、4个玻璃杯、水、食盐<br><strong>分组</strong>：① 干燥空气中；② 清水中；③ 盐水中；④ 干燥密封中<br><strong>观察周期</strong>：1周</p></div></div>
 <p><strong>预期结论</strong>：盐水中的铁钉生锈最快，密封干燥中的最慢，验证了水和氧气都是生锈的必要条件。</p>
 <hr>
-<h2>🤖 模块五：科技与生活</h2>
-<div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">💻</div><div class="callout-body"><p><strong>模块简介</strong>：认识身边的科技产品，了解它们的工作原理，思考科技如何让生活变得更便利，培养对科技的兴趣和正确使用态度。</p></div></div>
-<hr>
-<h3>第21课｜我们身边的机器人</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w19" class="prev"><span class="k">← 上一周</span><span class="v">第19周 · 声音是怎么传播的？</span></a><a data-go="w21" class="next"><span class="k">下一周 →</span><span class="v">第21周 · 我们身边的机器人</span></a></div>
+    </div>
+<div class="page" id="page-w21" style="--mc:var(--m4)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 21 周</span>
+          <span class="pill ghost">🤖 科技与生活</span>
+          <span class="pill ghost">21 / 30</span>
+        </div>
+        <h1>我们身边的机器人</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🤖 模块五：科技与生活 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">💻</div><div class="callout-body"><p><strong>模块简介</strong>：认识身边的科技产品，了解它们的工作原理，思考科技如何让生活变得更便利，培养对科技的兴趣和正确使用态度。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解什么是机器人</li><li>认识不同种类的机器人及其用途</li><li>思考机器人与人类的关系</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>机器人不只是电影里的大铁块！你家里可能就有一个机器人……它每天在地板上转来转去，帮你打扫卫生，叫什么名字？（扫地机器人）</blockquote>
@@ -512,8 +1030,30 @@
 <h4>🧪 动手活动：设计你的机器人</h4>
 <p>让孩子在纸上画出"我梦想中的机器人"，并说明它能做什么、长什么样。</p>
 <hr>
-<h3>第22课｜手机里住着什么？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w20" class="prev"><span class="k">← 上一周</span><span class="v">第20周 · 为什么铁会生锈？</span></a><a data-go="w22" class="next"><span class="k">下一周 →</span><span class="v">第22周 · 手机里住着什么？</span></a></div>
+    </div>
+<div class="page" id="page-w22" style="--mc:var(--m4)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 22 周</span>
+          <span class="pill ghost">🤖 科技与生活</span>
+          <span class="pill ghost">22 / 30</span>
+        </div>
+        <h1>手机里住着什么？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🤖 模块五：科技与生活 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">💻</div><div class="callout-body"><p><strong>模块简介</strong>：认识身边的科技产品，了解它们的工作原理，思考科技如何让生活变得更便利，培养对科技的兴趣和正确使用态度。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解智能手机的基本组成</li><li>知道手机如何传送信息</li><li>建立正确的手机使用观念</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>手机是一台小型电脑，里面住着很多"小精灵"：</p>
@@ -522,8 +1062,30 @@
 <div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🎁</div><div class="callout-body"><p><strong>正确使用手机</strong></p>
 <ul><li>📱 每天使用屏幕时间不超过1小时</li><li>👀 看屏幕时保持距离，注意眼睛</li><li>🙅 不在吃饭、睡前玩手机</li><li>👨‍👩‍👧 不接受陌生人的请求</li></ul></div></div>
 <hr>
-<h3>第23课｜汽车靠什么动起来？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w21" class="prev"><span class="k">← 上一周</span><span class="v">第21周 · 我们身边的机器人</span></a><a data-go="w23" class="next"><span class="k">下一周 →</span><span class="v">第23周 · 汽车靠什么动起来？</span></a></div>
+    </div>
+<div class="page" id="page-w23" style="--mc:var(--m4)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 23 周</span>
+          <span class="pill ghost">🤖 科技与生活</span>
+          <span class="pill ghost">23 / 30</span>
+        </div>
+        <h1>汽车靠什么动起来？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🤖 模块五：科技与生活 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">💻</div><div class="callout-body"><p><strong>模块简介</strong>：认识身边的科技产品，了解它们的工作原理，思考科技如何让生活变得更便利，培养对科技的兴趣和正确使用态度。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解汽车的基本动力原理</li><li>认识传统燃油车和新能源车的区别</li><li>了解汽车对环境的影响</li></ul>
 <h4>🔬 核心知识点</h4>
 <div class="grid grid-2"><div class="grid-col"><p><strong>燃油汽车</strong></p>
@@ -531,8 +1093,30 @@
 <ul><li>🔋 电池储存电能</li><li>⚡ 电能驱动电动机</li><li>🔄 电动机带动车轮</li><li>🌱 零尾气排放，更环保</li></ul></div></div>
 <div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🚗</div><div class="callout-body"><p><strong>有趣的事实</strong>：世界上第一辆汽车诞生于1885年，时速只有16千米，比现在的自行车还慢！而现在最快的电动汽车时速能超过300千米。</p></div></div>
 <hr>
-<h3>第24课｜飞机为什么能飞上天？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w22" class="prev"><span class="k">← 上一周</span><span class="v">第22周 · 手机里住着什么？</span></a><a data-go="w24" class="next"><span class="k">下一周 →</span><span class="v">第24周 · 飞机为什么能飞上天？</span></a></div>
+    </div>
+<div class="page" id="page-w24" style="--mc:var(--m4)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 24 周</span>
+          <span class="pill ghost">🤖 科技与生活</span>
+          <span class="pill ghost">24 / 30</span>
+        </div>
+        <h1>飞机为什么能飞上天？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🤖 模块五：科技与生活 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">💻</div><div class="callout-body"><p><strong>模块简介</strong>：认识身边的科技产品，了解它们的工作原理，思考科技如何让生活变得更便利，培养对科技的兴趣和正确使用态度。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解飞机飞行的基本原理（升力）</li><li>认识飞机的主要部件</li><li>激发对航空航天的兴趣</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>飞机那么重，里面还坐着几百个人，为什么不会掉下来呢？</blockquote>
@@ -542,19 +1126,60 @@
 <h4>🧪 动手活动：纸飞机科学大赛</h4>
 <p>制作3种不同形状的纸飞机，分别测试飞行距离和时间，探索哪种设计飞得最远。</p>
 <hr>
-<h3>第25课｜光伏板——太阳能是怎么变成电的？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w23" class="prev"><span class="k">← 上一周</span><span class="v">第23周 · 汽车靠什么动起来？</span></a><a data-go="w25" class="next"><span class="k">下一周 →</span><span class="v">第25周 · 光伏板——太阳能是怎么变成电的？</span></a></div>
+    </div>
+<div class="page" id="page-w25" style="--mc:var(--m4)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 25 周</span>
+          <span class="pill ghost">🤖 科技与生活</span>
+          <span class="pill ghost">25 / 30</span>
+        </div>
+        <h1>光伏板——太阳能是怎么变成电的？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🤖 模块五：科技与生活 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">💻</div><div class="callout-body"><p><strong>模块简介</strong>：认识身边的科技产品，了解它们的工作原理，思考科技如何让生活变得更便利，培养对科技的兴趣和正确使用态度。</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解太阳能发电的基本原理</li><li>认识可再生能源的重要性</li><li>培养节能环保意识</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>太阳能电池板由<strong>硅</strong>制成的光伏电池组成。当阳光照射在上面时，光子（光的粒子）撞击硅原子，把电子"撞出来"，形成电流——这就是<strong>光伏效应</strong>！</p>
 <div class="table-wrap"><table><colgroup><col style="width:27.40%"><col style="width:72.60%"></colgroup><thead><tr><th><p><strong>可再生能源</strong></p></th><th><p><strong>特点</strong></p></th></tr></thead><tbody><tr><td><p>☀️ 太阳能</p></td><td><p>取之不尽，零污染，可用于发电和加热</p></td></tr><tr><td><p>💨 风能</p></td><td><p>风车带动发电机，沿海和山区效果好</p></td></tr><tr><td><p>💧 水能</p></td><td><p>水流推动水轮机，三峡大坝就是水电站</p></td></tr><tr><td><p>🌿 生物质能</p></td><td><p>利用植物、农业废料等生物材料产生能量</p></td></tr></tbody></table></div>
 <div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">💡</div><div class="callout-body"><p><strong>我们能做什么</strong>：随手关灯、少用空调、减少使用一次性塑料，每个人的小行动，合在一起就是保护地球的大力量！</p></div></div>
 <hr>
-<h2>🌌 模块六：宇宙与太空</h2>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>模块简介</strong>：带领孩子仰望星空，认识太阳系和宇宙天体，了解宇航员的生活，开启对太空探索的无限向往！</p></div></div>
-<hr>
-<h3>第26课｜太阳、地球、月亮是好朋友</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w24" class="prev"><span class="k">← 上一周</span><span class="v">第24周 · 飞机为什么能飞上天？</span></a><a data-go="w26" class="next"><span class="k">下一周 →</span><span class="v">第26周 · 太阳、地球、月亮是好朋友</span></a></div>
+    </div>
+<div class="page" id="page-w26" style="--mc:var(--m5)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 26 周</span>
+          <span class="pill ghost">🌌 宇宙与太空</span>
+          <span class="pill ghost">26 / 30</span>
+        </div>
+        <h1>太阳、地球、月亮是好朋友</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌌 模块六：宇宙与太空 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>模块简介</strong>：带领孩子仰望星空，认识太阳系和宇宙天体，了解宇航员的生活，开启对太空探索的无限向往！</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解太阳、地球、月亮的关系</li><li>知道地球绕太阳公转，月亮绕地球公转</li><li>了解月相变化的原因</li></ul>
 <h4>🔬 核心知识点</h4>
 <div class="table-wrap"><table><colgroup><col style="width:13.70%"><col style="width:27.40%"><col style="width:27.40%"><col style="width:31.51%"></colgroup><thead><tr><th><p><strong>天体</strong></p></th><th><p><strong>大小（直径）</strong></p></th><th><p><strong>特点</strong></p></th><th><p><strong>趣味事实</strong></p></th></tr></thead><tbody><tr><td><p>☀️ 太阳</p></td><td><p>约140万千米</p></td><td><p>能自己发光发热的恒星</p></td><td><p>太阳能装下130万个地球</p></td></tr><tr><td><p>🌍 地球</p></td><td><p>约12,800千米</p></td><td><p>绕太阳公转，365天一圈</p></td><td><p>是目前已知唯一有生命的星球</p></td></tr><tr><td><p>🌕 月亮</p></td><td><p>约3,500千米</p></td><td><p>绕地球公转，约30天一圈</p></td><td><p>月亮本身不发光，反射太阳光</p></td></tr></tbody></table></div>
@@ -562,8 +1187,30 @@
 <p>用大球（太阳）、中球（地球）、小球（月亮）模拟三者关系，分角色扮演：</p>
 <ul><li>大同学扮演太阳（站着不动）</li><li>中同学扮演地球（绕太阳转）</li><li>小同学扮演月亮（绕地球转，同时跟着地球绕太阳转）</li></ul>
 <hr>
-<h3>第27课｜为什么白天有太阳、晚上有星星？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w25" class="prev"><span class="k">← 上一周</span><span class="v">第25周 · 光伏板——太阳能是怎么变成电的？</span></a><a data-go="w27" class="next"><span class="k">下一周 →</span><span class="v">第27周 · 为什么白天有太阳、晚上有星星？</span></a></div>
+    </div>
+<div class="page" id="page-w27" style="--mc:var(--m5)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 27 周</span>
+          <span class="pill ghost">🌌 宇宙与太空</span>
+          <span class="pill ghost">27 / 30</span>
+        </div>
+        <h1>为什么白天有太阳、晚上有星星？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌌 模块六：宇宙与太空 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>模块简介</strong>：带领孩子仰望星空，认识太阳系和宇宙天体，了解宇航员的生活，开启对太空探索的无限向往！</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解地球自转导致昼夜交替</li><li>知道星星白天也在，只是看不到</li><li>了解为什么不同季节星星不同</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>地球每24小时自转一圈，面向太阳的一面是<strong>白天</strong>，背对太阳的是<strong>夜晚</strong>。白天太阳太亮，其他星星的光被淹没了，所以我们看不到——但它们其实还在！</p>
@@ -572,22 +1219,88 @@
 <h4>🧪 动手活动：星座卡片制作</h4>
 <p>用黑纸和牙签扎出星座图案（小熊座、大熊座、猎户座），对着灯光一照，就是一张漂亮的星座灯片！</p>
 <hr>
-<h3>第28课｜宇航员在太空怎么生活？</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w26" class="prev"><span class="k">← 上一周</span><span class="v">第26周 · 太阳、地球、月亮是好朋友</span></a><a data-go="w28" class="next"><span class="k">下一周 →</span><span class="v">第28周 · 宇航员在太空怎么生活？</span></a></div>
+    </div>
+<div class="page" id="page-w28" style="--mc:var(--m5)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 28 周</span>
+          <span class="pill ghost">🌌 宇宙与太空</span>
+          <span class="pill ghost">28 / 30</span>
+        </div>
+        <h1>宇航员在太空怎么生活？</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌌 模块六：宇宙与太空 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>模块简介</strong>：带领孩子仰望星空，认识太阳系和宇宙天体，了解宇航员的生活，开启对太空探索的无限向往！</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解太空环境的特殊性（失重、真空、辐射）</li><li>知道宇航员在空间站的日常生活</li><li>激发对太空探索的兴趣</li></ul>
 <h4>📖 故事引入（3分钟）</h4>
 <blockquote>宇航员在太空如何睡觉？早饭吃什么？怎么洗澡？……太空生活竟然这么奇特！</blockquote>
 <h4>🔬 核心知识点</h4>
 <div class="table-wrap"><table><colgroup><col style="width:20.55%"><col style="width:34.25%"><col style="width:45.21%"></colgroup><thead><tr><th><p><strong>生活场景</strong></p></th><th><p><strong>地球上</strong></p></th><th><p><strong>太空中</strong></p></th></tr></thead><tbody><tr><td><p>😴 睡觉</p></td><td><p>躺在床上</p></td><td><p>钻进睡眠袋，固定在墙上，防止漂走</p></td></tr><tr><td><p>🍽️ 吃饭</p></td><td><p>坐在餐桌前</p></td><td><p>吃特制食品，食物和餐具都要固定，水是球形漂浮的</p></td></tr><tr><td><p>🚿 洗澡</p></td><td><p>淋浴</p></td><td><p>用湿毛巾擦拭，无法普通淋浴</p></td></tr><tr><td><p>🏋️ 运动</p></td><td><p>自由活动</p></td><td><p>每天必须锻炼2小时，防止肌肉萎缩</p></td></tr></tbody></table></div>
 <hr>
-<h3>第29课｜太阳系的八大行星</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w27" class="prev"><span class="k">← 上一周</span><span class="v">第27周 · 为什么白天有太阳、晚上有星星？</span></a><a data-go="w29" class="next"><span class="k">下一周 →</span><span class="v">第29周 · 太阳系的八大行星</span></a></div>
+    </div>
+<div class="page" id="page-w29" style="--mc:var(--m5)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 29 周</span>
+          <span class="pill ghost">🌌 宇宙与太空</span>
+          <span class="pill ghost">29 / 30</span>
+        </div>
+        <h1>太阳系的八大行星</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌌 模块六：宇宙与太空 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>模块简介</strong>：带领孩子仰望星空，认识太阳系和宇宙天体，了解宇航员的生活，开启对太空探索的无限向往！</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>认识太阳系的八大行星</li><li>了解各行星的基本特点</li><li>能按照距离太阳的顺序排列行星</li></ul>
 <h4>🔬 核心知识点</h4>
 <p><strong>记忆口诀</strong>：水金地火，木土天海（按距离太阳由近到远）</p>
 <div class="table-wrap"><table><colgroup><col style="width:10.96%"><col style="width:13.70%"><col style="width:27.40%"><col style="width:47.95%"></colgroup><thead><tr><th><p><strong>顺序</strong></p></th><th><p><strong>行星</strong></p></th><th><p><strong>特点</strong></p></th><th><p><strong>有趣的事实</strong></p></th></tr></thead><tbody><tr><td><p>1</p></td><td><p>水星</p></td><td><p>最小，离太阳最近</p></td><td><p>白天400℃，晚上-180℃，温差超大</p></td></tr><tr><td><p>2</p></td><td><p>金星</p></td><td><p>最亮，有浓密大气层</p></td><td><p>表面温度高达460℃，比水星还热</p></td></tr><tr><td><p>3</p></td><td><p>地球 🌍</p></td><td><p>唯一有已知生命的行星</p></td><td><p>70%被水覆盖，从太空看是蓝色星球</p></td></tr><tr><td><p>4</p></td><td><p>火星</p></td><td><p>红色行星</p></td><td><p>有人类已发射多个探测器，未来可能移民</p></td></tr><tr><td><p>5</p></td><td><p>木星</p></td><td><p>最大行星</p></td><td><p>有大红斑（持续300年的大风暴），79个卫星</p></td></tr><tr><td><p>6</p></td><td><p>土星</p></td><td><p>有美丽的光环</p></td><td><p>密度比水还小，能浮在水上！</p></td></tr><tr><td><p>7</p></td><td><p>天王星</p></td><td><p>蓝绿色，躺着转</p></td><td><p>自转轴几乎水平，像一个滚动的球</p></td></tr><tr><td><p>8</p></td><td><p>海王星</p></td><td><p>离太阳最远的行星</p></td><td><p>风速高达2100千米/时，太阳系最快的风</p></td></tr></tbody></table></div>
-<h3>第30课｜中国的太空梦——天宫空间站</h3>
-<h4>🎯 教学目标</h4>
+      <div class="wk-foot"><a data-go="w28" class="prev"><span class="k">← 上一周</span><span class="v">第28周 · 宇航员在太空怎么生活？</span></a><a data-go="w30" class="next"><span class="k">下一周 →</span><span class="v">第30周 · 中国的太空梦——天宫空间站</span></a></div>
+    </div>
+<div class="page" id="page-w30" style="--mc:var(--m5)">
+      <div class="wk-head">
+        <div class="wk-crumb">
+          <span class="pill">第 30 周</span>
+          <span class="pill ghost">🌌 宇宙与太空</span>
+          <span class="pill ghost">30 / 30</span>
+        </div>
+        <h1>中国的太空梦——天宫空间站</h1>
+      </div>
+      <details class="mod-note">
+        <summary>🌌 模块六：宇宙与太空 · 模块简介</summary>
+        <div class="in"><div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>模块简介</strong>：带领孩子仰望星空，认识太阳系和宇宙天体，了解宇航员的生活，开启对太空探索的无限向往！</p></div></div>
+<hr></div>
+      </details>
+      <div class="demo soon">
+        <div class="demo-stage">
+          <div class="em">🎬</div>
+          <div class="msg"><b>动画演示制作中</b></div>
+          <div class="sub">这一周的互动动画还在做，下次更新就能看到啦</div>
+        </div>
+      </div>
+      <h4>🎯 教学目标</h4>
 <ul><li>了解中国空间站的基本情况</li><li>认识中国航天的重要成就</li><li>激发爱国热情和航天梦想</li></ul>
 <h4>🔬 核心知识点</h4>
 <p>中国天宫空间站是中国独立建造的空间站，由<strong>天和核心舱</strong>、<strong>问天实验舱</strong>、<strong>梦天实验舱</strong>组成，呈T字形。</p>
@@ -596,7 +1309,16 @@
 <h4>🧪 互动活动：我的太空梦</h4>
 <p>让孩子画出或写出：<strong>"如果我是宇航员，我最想在太空做一件什么事？"</strong>——分享梦想，激励彼此。</p>
 <hr>
-<h2>📊 教学评估体系</h2>
+      <div class="wk-foot"><a data-go="w29" class="prev"><span class="k">← 上一周</span><span class="v">第29周 · 太阳系的八大行星</span></a><a class="next disabled"><span class="k">下一周 →</span><span class="v">已是最后一周</span></a></div>
+    </div>
+
+    <!-- 附录 -->
+    <div class="page" id="page-appendix">
+      <div class="wk-head" style="--mc:#6f5ee0">
+        <div class="wk-crumb"><span class="pill" style="background:#6f5ee0">附录</span></div>
+        <h1>📊 评估体系与资源清单</h1>
+      </div>
+      <h2>📊 教学评估体系</h2>
 <div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🏅</div><div class="callout-body"><p><strong>评估理念</strong>：一年级评估以<strong>激励为主，观察为辅</strong>，重点在于发现孩子的闪光点和兴趣点，而非考核知识点掌握程度。</p></div></div>
 <hr>
 <h3>过程性评估（日常记录）</h3>
@@ -624,45 +1346,652 @@
 <div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌟</div><div class="callout-body"><p><strong>写给老师和家长的话</strong><br>科学教育不是灌输知识，而是培养一种<strong>思维方式</strong>——遇到问题时，先观察、再思考、然后动手验证。当孩子问出"为什么"的时候，不要急于给答案，可以说："我们来试试看！"这一句话，就是最好的科学启蒙。<br>🔬 <strong>愿每一个孩子，都能保持对世界永不熄灭的好奇心！</strong></p></div></div>
 <hr>
 <p><em>本教程版本：V1.0 | 适用年级：小学一年级 | 覆盖课时：30节</em></p>
-    </main>
-  </div>
-  <a href="#top" class="back-to-top" id="backTop">↑</a>
+    </div>
+  </main>
+</div>
+
+<button class="back-to-top" id="toTop" title="回到顶部">↑</button>
 
 <script>
-  // Build table of contents from h2/h3 headings
-  (function() {
-    var content = document.getElementById('content');
-    var toc = document.getElementById('toc');
-    var headers = content.querySelectorAll('h2, h3');
-    var frag = document.createDocumentFragment();
-    var counter = 0;
-    headers.forEach(function(h) {
-      counter++;
-      var id = 'sec-' + counter;
-      h.id = id;
-      var a = document.createElement('a');
-      a.href = '#' + id;
-      a.textContent = h.textContent;
-      a.className = h.tagName === 'H2' ? 'level-1' : 'level-2';
-      if (h.tagName === 'H3') { a.style.paddingLeft = '20px'; a.style.fontSize = '13px'; }
-      frag.appendChild(a);
-    });
-    var heading = document.createElement('h4');
-    heading.textContent = '目录';
-    toc.appendChild(heading);
-    toc.appendChild(frag);
-  })();
+const WEEKS = [{"week": 1, "title": "植物是怎么喝水的？", "module": 0}, {"week": 2, "title": "种一颗豆子，看它长大", "module": 0}, {"week": 3, "title": "蚂蚁的大家庭", "module": 0}, {"week": 4, "title": "四季为什么会变化？", "module": 0}, {"week": 5, "title": "动物的睡眠——谁在冬眠？", "module": 0}, {"week": 6, "title": "我们的心脏在\"扑通扑通\"做什么？", "module": 1}, {"week": 7, "title": "食物去哪里了？", "module": 1}, {"week": 8, "title": "为什么要刷牙？细菌的秘密", "module": 1}, {"week": 9, "title": "眼睛是怎么看东西的？", "module": 1}, {"week": 10, "title": "为什么我们要睡觉？", "module": 1}, {"week": 11, "title": "云是怎么来的？（水循环）", "module": 2}, {"week": 12, "title": "彩虹是怎么形成的？", "module": 2}, {"week": 13, "title": "地球是圆的，为什么我们不掉下去？", "module": 2}, {"week": 14, "title": "垃圾分类小达人", "module": 2}, {"week": 15, "title": "为什么会下雷雨？", "module": 2}, {"week": 16, "title": "磁铁有魔法吗？", "module": 3}, {"week": 17, "title": "影子会变大变小——光与影", "module": 3}, {"week": 18, "title": "为什么气球会飞？（空气与浮力）", "module": 3}, {"week": 19, "title": "声音是怎么传播的？", "module": 3}, {"week": 20, "title": "为什么铁会生锈？", "module": 3}, {"week": 21, "title": "我们身边的机器人", "module": 4}, {"week": 22, "title": "手机里住着什么？", "module": 4}, {"week": 23, "title": "汽车靠什么动起来？", "module": 4}, {"week": 24, "title": "飞机为什么能飞上天？", "module": 4}, {"week": 25, "title": "光伏板——太阳能是怎么变成电的？", "module": 4}, {"week": 26, "title": "太阳、地球、月亮是好朋友", "module": 5}, {"week": 27, "title": "为什么白天有太阳、晚上有星星？", "module": 5}, {"week": 28, "title": "宇航员在太空怎么生活？", "module": 5}, {"week": 29, "title": "太阳系的八大行星", "module": 5}, {"week": 30, "title": "中国的太空梦——天宫空间站", "module": 5}];
+const MODCOLORS = ['var(--m0)','var(--m1)','var(--m2)','var(--m3)','var(--m4)','var(--m5)'];
+const MODS = [{"emoji": "🌿", "full": "模块一：自然与生命", "short": "自然与生命"}, {"emoji": "❤️", "full": "模块二：身体与健康", "short": "身体与健康"}, {"emoji": "🌍", "full": "模块三：地球与环境", "short": "地球与环境"}, {"emoji": "⚡", "full": "模块四：物理与能量", "short": "物理与能量"}, {"emoji": "🤖", "full": "模块五：科技与生活", "short": "科技与生活"}, {"emoji": "🌌", "full": "模块六：宇宙与太空", "short": "宇宙与太空"}];
 
-  // back to top button
-  var backTop = document.getElementById('backTop');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 400) { backTop.classList.add('show'); }
-    else { backTop.classList.remove('show'); }
+/* ---------- 侧栏渲染 ---------- */
+const navList = document.getElementById('navList');
+let html = '';
+MODS.forEach((m, mi) => {
+  const list = WEEKS.filter(w => w.module === mi);
+  html += `<div class="mod-group" data-mod="${mi}">
+    <div class="mod-head" style="--mc:${MODCOLORS[mi]}">${m.emoji} ${m.short}<span class="cnt">${list.length}周</span></div>
+    ${list.map(w => `<a class="wk" data-go="w${w.week}" data-week="${w.week}" style="--mc:${MODCOLORS[mi]}">
+        <span class="no">${w.week}</span><span class="tt">${w.title}</span>
+      </a>`).join('')}
+  </div>`;
+});
+navList.innerHTML = html;
+
+/* ---------- 已读记录 ---------- */
+const SEEN_KEY = 'kexue_seen_v1';
+let seen = new Set();
+try { seen = new Set(JSON.parse(localStorage.getItem(SEEN_KEY) || '[]')); } catch(e){}
+
+function paintSeen(){
+  document.querySelectorAll('.wk').forEach(a => {
+    a.classList.toggle('seen', seen.has(+a.dataset.week));
   });
-  backTop.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({top: 0, behavior: 'smooth'});
+  document.getElementById('progressPill').textContent = `已读 ${seen.size} / ${WEEKS.length} 周`;
+}
+
+/* ---------- 路由 ---------- */
+function go(id, push){
+  const target = document.getElementById('page-' + id);
+  if(!target) return;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+  target.classList.add('on');
+
+  document.querySelectorAll('.wk,.nav-special').forEach(a =>
+    a.classList.toggle('active', a.dataset.go === id));
+
+  if(/^w\d+$/.test(id)){
+    const n = +id.slice(1);
+    seen.add(n);
+    try { localStorage.setItem(SEEN_KEY, JSON.stringify([...seen])); } catch(e){}
+    paintSeen();
+    stopAllAnims();
+    const act = document.querySelector(`.wk[data-go="${id}"]`);
+    if(act) act.scrollIntoView({block:'nearest'});
+  }
+  if(push !== false && location.hash !== '#' + id){
+    // file:// 协议下 pushState 会抛 SecurityError，降级为直接改 hash
+    try { history.pushState(null, '', '#' + id); }
+    catch(e){ location.hash = id; }
+  }
+  window.scrollTo(0, 0);
+  closeSidebar();
+}
+
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-go]');
+  if(el){ e.preventDefault(); go(el.dataset.go); }
+});
+window.addEventListener('hashchange', () => go(location.hash.slice(1) || 'intro', false));
+
+/* ---------- 搜索 ---------- */
+document.getElementById('search').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.wk').forEach(a => {
+    const hit = !q || a.textContent.toLowerCase().includes(q) || ('第'+a.dataset.week+'周').includes(q);
+    a.classList.toggle('hide', !hit);
   });
+  document.querySelectorAll('.mod-group').forEach(g => {
+    const any = [...g.querySelectorAll('.wk')].some(a => !a.classList.contains('hide'));
+    g.style.display = any ? '' : 'none';
+  });
+});
+
+/* ---------- 移动端抽屉 ---------- */
+const sidebar = document.getElementById('sidebar'), scrim = document.getElementById('scrim');
+function closeSidebar(){ sidebar.classList.remove('open'); scrim.classList.remove('show'); }
+document.getElementById('tocToggle').onclick = () => {
+  sidebar.classList.toggle('open'); scrim.classList.toggle('show');
+};
+scrim.onclick = closeSidebar;
+
+/* ---------- 回到顶部 ---------- */
+const toTop = document.getElementById('toTop');
+addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 500));
+toTop.onclick = () => scrollTo({top:0, behavior:'smooth'});
+
+/* ---------- 键盘左右翻周 ---------- */
+addEventListener('keydown', e => {
+  if(e.target.tagName === 'INPUT' || e.altKey || e.ctrlKey || e.metaKey) return;
+  const cur = document.querySelector('.page.on');
+  if(!cur || !/^page-w\d+$/.test(cur.id)) return;
+  const n = +cur.id.replace('page-w','');
+  if(e.key === 'ArrowLeft'  && n > 1)  go('w' + (n-1));
+  if(e.key === 'ArrowRight' && n < WEEKS.length) go('w' + (n+1));
+});
+
+/* ============================================================
+   动画演示引擎 + 模块一（第1~5周）动画
+   ============================================================ */
+
+/* ---- 运行令牌：切换周时让旧动画自然退出 ---- */
+let RUN = 0;
+function stopAllAnims(){
+  RUN++;
+  document.querySelectorAll('.demo[data-anim]').forEach(d => {
+    const a = ANIMS[d.dataset.anim];
+    if(a && a._reset) a._reset(d);
+  });
+}
+
+/* ---- 补间：t 从 0→1，alive() 返回 false 时中断 ---- */
+function tween(dur, onFrame, alive){
+  return new Promise(res => {
+    let start = null;
+    function step(ts){
+      if(!alive()){ res(false); return; }
+      if(start === null) start = ts;
+      const t = Math.min(1, (ts - start) / dur);
+      onFrame(t);
+      if(t < 1) requestAnimationFrame(step);
+      else res(true);
+    }
+    requestAnimationFrame(step);
+  });
+}
+function wait(ms, alive){
+  return new Promise(res => {
+    const id = setTimeout(() => res(alive()), ms);
+    if(!alive()) { clearTimeout(id); res(false); }
+  });
+}
+const easeInOut = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2;
+
+/* ============================================================
+   第1周 · 植物是怎么喝水的
+   —— 水从杯子沿导管上升，把整株植物"染蓝"，叶子蒸腾产生拉力
+   ============================================================ */
+const anim1 = {
+  title: '🎬 看一看：水怎么从杯子走到叶子',
+  build(){
+    const plant = (color, idSuffix) => `
+      <g fill="none" stroke="${color}" stroke-width="3" stroke-linecap="round">
+        <rect x="196" y="86" width="26" height="184" rx="7" fill="${color}" stroke="none" opacity=".92"/>
+        <path d="M203,250 V100 M209,250 V100 M215,250 V100" stroke="${idSuffix==='b'?'#7fd3ff':'#2f7d3a'}" stroke-width="1.6" opacity=".75"/>
+        <path d="M196,150 C160,140 140,112 138,86 C172,86 194,110 196,140 Z" fill="${color}" stroke="none"/>
+        <path d="M222,124 C258,114 278,86 280,60 C246,60 224,84 222,114 Z" fill="${color}" stroke="none"/>
+        <path d="M209,86 C209,64 200,50 186,42 M209,86 C209,68 220,56 232,50" stroke="${color}" stroke-width="3.4"/>
+        <circle cx="186" cy="42" r="7" fill="${color}" stroke="none"/>
+        <circle cx="232" cy="50" r="7" fill="${color}" stroke="none"/>
+      </g>`;
+    return `
+    <svg viewBox="0 0 420 300" width="420">
+      <defs>
+        <clipPath id="a1clip"><rect id="a1rect" x="0" y="300" width="420" height="0"/></clipPath>
+        <linearGradient id="a1water" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#7cc4f5"/><stop offset="1" stop-color="#3d92d8"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 蒸腾水汽 -->
+      <g id="a1vapor" opacity="0">
+        <text x="176" y="30" font-size="15">💨</text>
+        <text x="240" y="26" font-size="13">💨</text>
+      </g>
+
+      <!-- 绿色植物（底层） -->
+      ${plant('#4a9e57', 'g')}
+      <!-- 蓝色植物（被水染色，用 clip 从下往上显露） -->
+      <g clip-path="url(#a1clip)">${plant('#3d92d8', 'b')}</g>
+
+      <!-- 杯子 -->
+      <path d="M148,196 L156,282 Q158,290 166,290 L252,290 Q260,290 262,282 L270,196 Z"
+            fill="#eaf4fd" stroke="#9fc4de" stroke-width="2.5"/>
+      <path id="a1cupwater" d="M152,232 L156,282 Q158,290 166,290 L252,290 Q260,290 262,282 L266,232 Z"
+            fill="url(#a1water)" opacity=".85"/>
+      <ellipse id="a1surface" cx="209" cy="232" rx="57" ry="5" fill="#a7d8f7"/>
+      <path d="M148,196 L270,196" stroke="#9fc4de" stroke-width="2.5" stroke-linecap="round"/>
+
+      <!-- 上升箭头 -->
+      <g id="a1arrows" opacity="0" stroke="#3d92d8" stroke-width="2.4" fill="none" stroke-linecap="round">
+        <path d="M182,210 V186 M178,192 l4,-6 l4,6"/>
+        <path d="M182,170 V146 M178,152 l4,-6 l4,6"/>
+        <path d="M182,130 V106 M178,112 l4,-6 l4,6"/>
+      </g>
+    </svg>`;
+  },
+  reset(root){
+    const q = s => root.querySelector(s);
+    q('#a1rect').setAttribute('y', 300);
+    q('#a1rect').setAttribute('height', 0);
+    q('#a1vapor').setAttribute('opacity', 0);
+    q('#a1arrows').setAttribute('opacity', 0);
+    q('#a1surface').setAttribute('cy', 232);
+  },
+  async play(root, cap, alive){
+    const q = s => root.querySelector(s);
+    const rect = q('#a1rect'), surf = q('#a1surface');
+
+    cap('🌊 芹菜的茎泡在水里，茎里有许多细细的<b>导管</b>，像一根根小吸管。');
+    q('#a1arrows').setAttribute('opacity', 1);
+    if(!await wait(1500, alive)) return;
+
+    cap('⬆️ 水被吸进导管，顺着茎一路往上爬——看，茎正在被染色！');
+    if(!await tween(3200, t => {
+      const e = easeInOut(t);
+      const top = 290 - e * 210;            // 从杯底染到叶子
+      rect.setAttribute('y', top);
+      rect.setAttribute('height', 300 - top);
+      surf.setAttribute('cy', 232 + e * 7); // 杯里水位略降
+    }, alive)) return;
+
+    cap('🍃 水到达叶子了！叶子也变蓝了，说明水真的走到了这里。');
+    q('#a1arrows').setAttribute('opacity', 0);
+    if(!await wait(1700, alive)) return;
+
+    cap('💨 叶子把水变成水蒸气跑到空中（叫<b>蒸腾</b>），这股"拉力"又把下面的水拉上来——植物就这样一直喝水啦！');
+    if(!await tween(1400, t => q('#a1vapor').setAttribute('opacity', t), alive)) return;
+  }
+};
+
+/* ============================================================
+   第2周 · 种一颗豆子，看它长大
+   —— 拖动天数滑块，参数化绘制根/芽/叶
+   ============================================================ */
+const anim2 = {
+  title: '🎬 拖一拖：10 天里豆子发生了什么',
+  slider: {min:0, max:10, value:0, label: d => `第 ${d} 天`},
+  build(){
+    return `
+    <svg viewBox="0 0 420 300" width="420">
+      <defs>
+        <linearGradient id="a2sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#eaf6ff"/><stop offset="1" stop-color="#f7fbff"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="420" height="168" fill="url(#a2sky)"/>
+      <circle cx="356" cy="42" r="21" fill="#ffd75e"/>
+      <g stroke="#ffd75e" stroke-width="2.6" stroke-linecap="round" opacity=".8">
+        <path d="M356,10 V2 M356,82 V74 M324,42 H316 M396,42 H388 M334,20 l-6,-6 M378,64 l6,6 M378,20 l6,-6 M334,64 l-6,6"/>
+      </g>
+      <!-- 土壤 -->
+      <rect x="0" y="168" width="420" height="132" fill="#a9784f"/>
+      <rect x="0" y="168" width="420" height="9" fill="#8d6039"/>
+      <g opacity=".28" fill="#6b4526">
+        <circle cx="52" cy="212" r="4"/><circle cx="120" cy="246" r="3"/><circle cx="330" cy="204" r="4"/>
+        <circle cx="376" cy="258" r="3"/><circle cx="66" cy="272" r="3.5"/><circle cx="286" cy="242" r="3"/>
+      </g>
+      <!-- 植物 -->
+      <g id="a2plant">
+        <path id="a2root" d="" stroke="#c8a06e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path id="a2stem" d="" stroke="#4a9e57" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <path id="a2leafL" d="" fill="#5fb56d"/>
+        <path id="a2leafR" d="" fill="#4a9e57"/>
+        <ellipse id="a2seed" cx="210" cy="196" rx="15" ry="11" fill="#e8c98f" stroke="#c9a462" stroke-width="2"/>
+        <path id="a2crack" d="M199,192 l7,5 l-5,5" stroke="#b8945c" stroke-width="1.8" fill="none" opacity="0"/>
+      </g>
+      <text id="a2day" x="18" y="34" font-size="17" font-weight="700" fill="#4a5468">第 0 天</text>
+    </svg>`;
+  },
+  draw(root, d){
+    const q = s => root.querySelector(s);
+    const SEED_Y = 196;
+
+    // 根：第 1 天开始往下扎
+    const rootLen = Math.max(0, Math.min(1, (d - 1) / 4)) * 74;
+    q('#a2root').setAttribute('d', rootLen <= 0 ? '' :
+      `M210,${SEED_Y+8} q-3,${rootLen*.4} -14,${rootLen}
+       M210,${SEED_Y+8} q4,${rootLen*.45} 12,${rootLen*.86}
+       M210,${SEED_Y+8} V${SEED_Y+8+rootLen}`);
+
+    // 种子裂开
+    q('#a2crack').setAttribute('opacity', d >= 1 && d < 5 ? 1 : 0);
+    q('#a2seed').setAttribute('opacity', d >= 7 ? Math.max(0, 1 - (d-7)/3) : 1);
+
+    // 茎：第 3 天破土
+    const stemH = Math.max(0, Math.min(1, (d - 3) / 6)) * 122;
+    q('#a2stem').setAttribute('d', stemH <= 0 ? '' :
+      `M210,${SEED_Y} V${SEED_Y - stemH}`);
+
+    // 叶子：第 6 天展开
+    const lf = Math.max(0, Math.min(1, (d - 6) / 4));
+    const topY = SEED_Y - stemH;
+    if(lf <= 0){ q('#a2leafL').setAttribute('d',''); q('#a2leafR').setAttribute('d',''); }
+    else{
+      const w = 34 * lf, h = 17 * lf;
+      q('#a2leafL').setAttribute('d',
+        `M210,${topY+12} C${210-w*.6},${topY+12-h} ${210-w},${topY+4-h} ${210-w},${topY+14} C${210-w*.5},${topY+20} ${210-w*.2},${topY+18} 210,${topY+12} Z`);
+      q('#a2leafR').setAttribute('d',
+        `M210,${topY+6} C${210+w*.6},${topY+6-h} ${210+w},${topY-2-h} ${210+w},${topY+8} C${210+w*.5},${topY+14} ${210+w*.2},${topY+12} 210,${topY+6} Z`);
+    }
+    q('#a2day').textContent = `第 ${d} 天`;
+  },
+  captions: [
+    '第 0 天：把豆子埋进土里，浇一点水。表面上什么都没发生。',
+    '第 1 天：豆子<b>喝饱了水</b>，胀大、外皮裂开了一条缝。',
+    '第 2 天：<b>根</b>先长出来，而且是<b>朝下</b>长的——它要去找水和养分。',
+    '第 3 天：根越扎越深，小芽开始顶土往上冒。',
+    '第 4 天：芽<b>破土而出</b>了！注意：根朝下、芽朝上，从不搞反。',
+    '第 5 天：茎一天天变高，颜色也更绿了。',
+    '第 6 天：顶端开始<b>展开小叶子</b>。',
+    '第 7 天：叶子张开晒太阳，开始自己制造养分（光合作用）。',
+    '第 8 天：豆子里的养分快用完了，慢慢干瘪——它把能量都给了小苗。',
+    '第 9 天：小苗已经能靠叶子养活自己啦。',
+    '第 10 天：一株完整的小苗！根在土里喝水，叶子在上面晒太阳。'
+  ],
+  reset(root){ this.draw(root, 0); const s = root.parentElement.querySelector('input'); if(s) s.value = 0; },
+  async play(root, cap, alive, ui){
+    for(let d = 0; d <= 10; d++){
+      if(!alive()) return;
+      this.draw(root, d);
+      ui.setSlider(d);
+      cap(this.captions[d]);
+      if(!await wait(900, alive)) return;
+    }
+  },
+  onSlide(root, cap, d){ this.draw(root, d); cap(this.captions[d]); }
+};
+
+/* ============================================================
+   第3周 · 蚂蚁的大家庭
+   —— 第一只蚂蚁曲折找到食物，留下气味；后面的蚂蚁沿气味走，路越走越直
+   ============================================================ */
+const anim3 = {
+  title: '🎬 看一看：蚂蚁怎么找到食物并告诉同伴',
+  build(){
+    return `
+    <svg viewBox="0 0 420 300" width="420">
+      <rect x="0" y="0" width="420" height="300" fill="#f6f2e8"/>
+      <g opacity=".5" fill="#e0d7c2">
+        <circle cx="70" cy="70" r="13"/><circle cx="330" cy="230" r="16"/><circle cx="120" cy="250" r="10"/>
+      </g>
+      <!-- 曲折路径（第一只蚂蚁） -->
+      <path id="a3wander" d="M62,238 C110,150 96,120 150,140 C210,162 176,88 234,96 C286,103 300,74 344,66"
+            fill="none" stroke="#d9b44a" stroke-width="0" stroke-linecap="round" opacity="0"/>
+      <!-- 直路径（后来的蚂蚁） -->
+      <path id="a3direct" d="M62,238 C140,206 240,130 344,66"
+            fill="none" stroke="#e0a92e" stroke-width="0" stroke-linecap="round" opacity="0"/>
+      <!-- 蚁巢 -->
+      <ellipse cx="62" cy="248" rx="34" ry="18" fill="#9c7a4d"/>
+      <ellipse cx="62" cy="242" rx="22" ry="12" fill="#6f5433"/>
+      <text x="30" y="284" font-size="12" fill="#7a6244" font-weight="700">🏠 蚁巢</text>
+      <!-- 食物 -->
+      <text x="330" y="56" font-size="26">🍬</text>
+      <text x="310" y="30" font-size="12" fill="#7a6244" font-weight="700">🍬 食物</text>
+      <!-- 蚂蚁 -->
+      <text id="a3ant" x="62" y="243" font-size="17" text-anchor="middle">🐜</text>
+      <g id="a3crowd" opacity="0">
+        <text id="a3ant2" x="62" y="243" font-size="14" text-anchor="middle">🐜</text>
+        <text id="a3ant3" x="62" y="243" font-size="14" text-anchor="middle">🐜</text>
+        <text id="a3ant4" x="62" y="243" font-size="14" text-anchor="middle">🐜</text>
+      </g>
+    </svg>`;
+  },
+  reset(root){
+    const q = s => root.querySelector(s);
+    ['#a3wander','#a3direct'].forEach(s=>{
+      q(s).setAttribute('stroke-width', 0); q(s).setAttribute('opacity', 0);
+    });
+    q('#a3crowd').setAttribute('opacity', 0);
+    q('#a3ant').setAttribute('x', 62); q('#a3ant').setAttribute('y', 243);
+  },
+  async play(root, cap, alive){
+    const q = s => root.querySelector(s);
+    const wander = q('#a3wander'), direct = q('#a3direct'), ant = q('#a3ant');
+    const move = (el, path, t) => {
+      const p = path.getPointAtLength(path.getTotalLength() * t);
+      el.setAttribute('x', p.x); el.setAttribute('y', p.y + 5);
+    };
+
+    cap('🐜 一只蚂蚁出门找吃的。它不知道路，只能<b>东拐西拐地乱走</b>。');
+    wander.setAttribute('opacity', .55); wander.setAttribute('stroke-width', 3);
+    const wlen = wander.getTotalLength();
+    wander.setAttribute('stroke-dasharray', wlen);
+    wander.setAttribute('stroke-dashoffset', wlen);
+    if(!await tween(3000, t => {
+      wander.setAttribute('stroke-dashoffset', wlen * (1 - t));
+      move(ant, wander, t);
+    }, alive)) return;
+
+    cap('🍬 找到糖啦！它一边往回走，一边在地上留下<b>气味（信息素）</b>。');
+    if(!await tween(1800, t => move(ant, wander, 1 - t), alive)) return;
+
+    cap('👃 别的蚂蚁闻到气味就跟着走。走的蚂蚁越多，气味<b>越浓</b>。');
+    q('#a3crowd').setAttribute('opacity', 1);
+    direct.setAttribute('opacity', .9);
+    const dlen = direct.getTotalLength();
+    direct.setAttribute('stroke-dasharray', dlen);
+    direct.setAttribute('stroke-dashoffset', dlen);
+    const ants = ['#a3ant2','#a3ant3','#a3ant4'].map(s => q(s));
+    if(!await tween(2600, t => {
+      direct.setAttribute('stroke-width', 3 + t * 4);
+      direct.setAttribute('stroke-dashoffset', dlen * (1 - t));
+      wander.setAttribute('opacity', .55 * (1 - t));   // 弯路气味变淡
+      move(ant, direct, Math.min(1, t * 1.1));
+      ants.forEach((a, i) => move(a, direct, Math.max(0, Math.min(1, t * 1.1 - .13 * (i+1)))));
+    }, alive)) return;
+
+    cap('✨ 弯路没人走，气味慢慢消失；<b>近路气味最浓，就变成了大家的高速公路</b>——蚂蚁没有队长，却能一起找到最短的路！');
+  }
+};
+
+/* ============================================================
+   第4周 · 四季为什么会变化
+   —— 地球公转，地轴倾斜方向始终不变，因此南北半球轮流被"正对"太阳
+   ============================================================ */
+const anim4 = {
+  title: '🎬 转一转：地球绕太阳一圈 = 一年',
+  SEASONS: [
+    {name:'☀️ 夏天', tree:'#3fa653', ground:'#8fd18a', tip:'北半球<b>朝着</b>太阳斜 → 阳光更直、白天更长 → <b>夏天</b>'},
+    {name:'🍂 秋天', tree:'#e0902f', ground:'#d8c48a', tip:'地球转到侧面，南北半球受到的阳光差不多 → <b>秋天</b>'},
+    {name:'❄️ 冬天', tree:'#b9c6cf', ground:'#e8f1f6', tip:'北半球<b>背着</b>太阳斜 → 阳光更斜、白天更短 → <b>冬天</b>'},
+    {name:'🌸 春天', tree:'#7fc98a', ground:'#b6e0a4', tip:'又转到侧面，阳光重新变多 → <b>春天</b>'}
+  ],
+  build(){
+    return `
+    <svg viewBox="0 0 420 300" width="420">
+      <rect x="0" y="0" width="420" height="300" fill="#0f1836"/>
+      <g fill="#fff" opacity=".55">
+        <circle cx="40" cy="40" r="1.4"/><circle cx="110" cy="24" r="1.1"/><circle cx="300" cy="36" r="1.3"/>
+        <circle cx="386" cy="90" r="1.2"/><circle cx="30" cy="200" r="1.1"/><circle cx="390" cy="248" r="1.4"/>
+        <circle cx="200" cy="18" r="1"/><circle cx="66" cy="280" r="1.2"/>
+      </g>
+      <ellipse cx="210" cy="152" rx="150" ry="86" fill="none" stroke="#3d4a7a" stroke-width="1.6" stroke-dasharray="5 6"/>
+      <circle cx="210" cy="152" r="30" fill="#ffd75e"/>
+      <circle cx="210" cy="152" r="40" fill="#ffd75e" opacity=".22"/>
+      <g id="a4earth">
+        <circle r="19" fill="#3d92d8"/>
+        <path d="M-12,-6 q7,-5 13,1 q6,5 12,-1 M-13,7 q8,5 15,0 q5,-4 11,1"
+              stroke="#5fb56d" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <!-- 地轴：角度固定不变，这是四季的关键 -->
+        <line x1="-8" y1="-25" x2="8" y2="25" stroke="#fff" stroke-width="2" opacity=".85"/>
+        <circle cx="-8" cy="-25" r="2.6" fill="#fff"/>
+        <text x="-24" y="-30" font-size="9" fill="#cfe3ff">北</text>
+      </g>
+      <g id="a4tree" transform="translate(64,252)">
+        <ellipse cx="0" cy="16" rx="42" ry="9" fill="#8fd18a" id="a4ground"/>
+        <rect x="-3.5" y="-14" width="7" height="30" fill="#8a6240" rx="2"/>
+        <circle cx="0" cy="-24" r="17" fill="#3fa653" id="a4crown"/>
+        <circle cx="-11" cy="-14" r="11" fill="#3fa653" id="a4crown2"/>
+        <circle cx="11" cy="-14" r="11" fill="#3fa653" id="a4crown3"/>
+      </g>
+      <text id="a4label" x="210" y="288" font-size="16" font-weight="700" fill="#ffe9a8" text-anchor="middle">☀️ 夏天</text>
+    </svg>`;
+  },
+  place(root, ang){
+    const q = s => root.querySelector(s);
+    const cx = 210 + 150 * Math.cos(ang), cy = 152 + 86 * Math.sin(ang);
+    // 地轴倾斜方向恒定：只平移，不旋转
+    q('#a4earth').setAttribute('transform', `translate(${cx},${cy})`);
+  },
+  season(root, i){
+    const q = s => root.querySelector(s);
+    const s = this.SEASONS[i];
+    ['#a4crown','#a4crown2','#a4crown3'].forEach(k => q(k).setAttribute('fill', s.tree));
+    q('#a4ground').setAttribute('fill', s.ground);
+    q('#a4label').textContent = s.name;
+  },
+  reset(root){ this.place(root, Math.PI); this.season(root, 0); },
+  async play(root, cap, alive){
+    cap('🌍 地球一边自转，一边绕着太阳跑。跑完一圈正好是<b>一年</b>。注意看地球的<b>白色小轴</b>——它一直斜向同一个方向。');
+    if(!await wait(2200, alive)) return;
+
+    const starts = [Math.PI, Math.PI*1.5, 0, Math.PI*0.5];
+    for(let i = 0; i < 4; i++){
+      const from = starts[i], to = starts[i] + Math.PI/2;
+      if(!await tween(2000, t => this.place(root, from + (to-from)*easeInOut(t)), alive)) return;
+      const next = (i+1) % 4;
+      this.season(root, next);
+      cap(this.SEASONS[next].tip);
+      if(!await wait(1600, alive)) return;
+    }
+    cap('🔑 关键：<b>不是因为离太阳更近才热</b>！而是地球一直斜着，公转时北半球有时朝着太阳、有时背着太阳，于是有了四季。');
+  }
+};
+
+/* ============================================================
+   第5周 · 动物的睡眠——谁在冬眠
+   —— 秋 → 冬，体温与心跳大幅下降，靠"省电模式"熬过没食物的冬天
+   ============================================================ */
+const anim5 = {
+  title: '🎬 比一比：冬眠时身体开启"省电模式"',
+  build(){
+    return `
+    <svg viewBox="0 0 420 300" width="420">
+      <defs>
+        <linearGradient id="a5sky" x1="0" y1="0" x2="0" y2="1">
+          <stop id="a5sky1" offset="0" stop-color="#ffd9a0"/>
+          <stop id="a5sky2" offset="1" stop-color="#ffeccd"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="420" height="300" fill="url(#a5sky)"/>
+      <g id="a5snow" opacity="0" fill="#fff">
+        <circle cx="60" cy="40" r="3"/><circle cx="150" cy="20" r="2.4"/><circle cx="250" cy="52" r="2.8"/>
+        <circle cx="330" cy="26" r="2.2"/><circle cx="100" cy="86" r="2.6"/><circle cx="290" cy="96" r="2.4"/>
+        <circle cx="196" cy="70" r="2"/><circle cx="366" cy="70" r="2.6"/>
+      </g>
+      <!-- 山洞 -->
+      <path d="M20,300 L20,190 Q20,132 96,132 Q172,132 172,190 L172,300 Z" fill="#6b5a4a"/>
+      <path d="M34,300 L34,196 Q34,148 96,148 Q158,148 158,196 L158,300 Z" fill="#33281f"/>
+      <!-- 熊 -->
+      <g id="a5bear" transform="translate(96,232)">
+        <ellipse cx="0" cy="0" rx="46" ry="30" fill="#8a6240"/>
+        <circle cx="-30" cy="-16" r="18" fill="#8a6240"/>
+        <circle cx="-40" cy="-30" r="6" fill="#6f4d33"/>
+        <circle cx="-20" cy="-30" r="6" fill="#6f4d33"/>
+        <ellipse cx="-38" cy="-12" rx="8" ry="6" fill="#c9a179"/>
+        <circle cx="-41" cy="-14" r="2" fill="#33281f"/>
+        <path id="a5eye" d="M-33,-19 q4,3 8,0" stroke="#33281f" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <text id="a5zzz" x="6" y="-34" font-size="15" opacity="0">💤</text>
+      </g>
+      <!-- 仪表 -->
+      <g transform="translate(206,150)">
+        <rect x="0" y="-64" width="196" height="60" rx="12" fill="#fff" opacity=".9"/>
+        <text x="14" y="-42" font-size="13" fill="#646a73">🌡️ 体温</text>
+        <text id="a5temp" x="14" y="-16" font-size="24" font-weight="700" fill="#e5484d">37.0°C</text>
+        <rect x="112" y="-46" width="70" height="9" rx="4.5" fill="#eef0f4"/>
+        <rect id="a5tempbar" x="112" y="-46" width="70" height="9" rx="4.5" fill="#e5484d"/>
+
+        <rect x="0" y="8" width="196" height="60" rx="12" fill="#fff" opacity=".9"/>
+        <text x="14" y="30" font-size="13" fill="#646a73">💗 心跳</text>
+        <text id="a5bpm" x="14" y="56" font-size="24" font-weight="700" fill="#d6336c">40 次/分</text>
+        <text id="a5heart" x="150" y="52" font-size="26">💗</text>
+      </g>
+      <text id="a5season" x="210" y="290" font-size="15" font-weight="700" fill="#5a4a3a" text-anchor="middle">🍂 秋天 · 清醒</text>
+    </svg>`;
+  },
+  set(root, temp, bpm){
+    const q = s => root.querySelector(s);
+    q('#a5temp').textContent = temp.toFixed(1) + '°C';
+    q('#a5bpm').textContent = Math.round(bpm) + ' 次/分';
+    q('#a5tempbar').setAttribute('width', Math.max(2, 70 * (temp - 3) / 34));
+    const heart = q('#a5heart');
+    heart.style.animation = `a5beat ${(60/Math.max(4,bpm)).toFixed(2)}s ease-in-out infinite`;
+    heart.style.transformBox = 'fill-box';
+    heart.style.transformOrigin = 'center';
+  },
+  reset(root){
+    const q = s => root.querySelector(s);
+    this.set(root, 37, 40);
+    q('#a5snow').setAttribute('opacity', 0);
+    q('#a5zzz').setAttribute('opacity', 0);
+    q('#a5sky1').setAttribute('stop-color', '#ffd9a0');
+    q('#a5sky2').setAttribute('stop-color', '#ffeccd');
+    q('#a5season').textContent = '🍂 秋天 · 清醒';
+    q('#a5eye').setAttribute('d', 'M-33,-19 q4,3 8,0');
+  },
+  async play(root, cap, alive){
+    const q = s => root.querySelector(s);
+    const lerp = (a,b,t) => a + (b-a)*t;
+
+    cap('🍂 秋天，熊拼命吃东西，把能量<b>存成脂肪</b>。这时体温 37°C、心跳 40 次/分，和平时一样。');
+    if(!await wait(2400, alive)) return;
+
+    cap('❄️ 冬天来了，外面又冷又找不到吃的。熊钻进山洞，准备<b>冬眠</b>。');
+    if(!await tween(2200, t => {
+      q('#a5sky1').setAttribute('stop-color', `hsl(${lerp(36,205,t)},${lerp(100,45,t)}%,${lerp(82,86,t)}%)`);
+      q('#a5sky2').setAttribute('stop-color', `hsl(${lerp(38,205,t)},${lerp(100,40,t)}%,${lerp(90,95,t)}%)`);
+      q('#a5snow').setAttribute('opacity', t);
+    }, alive)) return;
+
+    q('#a5season').textContent = '❄️ 冬天 · 冬眠中';
+    q('#a5eye').setAttribute('d', 'M-33,-17 q4,0 8,0');   // 闭眼
+    q('#a5zzz').setAttribute('opacity', 1);
+
+    cap('🔋 身体开启"省电模式"：<b>体温降下来，心跳慢下来</b>，能量消耗变得极少。');
+    if(!await tween(3400, t => {
+      const e = easeInOut(t);
+      this.set(root, lerp(37, 5, e), lerp(40, 8, e));
+    }, alive)) return;
+
+    cap('💤 体温只有 5°C、心跳每分钟才 8 次——熊靠着秋天存下的脂肪，就能一直睡到春天。这不是普通的睡觉，是<b>过冬的生存本领</b>。');
+  }
+};
+
+/* ============================================================
+   注册表 + 挂载
+   ============================================================ */
+const ANIMS = {1:anim1, 2:anim2, 3:anim3, 4:anim4, 5:anim5};
+
+// 心跳关键帧
+const _st = document.createElement('style');
+_st.textContent = '@keyframes a5beat{0%,100%{transform:scale(1)}45%{transform:scale(1.3)}}';
+document.head.appendChild(_st);
+
+document.querySelectorAll('.demo[data-anim]').forEach(demo => {
+  const key = demo.dataset.anim;
+  const a = ANIMS[key];
+  if(!a) return;
+
+  const stage = demo.querySelector('.demo-stage');
+  const cap   = demo.querySelector('.demo-cap');
+  stage.insertAdjacentHTML('afterbegin', a.build());
+  const root = stage.querySelector('svg');
+  const setCap = t => cap.innerHTML = t;
+
+  // 滑块（仅 anim2）
+  let slider = null;
+  if(a.slider){
+    const box = document.createElement('div');
+    box.className = 'demo-slider';
+    box.innerHTML = `<span class="lab">${a.slider.label(a.slider.min)}</span>
+      <input type="range" min="${a.slider.min}" max="${a.slider.max}" value="${a.slider.value}" step="1">`;
+    stage.insertBefore(box, cap);
+    slider = box.querySelector('input');
+    const lab = box.querySelector('.lab');
+    slider.addEventListener('input', () => {
+      RUN++;                                   // 手动拖动即停止自动播放
+      const d = +slider.value;
+      lab.textContent = a.slider.label(d);
+      a.onSlide(root, setCap, d);
+    });
+  }
+  const ui = { setSlider(v){ if(slider){ slider.value = v;
+    slider.previousElementSibling.textContent = a.slider.label(v); } } };
+
+  a._reset = () => { a.reset(root); setCap(''); };
+  a.reset(root);
+  setCap('点击 <b>▶ 播放</b> 开始演示');
+
+  demo.querySelector('[data-act="play"]').onclick = async () => {
+    a.reset(root);
+    const my = ++RUN;
+    await a.play(root, setCap, () => my === RUN, ui);
+  };
+  demo.querySelector('[data-act="reset"]').onclick = () => {
+    RUN++;
+    a.reset(root);
+    setCap('点击 <b>▶ 播放</b> 开始演示');
+  };
+});
+
+
+/* ---------- 启动 ---------- */
+paintSeen();
+go(location.hash.slice(1) || 'intro', false);
 </script>
 </body>
 </html>
