@@ -3,645 +3,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔬 小学一年级科普教程·完整教案</title>
+<title>小书桌 · 一年级学习站</title>
+<meta name="description" content="面向小学一年级（6~7岁）的科普与思维课程合集">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --text-main: #1f2329;
-    --text-sub: #646a73;
-    --border: #e5e6eb;
-    --accent: #4a90e2;
-    --bg: #f7f8fa;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
-                 "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text-main);
-    line-height: 1.75;
-  }
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: linear-gradient(120deg, #4a90e2, #6f5ee0);
-    color: #fff;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 12px rgba(0,0,0,.08);
-  }
-  .topbar .brand { font-weight: 700; font-size: 16px; letter-spacing: .5px; }
-  .topbar .toc-toggle {
-    display: none;
-    background: rgba(255,255,255,.18);
-    border: none;
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  .layout {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: flex-start;
-  }
-  .sidebar {
-    width: 240px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 68px;
-    max-height: calc(100vh - 90px);
-    overflow-y: auto;
-    padding: 20px 12px;
-  }
-  .sidebar h4 {
-    font-size: 13px;
-    color: var(--text-sub);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 6px 0 12px 8px;
-  }
-  .sidebar a {
-    display: block;
-    padding: 6px 10px;
-    font-size: 13.5px;
-    color: var(--text-sub);
-    text-decoration: none;
-    border-radius: 6px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .sidebar a.level-1 { font-weight: 700; color: var(--text-main); margin-top: 10px; }
-  .sidebar a:hover { background: #eef2f8; color: var(--accent); }
-  .content {
-    flex: 1;
-    min-width: 0;
-    background: #fff;
-    margin: 20px;
-    padding: 40px 56px 80px;
-    border-radius: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.04);
-  }
-  h1, h2, h3, h4 {
-    scroll-margin-top: 84px;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-  h1 { font-size: 30px; margin: 0 0 24px; border-bottom: 3px solid var(--accent); padding-bottom: 16px;}
-  h2 { font-size: 24px; margin: 48px 0 20px; padding-left: 12px; border-left: 5px solid var(--accent); }
-  h3 { font-size: 19px; margin: 32px 0 14px; color: #2b3a55; }
-  h4 { font-size: 16px; margin: 22px 0 10px; color: var(--text-sub); }
-  p { margin: 0 0 14px; color: var(--text-main); }
-  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
-  ul, ol { margin: 0 0 16px; padding-left: 26px; }
-  li { margin-bottom: 6px; }
-  blockquote {
-    margin: 16px 0;
-    padding: 12px 18px;
-    background: #f4f6fb;
-    border-left: 4px solid #b7c3d9;
-    border-radius: 6px;
-    color: #4a5468;
-  }
-  code {
-    background: #f0f1f3;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 90%;
-    color: #c0392b;
-  }
-  a { color: var(--accent); }
-  .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
-  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
-  th, td { padding: 10px 14px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); text-align: left; vertical-align: top; }
-  th:last-child, td:last-child { border-right: none; }
-  thead th { background: #eef2f8; color: #2b3a55; font-weight: 700; }
-  tbody tr:hover { background: #fafbfd; }
+:root{
+  --ink:#2A211C;
+  --paper:#FFF4DF;
+  --paper-2:#FFEAC4;
+  --tomato:#FF5B4A;
+  --sun:#FFC53D;
+  --mint:#2FC79A;
+  --sky:#4E9CFF;
+  --grape:#A374FF;
+  --bubble:#FF8FB1;
+  --line:3px solid var(--ink);
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --shadow-lg:11px 11px 0 var(--ink);
+  --font-display:'ZCOOL KuaiLe','PingFang SC','Hiragino Sans GB',sans-serif;
+  --font-body:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  --font-num:'Fredoka','PingFang SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);color:var(--ink);background-color:var(--paper);line-height:1.75;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(42,33,28,.13) 1.5px, transparent 0),
+    radial-gradient(ellipse 60% 45% at 12% 0%, rgba(255,197,61,.38), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 88% 8%, rgba(78,156,255,.24), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(47,199,154,.18), transparent 60%);
+  background-size:26px 26px,100% 100%,100% 100%,100% 100%;
+  min-height:100vh;overflow-x:hidden;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.30;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px;position:relative;z-index:2;}
 
-  .callout {
-    display: flex;
-    gap: 12px;
-    margin: 16px 0;
-    padding: 16px 18px;
-    border-radius: 12px;
-    border-left: 4px solid;
-  }
-  .callout-emoji { font-size: 22px; line-height: 1.5; }
-  .callout-body p:last-child { margin-bottom: 0; }
-  .callout-body ul, .callout-body ol { margin-bottom: 0; }
+/* ---------- 头部 ---------- */
+header{padding:60px 0 20px;text-align:center;position:relative;}
+.brandmark{
+  display:inline-flex;align-items:center;gap:12px;font-family:var(--font-display);
+  font-size:19px;letter-spacing:1px;background:#fff;border:var(--line);border-radius:99px;
+  padding:7px 22px 7px 8px;box-shadow:var(--shadow-sm);
+}
+.brandmark .b{
+  width:38px;height:38px;border:var(--line);border-radius:12px;background:var(--sun);
+  display:grid;place-items:center;font-size:20px;transform:rotate(-7deg);
+}
+h1{
+  font-family:var(--font-display);font-weight:400;letter-spacing:2px;
+  font-size:clamp(34px,7vw,62px);line-height:1.15;margin:22px 0 6px;
+}
+h1 .hl{position:relative;display:inline-block;color:var(--tomato);}
+h1 .hl::after{
+  content:"";position:absolute;left:-5px;right:-5px;bottom:5px;height:14px;
+  background:var(--sun);border-radius:99px;z-index:-1;transform:rotate(-1.2deg);
+}
+.sub{font-size:16.5px;opacity:.8;max-width:520px;margin:12px auto 0;}
+.meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px;}
+.chip{
+  font-family:var(--font-display);font-size:14px;background:#fff;border:var(--line);
+  border-radius:99px;padding:5px 16px;box-shadow:3px 3px 0 var(--ink);
+}
+.chip:nth-child(1){background:var(--bubble);transform:rotate(-2deg);}
+.chip:nth-child(2){background:var(--mint);transform:rotate(1.5deg);}
+.chip:nth-child(3){background:var(--sky);transform:rotate(-1deg);}
 
-  .grid { display: grid; gap: 16px; margin: 16px 0; }
-  .grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .grid-3 { grid-template-columns: repeat(3, 1fr); }
-  .grid-4 { grid-template-columns: repeat(4, 1fr); }
-  .grid-col { min-width: 0; }
-  .grid-col > .callout { margin: 0; height: 100%; }
-  .grid-col p:last-child { margin-bottom: 0; }
+/* 漂浮装饰 */
+.deco{position:absolute;font-size:34px;filter:drop-shadow(2px 3px 0 rgba(42,33,28,.28));pointer-events:none;}
+.p1{top:8%;left:4%;animation:bob 4.4s ease-in-out infinite;}
+.p2{top:20%;right:5%;animation:bob 5.2s ease-in-out .5s infinite;}
+.p3{bottom:2%;left:12%;animation:bob 4.8s ease-in-out .9s infinite;}
+.p4{bottom:12%;right:11%;animation:bob 5.6s ease-in-out .3s infinite;}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-7deg);}50%{transform:translateY(-15px) rotate(9deg);}}
+@media(max-width:720px){.deco{display:none;}}
 
-  .back-to-top {
-    position: fixed;
-    right: 28px;
-    bottom: 28px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 18px;
-    box-shadow: 0 4px 14px rgba(74,144,226,.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s;
-  }
-  .back-to-top.show { opacity: 1; pointer-events: auto; }
+.wave{display:block;width:100%;height:40px;margin:14px 0 6px;}
 
-  @media (max-width: 900px) {
-    .sidebar { display: none; }
-    .content { margin: 12px; padding: 24px 18px 56px; border-radius: 12px; }
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  }
+/* ---------- 课程卡 ---------- */
+main{padding:16px 0 40px;}
+.shelf-label{
+  display:flex;align-items:center;gap:14px;margin:10px 0 26px;
+}
+.shelf-label span{font-family:var(--font-display);font-size:20px;letter-spacing:1px;white-space:nowrap;}
+.shelf-label i{flex:1;height:0;border-top:3px dashed rgba(42,33,28,.28);}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;}
+
+.card{
+  background:#fff;border:var(--line);border-radius:24px;box-shadow:var(--shadow);
+  overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);
+  transition:transform .22s cubic-bezier(.22,1,.36,1), box-shadow .22s;
+  position:relative;
+}
+.card:hover{transform:translate(-4px,-7px) rotate(-.7deg);box-shadow:var(--shadow-lg);}
+.card:active{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
+
+.cover{
+  height:150px;background:var(--c);border-bottom:var(--line);position:relative;
+  display:grid;place-items:center;overflow:hidden;
+}
+.cover::before{ /* 圆点纹理 */
+  content:"";position:absolute;inset:0;opacity:.30;
+  background-image:radial-gradient(circle at 2px 2px, rgba(42,33,28,.9) 2px, transparent 0);
+  background-size:20px 20px;
+}
+.cover .em{font-size:66px;line-height:1;filter:drop-shadow(3px 4px 0 rgba(42,33,28,.32));position:relative;transition:transform .3s;}
+.card:hover .cover .em{transform:scale(1.12) rotate(-8deg);}
+.cover .mini{position:absolute;font-size:24px;opacity:.85;filter:drop-shadow(2px 2px 0 rgba(42,33,28,.25));}
+.cover .m1{top:16px;left:20px;transform:rotate(-14deg);}
+.cover .m2{bottom:16px;right:22px;transform:rotate(12deg);}
+
+.badge{
+  position:absolute;top:12px;right:12px;z-index:3;font-family:var(--font-display);font-size:12.5px;
+  background:var(--tomato);color:#fff;border:2px solid var(--ink);border-radius:99px;
+  padding:2px 12px;box-shadow:3px 3px 0 var(--ink);transform:rotate(6deg);letter-spacing:1px;
+}
+
+.card .body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;}
+.card h2{font-family:var(--font-display);font-weight:400;font-size:23px;letter-spacing:1px;line-height:1.35;}
+.card .desc{font-size:14px;opacity:.78;margin-top:8px;flex:1;}
+
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.facts b{
+  font-family:var(--font-body);font-weight:400;font-size:12px;background:var(--paper-2);
+  border:2px solid var(--ink);border-radius:99px;padding:2px 11px;
+}
+.facts b em{font-family:var(--font-num);font-weight:600;font-style:normal;font-size:13.5px;}
+
+.go{
+  margin-top:18px;font-family:var(--font-display);font-size:16px;letter-spacing:1px;
+  border:var(--line);border-radius:99px;background:var(--c);padding:9px 20px;
+  display:inline-flex;align-items:center;justify-content:space-between;gap:8px;
+  box-shadow:3px 3px 0 var(--ink);transition:gap .22s;
+}
+.card:hover .go{gap:16px;}
+
+/* 占位卡 */
+.card.soon{
+  background:repeating-linear-gradient(45deg,#fff,#fff 12px,var(--paper-2) 12px,var(--paper-2) 24px);
+  border-style:dashed;box-shadow:none;cursor:default;
+}
+.card.soon:hover{transform:none;box-shadow:none;}
+.card.soon .body{align-items:center;justify-content:center;text-align:center;padding:46px 22px;}
+.card.soon .em{font-size:48px;opacity:.55;}
+.card.soon h2{opacity:.6;margin-top:10px;}
+.card.soon .desc{opacity:.5;flex:none;}
+
+/* ---------- 页脚 ---------- */
+footer{border-top:var(--line);background:var(--paper-2);padding:30px 0;text-align:center;margin-top:24px;}
+footer .big{font-family:var(--font-display);font-size:clamp(20px,4vw,30px);letter-spacing:2px;}
+footer p{font-size:13px;opacity:.7;margin-top:8px;}
+
+/* 入场 */
+.rise{opacity:0;transform:translateY(24px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes rise{to{opacity:1;transform:none;}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.rise{opacity:1;transform:none;}}
 </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="brand">🔬 🔬 小学一年级科普教程·完整教案</div>
+
+<header>
+  <span class="deco p1">✏️</span>
+  <span class="deco p2">🔭</span>
+  <span class="deco p3">🧩</span>
+  <span class="deco p4">🌱</span>
+  <div class="wrap">
+    <div class="brandmark rise" style="animation-delay:.05s"><span class="b">📚</span>小书桌</div>
+    <h1 class="rise" style="animation-delay:.16s">一年级的<span class="hl">学习小站</span></h1>
+    <p class="sub rise" style="animation-delay:.27s">给 6~7 岁孩子准备的科普与思维课程。每节都短、都能动手、都不无聊。挑一个开始吧 👇</p>
+    <div class="meta rise" style="animation-delay:.38s">
+      <span class="chip">👦 适合 6~7 岁</span>
+      <span class="chip">⏰ 每节 15 分钟</span>
+      <span class="chip">👨‍👩‍👧 亲子共读</span>
+    </div>
   </div>
-  <div class="layout">
-    <nav class="sidebar" id="toc"></nav>
-    <main class="content" id="content">
-      <h1>🔬 小学一年级科普教程·完整教案</h1>
-      <div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌟</div><div class="callout-body"><p><strong>欢迎来到科学的奇妙世界！</strong><br>本教程专为小学一年级学生（6~7岁）设计，涵盖6大科学领域、30个趣味主题，每节课15~20分钟，通过故事、游戏与动手实验点燃孩子对科学的热爱！</p></div></div>
-<hr>
-<div class="grid grid-3"><div class="grid-col"><div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🎯</div><div class="callout-body"><p><strong>适用年龄</strong>小学一年级6 ~ 7 岁</p></div></div></div><div class="grid-col"><div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">📚</div><div class="callout-body"><p><strong>主题数量</strong>6大领域30个主题</p></div></div></div><div class="grid-col"><div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">⏰</div><div class="callout-body"><p><strong>课程时长</strong>每节15~20分钟全年覆盖</p></div></div></div></div>
-<hr>
-<h3>🧭 核心设计原则</h3>
-<div class="table-wrap"><table><colgroup><col style="width:20.55%"><col style="width:27.40%"><col style="width:52.05%"></colgroup><thead><tr><th><p><strong>设计维度</strong></p></th><th><p><strong>原则</strong></p></th><th><p><strong>具体做法</strong></p></th></tr></thead><tbody><tr><td><p>🎮 <strong>趣味优先</strong></p></td><td><p>以故事、游戏、动手为主</p></td><td><p>每节课以小故事或"神奇问题"引入，让孩子先产生好奇心</p></td></tr><tr><td><p>🔍 <strong>简单直观</strong></p></td><td><p>避免抽象概念</p></td><td><p>多用生活类比：心脏比作"小水泵"，肺比作"气球"</p></td></tr><tr><td><p>⏱️ <strong>短小精悍</strong></p></td><td><p>每课控制在15~20分钟</p></td><td><p>符合一年级学生注意力特点，不超量</p></td></tr><tr><td><p>🖐️ <strong>多感官参与</strong></p></td><td><p>看、听、摸、做</p></td><td><p>每节课必含1个动手环节，调动全身感官</p></td></tr><tr><td><p>👨‍👩‍👧 <strong>亲子联动</strong></p></td><td><p>家校共同参与</p></td><td><p>每月1个"带回家的小实验"，家长与孩子一起完成</p></td></tr></tbody></table></div>
-<hr>
-<h3>📋 标准课堂结构（每节课）</h3>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">📖</div><div class="callout-body"><p><strong>Step 1｜故事引入</strong>（3分钟）用一个有趣的小故事或"神奇的问题"吸引注意，激发好奇心</p></div></div>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🎬</div><div class="callout-body"><p><strong>Step 2｜直观演示 / 视频片段</strong>（5分钟）通过实物演示或动画视频，让孩子直接看到科学现象</p></div></div>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🙋</div><div class="callout-body"><p><strong>Step 3｜互动提问 + 猜一猜</strong>（3分钟）老师提问，孩子大胆猜测，不怕猜错，重在参与</p></div></div>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🎁</div><div class="callout-body"><p><strong>Step 4｜动手小实验 / 小游戏</strong>（5分钟）用安全的家常材料完成实验，亲手感受科学魔法</p></div></div>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">✏️</div><div class="callout-body"><p><strong>Step 5｜画一画 / 说一说</strong>（4分钟）用画笔记录今天的发现，或用一句话分享给同学</p></div></div>
-<hr>
-<h3>📚 六大领域总览</h3>
-<div class="table-wrap"><table><colgroup><col style="width:8.22%"><col style="width:16.44%"><col style="width:16.44%"><col style="width:58.90%"></colgroup><thead><tr><th><p><strong>序号</strong></p></th><th><p><strong>领域</strong></p></th><th><p><strong>主题数量</strong></p></th><th><p><strong>核心目标</strong></p></th></tr></thead><tbody><tr><td><p>01</p></td><td><p>🌿 自然与生命</p></td><td><p>5个主题<br>      &lt;/lark:td&gt;<br>      了解植物、动物的生长规律，感受生命的神奇</p></td><td></td></tr><tr><td><p>02</p></td><td><p>❤️ 身体与健康</p></td><td><p>5个主题</p></td><td><p>认识自己的身体，养成健康好习惯</p></td></tr><tr><td><p>03</p></td><td><p>🌍 地球与环境</p></td><td><p>5个主题</p></td><td><p>理解自然现象，培养环保意识</p></td></tr><tr><td><p>04</p></td><td><p>⚡ 物理与能量</p></td><td><p>5个主题</p></td><td><p>感受物理现象，建立基础科学思维</p></td></tr><tr><td><p>05</p></td><td><p>🤖 科技与生活</p></td><td><p>5个主题</p></td><td><p>认识身边科技，了解科技如何改变生活</p></td></tr><tr><td><p>06</p></td><td><p>🌌 宇宙与太空</p></td><td><p>5个主题</p></td><td><p>认识宇宙天体，开启太空探索梦想</p></td></tr></tbody></table></div>
-<hr>
-<blockquote>💡 <strong>教程核心理念</strong>：一年级的科普不需要让孩子"学会"知识，而是要点燃他们 <strong>"想知道为什么"</strong> 的那颗好奇心 🔥</blockquote>
-<hr>
-<h2>🌿 模块一：自然与生命</h2>
-<div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>模块简介</strong>：通过观察植物生长、了解动物习性，让孩子感受生命的神奇与多样，培养对自然的敬畏和爱护之心。</p></div></div>
-<hr>
-<h3>第1课｜植物是怎么喝水的？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>知道植物需要水才能生长</li><li>了解植物靠"茎"输送水分（毛细现象）</li><li>培养对植物的关爱意识</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>小明发现花瓶里的花朵，没有嘴巴却能喝水……花是怎么把水喝进去的呢？</blockquote>
-<p>老师提问：<strong>"你们有没有想过，植物怎么喝水？"</strong></p>
-<h4>🔬 核心知识点</h4>
-<p>植物通过<strong>茎（根茎叶）中细细的"管道"把水从根部一路运到叶子和花朵，这就像我们用吸管喝饮料一样！这个现象叫做毛细现象</strong>。</p>
-<div class="table-wrap"><table><colgroup><col style="width:27.40%"><col style="width:72.60%"></colgroup><thead><tr><th><p><strong>知识点</strong></p></th><th><p><strong>通俗解释</strong></p></th></tr></thead><tbody><tr><td><p>毛细现象</p></td><td><p>细管子能自动把液体吸上来，就像海绵吸水</p></td></tr><tr><td><p>植物的茎</p></td><td><p>茎里有很多细管道，专门负责运水和养分</p></td></tr><tr><td><p>根、茎、叶的分工</p></td><td><p>根喝水、茎运水、叶子晒太阳制造食物</p></td></tr></tbody></table></div>
-<h4>🧪 动手实验：彩色芹菜实验</h4>
-<div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🎁</div><div class="callout-body"><p><strong>实验名称</strong>：芹菜变色魔法<br><strong>所需材料</strong>：白色芹菜（或白色康乃馨）、红色/蓝色食用色素、透明玻璃杯、清水<br><strong>安全提示</strong>：食用色素无毒，但请勿食用实验用的芹菜</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>在玻璃杯中加入清水，滴入10滴红色食用色素，搅拌均匀</li><li>将芹菜（保留叶子）放入有颜色的水中</li><li>等待<strong>1~2小时</strong>后观察（可以在第二天早上查看）</li><li>观察芹菜的茎和叶子有什么变化？</li></ol>
-<p><strong>预期结果</strong>：芹菜的茎和叶子会慢慢变红，说明有颜色的水被运输上去了！<br><strong>引导问题</strong>：</p>
-<ul><li>叶子为什么会变颜色？</li><li>如果把芹菜同时放在红色和蓝色的水里，会发生什么？</li></ul>
-<h4>✏️ 课后小任务</h4>
-<p>在科学小日记上画出植物喝水的路线图（根 → 茎 → 叶），并写上今天学到的一句话。</p>
-<hr>
-<h3>第2课｜种一颗豆子，看它长大</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解种子发芽需要的条件（水、空气、温度）</li><li>观察并记录植物生长的过程</li><li>培养耐心观察的科学精神</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>一颗小小的豆子，埋进土里，加点水，等几天，它就变成了小苗！这是魔法吗？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>种子发芽需要三个好朋友：<strong>水分、空气和适宜的温度</strong>。缺少任何一个，种子都不能发芽。</p>
-<h4>🧪 动手实验：透明杯种豆</h4>
-<div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🌱</div><div class="callout-body"><p><strong>实验名称</strong>：观察豆子发芽全过程<br><strong>所需材料</strong>：绿豆或黄豆若干、透明塑料杯、湿纸巾或棉花、水<br><strong>周期</strong>：3~7天</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>在透明杯壁和杯底铺上湿润的棉花或纸巾</li><li>将豆子放在杯壁与棉花之间（让豆子紧贴透明杯壁，方便观察）</li><li>每天保持棉花湿润，放在温暖明亮的地方</li><li>每天观察并在科学日记上<strong>画下豆子的变化</strong></li></ol>
-<p><strong>观察记录表</strong>：</p>
-<div class="table-wrap"><table><colgroup><col style="width:13.70%"><col style="width:24.66%"><col style="width:24.66%"><col style="width:36.99%"></colgroup><thead><tr><th><p><strong>天数</strong></p></th><th><p><strong>豆子的样子</strong></p></th><th><p><strong>有没有变化</strong></p></th><th><p><strong>我的发现</strong></p></th></tr></thead><tbody><tr><td><p>第1天</p></td><td><p>圆圆的，硬硬的</p></td><td><p>还没有变化</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第3天</p></td><td><p>豆子变大，皮裂开</p></td><td><p>冒出了白色小芽</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第5天</p></td><td><p>长出了小叶子<br>      向着光的方向弯曲</p></td><td><p>（孩子填写）</p></td><td></td></tr><tr><td><p>第7天</p></td><td><p>小苗越长越高</p></td><td><p>有了2~3片叶子</p></td><td><p>（孩子填写）</p></td></tr></tbody></table></div>
-<hr>
-<h3>第3课｜蚂蚁的大家庭</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解蚂蚁的社会结构（蚁后、工蚁、兵蚁）</li><li>知道蚂蚁靠气味交流</li><li>培养对小生命的尊重和关爱</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>小红在公园发现了一排蚂蚁，它们排成一条直线搬运食物……蚂蚁怎么知道路在哪里？它们有没有"队长"？</blockquote>
-<h4>🔬 核心知识点</h4>
-<div class="grid grid-2"><div class="grid-col"><p><strong>蚂蚁家族的分工</strong></p>
-<ul><li>🐜 <strong>蚁后</strong>：一家之主，专门产卵</li><li>🐜 <strong>工蚁</strong>：数量最多，负责搬食物、建巢</li><li>🐜 <strong>兵蚁</strong>：负责保卫蚁穴</li><li>🐜 <strong>雄蚁</strong>：与蚁后交配后死亡</li></ul></div><div class="grid-col"><p><strong>蚂蚁的神奇能力</strong></p>
-<ul><li>👃 靠<strong>气味（信息素）</strong>找路和交流</li><li>💪 能搬起自身体重<strong>50倍</strong>的东西</li><li>🏠 蚁穴里有专门的"育婴室"和"粮仓"</li><li>🌍 全球蚂蚁总重量超过所有人类总重量</li></ul></div></div>
-<h4>🧪 动手实验：蚂蚁气味追踪实验</h4>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🐜</div><div class="callout-body"><p><strong>实验名称</strong>：跟着气味走的小蚂蚁<br><strong>所需材料</strong>：糖水（少量）、棉签、户外草地/公园（找到蚂蚁的地方）<br><strong>注意</strong>：请在家长陪同下进行，不要踩踏蚂蚁</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>找到一条正在行走的蚂蚁队伍</li><li>用棉签蘸取糖水，在蚂蚁队伍的路线旁边画一条新路线</li><li>观察：蚂蚁会不会跟着新的糖水路线走？</li><li>用纸巾擦掉一段原来的路线，蚂蚁会怎么做？</li></ol>
-<p><strong>引导问题</strong>：蚂蚁是用眼睛找路还是用鼻子找路？</p>
-<hr>
-<h3>第4课｜四季为什么会变化？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解地球公转导致四季变化</li><li>认识春夏秋冬的特征</li><li>能将季节与生活现象联系起来</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>地球像一个陀螺，一边自转，一边绕着太阳转（公转）。地球是<strong>斜着</strong>的，所以转到不同位置时，太阳照射到的角度不同，就产生了四季！</p>
-<div class="table-wrap"><table><colgroup><col style="width:13.70%"><col style="width:20.55%"><col style="width:27.40%"><col style="width:38.36%"></colgroup><thead><tr><th><p><strong>季节</strong></p></th><th><p><strong>天气特点</strong></p></th><th><p><strong>大自然的变化</strong></p></th><th><p><strong>我们的生活</strong></p></th></tr></thead><tbody><tr><td><p>🌸 春天</p></td><td><p>温暖，雨水多</p></td><td><p>花开、小草发芽、燕子回来</p></td><td><p>穿薄外套，春游</p></td></tr><tr><td><p>☀️ 夏天</p></td><td><p>炎热，雷雨多</p></td><td><p>知了叫、荷花开</p></td><td><p>穿短袖，吃冰淇淋</p></td></tr><tr><td><p>🍂 秋天</p></td><td><p>凉爽，干燥</p></td><td><p>叶子变黄落下、果实成熟</p></td><td><p>穿长袖，收获节日</p></td></tr><tr><td><p>❄️ 冬天</p></td><td><p>寒冷，可能下雪</p></td><td><p>树叶落光、动物冬眠</p></td><td><p>穿厚棉袄，堆雪人</p></td></tr></tbody></table></div>
-<h4>🧪 动手活动：四季树绘画</h4>
-<p>用4张纸画出同一棵树在四个季节的样子，比较它们的不同，然后贴在一起成为"四季对比图"。</p>
-<hr>
-<h3>第5课｜动物的睡眠——谁在冬眠？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解冬眠的概念和原因</li><li>认识常见的冬眠动物</li><li>理解动物与环境的适应关系</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>冬天食物少、天气冷，一些动物选择<strong>睡大觉</strong>来节省能量，等到春天暖和了再醒来，这就叫<strong>冬眠</strong>！</p>
-<div class="grid grid-2"><div class="grid-col"><p><strong>会冬眠的动物 😴</strong></p>
-<ul><li>🐻 熊（睡3~5个月）</li><li>🐸 青蛙（钻进泥土里）</li><li>🐍 蛇（成群盘在石缝里）</li><li>🦔 刺猬</li><li>🦇 蝙蝠</li></ul></div><div class="grid-col"><p><strong>不冬眠的动物 🏃</strong></p>
-<ul><li>🐧 企鹅（抱团取暖）</li><li>🐿️ 松鼠（提前存粮食）</li><li>🐦 候鸟（飞去温暖的地方）</li><li>🐺 狼（厚毛抵御寒冬）</li><li>🐟 鱼（在水下活动）</li></ul></div></div>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">💡</div><div class="callout-body"><p><strong>小知识</strong>：熊在冬眠期间心跳会从每分钟40次降到8次，体温也会下降，但它们偶尔会醒来一下再继续睡！</p></div></div>
-<hr>
-<h2>❤️ 模块二：身体与健康</h2>
-<div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🏥</div><div class="callout-body"><p><strong>模块简介</strong>：认识自己的身体，了解各器官的功能，养成健康的生活习惯，学会保护自己的身体。</p></div></div>
-<hr>
-<h3>第6课｜我们的心脏在"扑通扑通"做什么？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>知道心脏的位置和功能</li><li>了解心跳与运动的关系</li><li>认识血液循环的简单概念</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>小明跑完步后，把手放在胸口，感觉"扑通扑通"跳得很快……这是什么？它为什么要一直跳？</blockquote>
-<p><strong>老师动作</strong>：请全体同学把手放在自己的左胸口，感受心跳！</p>
-<h4>🔬 核心知识点</h4>
-<p>心脏就像一个<strong>"小水泵"</strong>，24小时不停地工作，把血液泵到全身每个角落，让血液带着氧气和营养送到每个细胞，同时把废物带走。</p>
-<div class="table-wrap"><table><colgroup><col style="width:27.40%"><col style="width:72.60%"></colgroup><thead><tr><th><p><strong>事实</strong></p></th><th><p><strong>说明</strong></p></th></tr></thead><tbody><tr><td><p>心脏大小</p></td><td><p>大概和你握紧的拳头一样大</p></td></tr><tr><td><p>心跳速度</p></td><td><p>安静时每分钟约70~90次；运动后会加快</p></td></tr><tr><td><p>一生心跳次数</p></td><td><p>约25亿次，从不休假！</p></td></tr><tr><td><p>血液的颜色</p></td><td><p>含氧时是鲜红色，失去氧时是暗红色</p></td></tr></tbody></table></div>
-<h4>🧪 动手实验：测量心跳</h4>
-<div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">❤️</div><div class="callout-body"><p><strong>实验名称</strong>：运动前后的心跳对比<br><strong>所需材料</strong>：秒表（或手机计时器）、记录纸</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li><strong>安静状态</strong>：坐下来休息2分钟，用手指轻按手腕内侧（大拇指侧），感受脉搏，计数30秒内跳了多少次，乘以2得到每分钟心跳数</li><li><strong>运动后</strong>：原地跳30次，立即再测30秒脉搏</li><li><strong>休息后</strong>：等待2分钟，再测一次</li></ol>
-<p><strong>记录表</strong>：</p>
-<div class="table-wrap"><table><colgroup><col style="width:33.33%"><col style="width:33.33%"><col style="width:33.33%"></colgroup><thead><tr><th><p>状态</p></th><th><p>30秒脉搏次数</p></th><th><p>每分钟心跳</p></th></tr></thead><tbody><tr><td><p>安静时</p></td><td></td><td></td></tr><tr><td><p>运动后</p></td><td></td><td></td></tr><tr><td><p>休息2分钟后</p></td><td></td><td></td></tr></tbody></table></div>
-<p><strong>引导问题</strong>：为什么运动后心跳会加快？心脏是在偷懒还是在更努力地工作？</p>
-<hr>
-<h3>第7课｜食物去哪里了？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解消化系统的基本组成</li><li>知道食物在体内的旅行路线</li><li>养成细嚼慢咽的好习惯</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>小红吃了一个苹果，苹果去哪儿了？它没有变成"苹果便便"，而是变成了我们身体的一部分……这是怎么回事？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>食物在身体里要经历一段奇妙的旅行！<br><strong>食物的旅行路线</strong>：口腔（咀嚼磨碎）→ 食道（滑下去）→ 胃（搅拌分解）→ 小肠（吸收营养）→ 大肠（吸收水分）→ 最后变成废物排出</p>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">💡</div><div class="callout-body"><p><strong>有趣的事实</strong>：</p>
-<ul><li>小肠展开来有<strong>6~7米</strong>长！相当于一个大人身高的4倍</li><li>食物从吃进去到消化完成，大约需要<strong>24~72小时</strong></li><li>胃里有胃酸，酸性很强，能杀死大部分细菌</li></ul></div></div>
-<h4>🧪 动手模拟实验：食物消化旅行</h4>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🍎</div><div class="callout-body"><p><strong>实验名称</strong>：模拟消化过程<br><strong>所需材料</strong>：面包一小片、饼干一块、水、密封袋</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li><strong>模拟口腔</strong>：把面包放进嘴里充分咀嚼（感受牙齿的工作）</li><li><strong>模拟胃</strong>：把一小块饼干放入密封袋，加少量水，用手揉捏搓揉2分钟，观察饼干变成什么样子</li><li><strong>对比</strong>：揉捏前后的饼干有什么不同？</li></ol>
-<p><strong>引导问题</strong>：为什么要细嚼慢咽，而不是直接把食物整个吞下去？</p>
-<hr>
-<h3>第8课｜为什么要刷牙？细菌的秘密</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解龋齿的形成原因</li><li>知道正确的刷牙方法</li><li>养成早晚刷牙的好习惯</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>牙齿小怪兽——细菌，就住在我们的嘴巴里！它们最爱吃糖，吃完糖会产生酸，把牙齿慢慢腐蚀成一个小洞……</blockquote>
-<h4>🔬 核心知识点</h4>
-<div class="grid grid-2"><div class="grid-col"><p><strong>龋齿是怎么形成的</strong></p>
-<ol><li>🍬 吃糖或甜食</li><li>🦠 口腔细菌分解糖，产生酸</li><li>🦷 酸腐蚀牙釉质，形成小洞</li><li>😢 越来越深，变成龋齿（蛀牙）</li></ol></div><div class="grid-col"><p><strong>保护牙齿的方法</strong></p>
-<ul><li>🪥 早晚各刷牙一次，每次2分钟</li><li>🦷 使用含氟牙膏</li><li>🍭 少吃甜食，吃完漱口</li><li>🏥 每半年看一次牙医</li><li>🥛 多喝牛奶，补充钙质</li></ul></div></div>
-<h4>🧪 动手实验：鸡蛋壳与可乐</h4>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🥚</div><div class="callout-body"><p><strong>实验名称</strong>：可乐腐蚀鸡蛋壳实验（模拟龋齿形成）<br><strong>所需材料</strong>：鸡蛋壳两片、可乐、清水、两个小杯子<br><strong>周期</strong>：2~3天</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>将一片鸡蛋壳放入装有可乐的杯子，另一片放入清水杯子</li><li>等待2~3天后取出，用手轻轻捏捏两片鸡蛋壳</li><li>对比两片蛋壳的硬度和颜色</li></ol>
-<p><strong>预期结果</strong>：可乐中的磷酸会让蛋壳变软、变黑，就像酸腐蚀牙齿一样！<br><strong>结论</strong>：牙釉质和蛋壳的成分相似，都怕酸！</p>
-<hr>
-<h3>第9课｜眼睛是怎么看东西的？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解眼睛的基本结构和功能</li><li>知道近视的原因和预防方法</li><li>养成保护眼睛的好习惯</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>眼睛就像一台<strong>照相机</strong>！光线进入眼睛后，经过晶状体（相当于镜头）聚焦，在视网膜（相当于底片）上成像，再由视神经把信息传给大脑。</p>
-<div class="table-wrap"><table><colgroup><col style="width:20.55%"><col style="width:30.14%"><col style="width:49.32%"></colgroup><thead><tr><th><p><strong>眼睛的部位</strong></p></th><th><p><strong>相机对应部件</strong></p></th><th><p><strong>功能</strong></p></th></tr></thead><tbody><tr><td><p>瞳孔</p></td><td><p>光圈</p></td><td><p>控制进光量（强光时缩小，暗处时放大）</p></td></tr><tr><td><p>晶状体</p></td><td><p>镜头</p></td><td><p>聚焦，让图像清晰</p></td></tr><tr><td><p>视网膜</p></td><td><p>底片/感光元件</p></td><td><p>接收图像信息</p></td></tr><tr><td><p>视神经</p></td><td><p>数据线</p></td><td><p>把信号传给大脑</p></td></tr></tbody></table></div>
-<h4>🧪 动手实验：瞳孔大小变化</h4>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>在光线明亮的地方，对着镜子观察自己瞳孔的大小</li><li>用手遮住眼睛30秒（不要用力压眼睛），然后迅速移开手</li><li>快速观察瞳孔的变化</li></ol>
-<p><strong>预期结果</strong>：刚移开手时，瞳孔会很大，然后迅速缩小，这是眼睛在自动调节进光量！</p>
-<div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">👀</div><div class="callout-body"><p><strong>护眼小贴士</strong></p>
-<ul><li>📱 看屏幕20分钟，休息看20英尺（6米）外20秒（20-20-20法则）</li><li>📚 读书时保持30厘米距离</li><li>☀️ 每天户外活动至少1~2小时</li><li>🌙 不在黑暗中看手机</li></ul></div></div>
-<hr>
-<h3>第10课｜为什么我们要睡觉？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解睡眠对身体和大脑的重要性</li><li>知道一年级学生需要的睡眠时长</li><li>养成规律作息的好习惯</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>睡觉不是在"浪费时间"！睡眠期间，大脑在<strong>整理记忆</strong>（把今天学到的东西储存好），身体在<strong>分泌生长激素</strong>（帮助长高），免疫系统在<strong>修复身体</strong>。</p>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">😴</div><div class="callout-body"><p><strong>有趣事实</strong>：</p>
-<ul><li>一年级小朋友每天需要睡<strong>9~11小时</strong>才能长得好、学得好</li><li>睡觉时眼睛会快速转动（叫做快速眼动期），这时候在做梦！</li><li>如果3天不睡觉，人会产生幻觉，变得非常难受</li></ul></div></div>
-<h4>🧪 互动活动：睡眠时间调查</h4>
-<p>制作"我的一周睡眠记录表"，连续记录7天每天的睡眠时间，画成柱状图，看看哪天睡得最多、最少。</p>
-<hr>
-<h2>🌍 模块三：地球与环境</h2>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>模块简介</strong>：认识地球上的自然现象，了解水循环、天气变化，培养爱护地球、保护环境的意识。</p></div></div>
-<hr>
-<h3>第11课｜云是怎么来的？（水循环）</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解水循环的基本过程</li><li>知道云、雨、雪是水的不同形态</li><li>建立地球水资源循环利用的概念</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>水从天上下来，落到地上……然后呢？它消失了吗？还是又悄悄飞回天上去了？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>水循环的四个步骤：</p>
-<ol><li>☀️ <strong>蒸发</strong>：太阳晒暖水，水变成水蒸气飞上天</li><li>☁️ <strong>凝结</strong>：水蒸气遇冷，变成小水滴，聚集成云</li><li>🌧️ <strong>降水</strong>：云里水滴太多太重，就变成雨或雪落下来</li><li>🌊 <strong>汇集</strong>：雨水流入河流、湖泊，或渗入地下，等待再次蒸发</li></ol>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">💧</div><div class="callout-body"><p><strong>神奇的事实</strong>：你今天喝的水，可能曾经是恐龙喝过的水！地球上的水已经循环了几十亿年，几乎没有增加也没有减少。</p></div></div>
-<h4>🧪 动手实验：自制"雨"</h4>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🎁</div><div class="callout-body"><p><strong>实验名称</strong>：玻璃杯里的雨<br><strong>所需材料</strong>：透明玻璃杯、热水（请家长操作）、冷冻过的盘子（或装了冰块的盘子）</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>将热水（60~70℃，由家长操作）倒入玻璃杯，约1/3满</li><li>将冷盘子（或装冰的盘子）放在杯口上方</li><li>等待1~2分钟，观察盘子底部</li></ol>
-<p><strong>预期结果</strong>：盘子底部会聚集小水珠，慢慢变大后滴落，就像下雨一样！这正是水循环的缩小版。</p>
-<hr>
-<h3>第12课｜彩虹是怎么形成的？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解彩虹形成的原理（光的折射和色散）</li><li>认识白光是由七种颜色组成的</li><li>能够自制彩虹</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>下雨后太阳出来，天空出现了彩虹！彩虹是怎么来的？它在哪里？为什么一会儿就消失了？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>阳光看起来是白色的，其实它是由<strong>红、橙、黄、绿、蓝、靛、紫</strong>七种颜色的光混合而成的！当阳光穿过水滴时，不同颜色的光弯曲角度不同（这叫折射），就被分开了，形成彩虹。</p>
-<h4>🧪 动手实验：自制彩虹</h4>
-<div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">🌈</div><div class="callout-body"><p><strong>方法一（室内）</strong>：手电筒 + 水盆</p>
-<ul><li>将手电筒斜射进一盆清水</li><li>在水盆旁边放一张白纸</li><li>调整手电筒角度，在白纸上寻找彩虹</li></ul>
-<p><strong>方法二（户外）</strong>：水管喷水</p>
-<ul><li>背对太阳，用水管喷出细水雾</li><li>在水雾中寻找彩虹的影子</li></ul></div></div>
-<hr>
-<h3>第13课｜地球是圆的，为什么我们不掉下去？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>知道地球是球形的</li><li>了解重力的基本概念</li><li>初步理解"下面"是相对的</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>如果地球是圆的，那住在地球另一面的人，不是头朝下站着吗？他们怎么不掉下去呢？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p><strong>重力</strong>是地球对万物的吸引力，方向永远指向<strong>地球中心</strong>。所以不管你在地球哪个位置，"下面"都是指向地球中心的方向。地球另一面的人并不是头朝下，对他们来说，地球才是"下面"！</p>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🌏</div><div class="callout-body"><p><strong>类比理解</strong>：把苹果想象成地球，在苹果表面贴上几只小蚂蚁，每只蚂蚁的"下面"都朝向苹果中心，没有哪只蚂蚁会掉下去！</p></div></div>
-<h4>🧪 动手活动：重力小实验</h4>
-<ol><li>拿一个球（地球模型）</li><li>把小纸片人贴在球的不同位置（顶部、底部、侧面）</li><li>用箭头画出每个小人"向下"的方向</li><li>发现：所有箭头都指向球心！</li></ol>
-<hr>
-<h3>第14课｜垃圾分类小达人</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解垃圾分类的四种类型</li><li>知道垃圾分类的重要性</li><li>养成垃圾分类的好习惯</li></ul>
-<h4>🔬 核心知识点</h4>
-<div class="table-wrap"><table><colgroup><col style="width:16.44%"><col style="width:21.92%"><col style="width:17.81%"><col style="width:43.84%"></colgroup><thead><tr><th><p><strong>垃圾类型</strong></p></th><th><p><strong>颜色标识</strong></p></th><th><p><strong>代表垃圾</strong></p></th><th><p><strong>处理方式</strong></p></th></tr></thead><tbody><tr><td><p>♻️ 可回收物</p></td><td><p>蓝色桶</p></td><td><p>纸板、塑料瓶、金属罐</p></td><td><p>回收再利用，变成新产品</p></td></tr><tr><td><p>🍎 厨余垃圾</p></td><td><p>绿色桶</p></td><td><p>菜叶、剩饭、果皮</p></td><td><p>堆肥，变成肥料</p></td></tr><tr><td><p>🗑️ 其他垃圾</p></td><td><p>灰色桶</p></td><td><p>纸巾、一次性筷子</p></td><td><p>焚烧或填埋处理</p></td></tr><tr><td><p>☠️ 有害垃圾</p></td><td><p>红色桶</p></td><td><p>电池、药品、灯管</p></td><td><p>特殊处理，防止污染环境</p></td></tr></tbody></table></div>
-<h4>🧪 互动游戏：垃圾分类大挑战</h4>
-<p>准备20张垃圾卡片，孩子们抢答把垃圾投入正确的垃圾桶（可用纸盒代替），答对1个得1分，看谁得分最高！</p>
-<hr>
-<h3>第15课｜为什么会下雷雨？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解雷雨天气的成因</li><li>知道打雷闪电的注意事项</li><li>消除对雷雨的恐惧</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>雷雨形成过程：热空气带着水蒸气上升 → 形成积雨云 → 云中冰晶和水滴摩擦产生电 → 电荷积累到一定程度，放电形成<strong>闪电</strong> → 闪电加热空气迅速膨胀，发出<strong>雷声</strong></p>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">⚡</div><div class="callout-body"><p><strong>安全小贴士（雷雨天）</strong></p>
-<ul><li>🏠 待在室内，远离窗户</li><li>🌳 不在大树下避雨</li><li>📱 减少使用有线电话</li><li>🏊 不在雨天游泳、玩水</li><li>🚴 不骑自行车</li></ul></div></div>
-<p><strong>为什么先看到闪电再听到雷声？</strong>因为光速（30万千米/秒）远比声速（约340米/秒）快！光瞬间就到了，声音要慢慢传过来。</p>
-<hr>
-<h2>⚡ 模块四：物理与能量</h2>
-<div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🔭</div><div class="callout-body"><p><strong>模块简介</strong>：通过有趣的物理现象和小实验，让孩子感受磁力、光、声音、空气等神奇的物理世界，建立基础科学思维。</p></div></div>
-<hr>
-<h3>第16课｜磁铁有魔法吗？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解磁铁的基本性质</li><li>认识磁极（N极和S极）</li><li>知道哪些物体能被磁铁吸引</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>神奇的磁铁，不用碰就能抓住铁钉！它是有魔法吗？磁铁能吸住什么？不能吸住什么？</blockquote>
-<h4>🔬 核心知识点</h4>
-<div class="grid grid-2"><div class="grid-col"><p><strong>磁铁的特点</strong></p>
-<ul><li>🧲 能吸引含铁、镍、钴的物体</li><li>🔴🔵 有N极（北极）和S极（南极）</li><li>同极相斥，异极相吸</li><li>磁力可以穿过纸张、塑料、水</li></ul></div><div class="grid-col"><p><strong>生活中的磁铁</strong></p>
-<ul><li>🚂 磁悬浮列车</li><li>🔊 音箱里的扬声器</li><li>🚪 冰箱门的密封条</li><li>💳 银行卡的磁条</li><li>🧭 指南针（地磁）</li></ul></div></div>
-<h4>🧪 动手实验：磁铁大搜索</h4>
-<div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🎁</div><div class="callout-body"><p><strong>实验名称</strong>：哪些东西能被磁铁吸住？<br><strong>所需材料</strong>：磁铁一块、家中各种小物品（硬币、纸、橡皮、铁钉、铝箔、木块等）</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>收集10~15种小物品</li><li>逐一用磁铁靠近，预测：能吸住吗？</li><li>实际测试，记录结果</li></ol>
-<p><strong>记录表</strong>：</p>
-<div class="table-wrap"><table><colgroup><col style="width:25.00%"><col style="width:25.00%"><col style="width:25.00%"><col style="width:25.00%"></colgroup><thead><tr><th><p>物品</p></th><th><p>我的预测</p></th><th><p>实际结果</p></th><th><p>材质</p></th></tr></thead><tbody><tr><td><p>铁钉</p></td><td><p>能</p></td><td><p>能</p></td><td><p>铁</p></td></tr><tr><td><p>硬币</p></td><td><p>能</p></td><td><p>不一定</p></td><td><p>不锈钢/铜</p></td></tr><tr><td><p>铝箔</p></td><td><p>能</p></td><td><p>不能</p></td><td><p>铝</p></td></tr><tr><td><p>橡皮</p></td><td><p>不能</p></td><td><p>不能</p></td><td><p>橡胶</p></td></tr></tbody></table></div>
-<p><strong>结论</strong>：磁铁只能吸含铁的金属，不能吸所有金属！</p>
-<hr>
-<h3>第17课｜影子会变大变小——光与影</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解影子的形成原理</li><li>知道影子大小与光源角度的关系</li><li>能通过影子判断时间（日晷原理）</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>小明发现，早晨他的影子很长，中午影子变很短，下午又变长了……影子为什么会变呢？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>光沿直线传播，遇到不透明物体无法穿过时，就在背光面形成<strong>影子</strong>。</p>
-<ul><li>光源<strong>越近</strong>，影子<strong>越大</strong></li><li>光从<strong>侧面</strong>照，影子<strong>越长</strong></li><li>光从<strong>正上方</strong>照，影子<strong>最短</strong></li><li>太阳位置随时间变化，所以影子方向和长短也在变化</li></ul>
-<h4>🧪 动手实验：手影游戏</h4>
-<p>在晚上用手电筒打在墙上，用双手做各种手影造型：鸭子、兔子、狗、蝴蝶……越远离墙壁，影子越大！</p>
-<h4>🌞 户外实验：影子时钟</h4>
-<ol><li>在晴天，在地上插一根小棍（或用水彩笔直立）</li><li>每隔1小时，用粉笔画下影子的位置和方向</li><li>下午比较早晨的影子：方向和长短有什么不同？</li></ol>
-<hr>
-<h3>第18课｜为什么气球会飞？（空气与浮力）</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解空气有重量（空气是物质）</li><li>了解氦气比空气轻的原理</li><li>初步了解浮力概念</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>充了氦气的气球会飞，充了嘴巴吹的气的气球不会飞……同样是气球，为什么差别这么大？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p><strong>氦气</strong>（He）是一种密度比空气小得多的气体，充入气球后，气球整体比同体积的空气轻，于是被空气"托着"飞上去——这就是<strong>浮力</strong>！<br>用嘴吹进的是二氧化碳和空气的混合气体，比氦气重，所以飞不起来。</p>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">💨</div><div class="callout-body"><p><strong>类比理解</strong>：在水中，木头（比水轻）会浮，铁球（比水重）会沉。在空气中，氦气气球（比空气轻）会"浮"上去！</p></div></div>
-<h4>🧪 动手实验：气球火箭</h4>
-<div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">🎈</div><div class="callout-body"><p><strong>实验名称</strong>：气球沿绳子飞行<br><strong>所需材料</strong>：气球、细线（约3米）、吸管、胶带</p></div></div>
-<p><strong>实验步骤</strong>：</p>
-<ol><li>将细线穿过吸管，拉紧固定在两端（如两把椅子之间）</li><li>吹大气球，捏紧口部（先不要打结）</li><li>用胶带把吹大的气球（捏紧口部）贴在吸管上</li><li>松开气球口——气球会沿着绳子飞出去！</li></ol>
-<p><strong>原理</strong>：气球里的气体往后喷出，气球就向前飞（牛顿第三定律：作用力与反作用力）——和火箭的原理一样！</p>
-<hr>
-<h3>第19课｜声音是怎么传播的？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解声音是由振动产生的</li><li>知道声音需要介质传播</li><li>了解不同材料传声效果不同</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>当你在游泳池里把耳朵放到水下，还能听到岸上的声音吗？声音能在水里传播吗？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>声音是<strong>物体振动</strong>产生的，需要通过<strong>介质</strong>（固体、液体或气体）传播，无法在真空中传播。</p>
-<div class="table-wrap"><table><colgroup><col style="width:33.33%"><col style="width:33.33%"><col style="width:33.33%"></colgroup><thead><tr><th><p>传播介质</p></th><th><p>传播速度</p></th><th><p>例子</p></th></tr></thead><tbody><tr><td><p>固体</p></td><td><p>最快</p></td><td><p>贴耳朵在桌上能听到敲击声</p></td></tr><tr><td><p>液体</p></td><td><p>较快</p></td><td><p>水下能听到声音</p></td></tr><tr><td><p>气体</p></td><td><p>较慢</p></td><td><p>空气中的声音传播</p></td></tr><tr><td><p>真空</p></td><td><p>不能传播</p></td><td><p>太空中没有声音</p></td></tr></tbody></table></div>
-<h4>🧪 动手实验一：土电话</h4>
-<div class="callout" style="background:#fff1e6;border-left-color:#ff8a3d;"><div class="callout-emoji">📞</div><div class="callout-body"><p><strong>所需材料</strong>：两个纸杯、细线约3~5米、牙签</p></div></div>
-<p><strong>制作步骤</strong>：</p>
-<ol><li>在两个纸杯底部各扎一个小孔</li><li>将细线穿过两个小孔，用牙签在杯内打结固定</li><li>拉紧细线，一人对杯子说话，另一人把杯子贴耳朵听</li></ol>
-<p><strong>结论</strong>：声音通过固体（细线）传播！线越绷直，效果越好！</p>
-<h4>🧪 动手实验二：振动可视化</h4>
-<p>将纸片放在蓝牙音箱上，播放音乐，观察纸片有什么变化——纸片会随音乐振动！</p>
-<hr>
-<h3>第20课｜为什么铁会生锈？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解铁生锈的原因（氧化反应）</li><li>知道防止生锈的方法</li><li>了解化学变化与物理变化的区别</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>铁生锈是铁与空气中的<strong>氧气</strong>和<strong>水</strong>发生化学反应，生成<strong>氧化铁</strong>（铁锈）的过程。这是一种化学变化，生锈后的铁很难变回原来的铁。</p>
-<div class="grid grid-2"><div class="grid-col"><p><strong>容易生锈的条件</strong></p>
-<ul><li>💧 潮湿的环境</li><li>🌊 接触盐水（加速生锈）</li><li>🔓 铁的表面有划痕暴露</li></ul></div><div class="grid-col"><p><strong>防锈方法</strong></p>
-<ul><li>🎨 涂油漆或防锈漆</li><li>🔩 镀锌（镀上一层锌）</li><li>💧 保持干燥</li><li>🛢️ 涂油（如自行车链条）</li></ul></div></div>
-<h4>🧪 对比实验：哪颗铁钉先生锈？</h4>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🔩</div><div class="callout-body"><p><strong>实验材料</strong>：铁钉4颗、4个玻璃杯、水、食盐<br><strong>分组</strong>：① 干燥空气中；② 清水中；③ 盐水中；④ 干燥密封中<br><strong>观察周期</strong>：1周</p></div></div>
-<p><strong>预期结论</strong>：盐水中的铁钉生锈最快，密封干燥中的最慢，验证了水和氧气都是生锈的必要条件。</p>
-<hr>
-<h2>🤖 模块五：科技与生活</h2>
-<div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">💻</div><div class="callout-body"><p><strong>模块简介</strong>：认识身边的科技产品，了解它们的工作原理，思考科技如何让生活变得更便利，培养对科技的兴趣和正确使用态度。</p></div></div>
-<hr>
-<h3>第21课｜我们身边的机器人</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解什么是机器人</li><li>认识不同种类的机器人及其用途</li><li>思考机器人与人类的关系</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>机器人不只是电影里的大铁块！你家里可能就有一个机器人……它每天在地板上转来转去，帮你打扫卫生，叫什么名字？（扫地机器人）</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>机器人=<strong>感知（传感器）+ 思考（程序/AI）+ 行动（执行器）</strong>。它们不需要休息，能在危险环境工作，或者做重复性很强的工作。</p>
-<div class="table-wrap"><table><colgroup><col style="width:24.66%"><col style="width:27.40%"><col style="width:47.95%"></colgroup><thead><tr><th><p><strong>机器人类型</strong></p></th><th><p><strong>代表产品</strong></p></th><th><p><strong>主要用途</strong></p></th></tr></thead><tbody><tr><td><p>🏠 家用机器人</p></td><td><p>扫地机器人</p></td><td><p>自动清扫地板，避开障碍物</p></td></tr><tr><td><p>🏭 工业机器人</p></td><td><p>汽车焊接机械臂</p></td><td><p>在工厂里精准焊接、搬运</p></td></tr><tr><td><p>🏥 医疗机器人</p></td><td><p>达芬奇手术机器人</p></td><td><p>辅助医生做精细手术</p></td></tr><tr><td><p>🚀 探索机器人</p></td><td><p>火星探测车</p></td><td><p>在人类无法到达的地方探索</p></td></tr><tr><td><p>🎮 教育机器人</p></td><td><p>编程积木机器人</p></td><td><p>帮助孩子学习编程和科学</p></td></tr></tbody></table></div>
-<h4>🧪 动手活动：设计你的机器人</h4>
-<p>让孩子在纸上画出"我梦想中的机器人"，并说明它能做什么、长什么样。</p>
-<hr>
-<h3>第22课｜手机里住着什么？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解智能手机的基本组成</li><li>知道手机如何传送信息</li><li>建立正确的手机使用观念</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>手机是一台小型电脑，里面住着很多"小精灵"：</p>
-<ul><li>📷 <strong>摄像头</strong>：捕捉图像和视频</li><li>📡 <strong>天线</strong>：发送和接收无线信号</li><li>🔋 <strong>电池</strong>：提供能量</li><li>💾 <strong>芯片（CPU）</strong>：大脑，负责计算处理</li><li>📱 <strong>触摸屏</strong>：感知手指触摸的位置</li></ul>
-<div class="callout" style="background:#f2e9fc;border-left-color:#9b6fd1;"><div class="callout-emoji">📱</div><div class="callout-body"><p><strong>信息如何传送</strong>：你发出的消息，变成电信号，通过无线电波飞到附近的基站，再通过光纤网络传到对方的手机，整个过程不到1秒！</p></div></div>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🎁</div><div class="callout-body"><p><strong>正确使用手机</strong></p>
-<ul><li>📱 每天使用屏幕时间不超过1小时</li><li>👀 看屏幕时保持距离，注意眼睛</li><li>🙅 不在吃饭、睡前玩手机</li><li>👨‍👩‍👧 不接受陌生人的请求</li></ul></div></div>
-<hr>
-<h3>第23课｜汽车靠什么动起来？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解汽车的基本动力原理</li><li>认识传统燃油车和新能源车的区别</li><li>了解汽车对环境的影响</li></ul>
-<h4>🔬 核心知识点</h4>
-<div class="grid grid-2"><div class="grid-col"><p><strong>燃油汽车</strong></p>
-<ul><li>⛽ 燃烧汽油/柴油产生热能</li><li>🔥 热能推动活塞运动</li><li>⚙️ 活塞带动车轮转动</li><li>💨 排出废气（含CO₂）</li></ul></div><div class="grid-col"><p><strong>电动汽车</strong></p>
-<ul><li>🔋 电池储存电能</li><li>⚡ 电能驱动电动机</li><li>🔄 电动机带动车轮</li><li>🌱 零尾气排放，更环保</li></ul></div></div>
-<div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">🚗</div><div class="callout-body"><p><strong>有趣的事实</strong>：世界上第一辆汽车诞生于1885年，时速只有16千米，比现在的自行车还慢！而现在最快的电动汽车时速能超过300千米。</p></div></div>
-<hr>
-<h3>第24课｜飞机为什么能飞上天？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解飞机飞行的基本原理（升力）</li><li>认识飞机的主要部件</li><li>激发对航空航天的兴趣</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>飞机那么重，里面还坐着几百个人，为什么不会掉下来呢？</blockquote>
-<h4>🔬 核心知识点</h4>
-<p>飞机靠<strong>机翼的形状</strong>产生升力：机翼上方弯曲，下方较平，空气在上方流速更快，产生的压力更小，形成压力差，把机翼（和整架飞机）往上托——这就是<strong>伯努利原理</strong>！<br><strong>飞机的主要部件</strong>：</p>
-<ul><li>✈️ 机翼：产生升力</li><li>🔧 发动机：产生前进的推力</li><li>🛞 机尾方向舵：控制左右转向</li><li>📡 起落架：起飞和降落时使用</li></ul>
-<h4>🧪 动手活动：纸飞机科学大赛</h4>
-<p>制作3种不同形状的纸飞机，分别测试飞行距离和时间，探索哪种设计飞得最远。</p>
-<hr>
-<h3>第25课｜光伏板——太阳能是怎么变成电的？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解太阳能发电的基本原理</li><li>认识可再生能源的重要性</li><li>培养节能环保意识</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>太阳能电池板由<strong>硅</strong>制成的光伏电池组成。当阳光照射在上面时，光子（光的粒子）撞击硅原子，把电子"撞出来"，形成电流——这就是<strong>光伏效应</strong>！</p>
-<div class="table-wrap"><table><colgroup><col style="width:27.40%"><col style="width:72.60%"></colgroup><thead><tr><th><p><strong>可再生能源</strong></p></th><th><p><strong>特点</strong></p></th></tr></thead><tbody><tr><td><p>☀️ 太阳能</p></td><td><p>取之不尽，零污染，可用于发电和加热</p></td></tr><tr><td><p>💨 风能</p></td><td><p>风车带动发电机，沿海和山区效果好</p></td></tr><tr><td><p>💧 水能</p></td><td><p>水流推动水轮机，三峡大坝就是水电站</p></td></tr><tr><td><p>🌿 生物质能</p></td><td><p>利用植物、农业废料等生物材料产生能量</p></td></tr></tbody></table></div>
-<div class="callout" style="background:#e9f9ee;border-left-color:#4caf50;"><div class="callout-emoji">💡</div><div class="callout-body"><p><strong>我们能做什么</strong>：随手关灯、少用空调、减少使用一次性塑料，每个人的小行动，合在一起就是保护地球的大力量！</p></div></div>
-<hr>
-<h2>🌌 模块六：宇宙与太空</h2>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>模块简介</strong>：带领孩子仰望星空，认识太阳系和宇宙天体，了解宇航员的生活，开启对太空探索的无限向往！</p></div></div>
-<hr>
-<h3>第26课｜太阳、地球、月亮是好朋友</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解太阳、地球、月亮的关系</li><li>知道地球绕太阳公转，月亮绕地球公转</li><li>了解月相变化的原因</li></ul>
-<h4>🔬 核心知识点</h4>
-<div class="table-wrap"><table><colgroup><col style="width:13.70%"><col style="width:27.40%"><col style="width:27.40%"><col style="width:31.51%"></colgroup><thead><tr><th><p><strong>天体</strong></p></th><th><p><strong>大小（直径）</strong></p></th><th><p><strong>特点</strong></p></th><th><p><strong>趣味事实</strong></p></th></tr></thead><tbody><tr><td><p>☀️ 太阳</p></td><td><p>约140万千米</p></td><td><p>能自己发光发热的恒星</p></td><td><p>太阳能装下130万个地球</p></td></tr><tr><td><p>🌍 地球</p></td><td><p>约12,800千米</p></td><td><p>绕太阳公转，365天一圈</p></td><td><p>是目前已知唯一有生命的星球</p></td></tr><tr><td><p>🌕 月亮</p></td><td><p>约3,500千米</p></td><td><p>绕地球公转，约30天一圈</p></td><td><p>月亮本身不发光，反射太阳光</p></td></tr></tbody></table></div>
-<h4>🧪 动手模型：太阳系三球仪</h4>
-<p>用大球（太阳）、中球（地球）、小球（月亮）模拟三者关系，分角色扮演：</p>
-<ul><li>大同学扮演太阳（站着不动）</li><li>中同学扮演地球（绕太阳转）</li><li>小同学扮演月亮（绕地球转，同时跟着地球绕太阳转）</li></ul>
-<hr>
-<h3>第27课｜为什么白天有太阳、晚上有星星？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解地球自转导致昼夜交替</li><li>知道星星白天也在，只是看不到</li><li>了解为什么不同季节星星不同</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>地球每24小时自转一圈，面向太阳的一面是<strong>白天</strong>，背对太阳的是<strong>夜晚</strong>。白天太阳太亮，其他星星的光被淹没了，所以我们看不到——但它们其实还在！</p>
-<div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">⭐</div><div class="callout-body"><p><strong>星星小知识</strong>：</p>
-<ul><li>晴天夜晚肉眼能看到约<strong>3000颗</strong>星星</li><li>银河系约有<strong>2000亿</strong>颗星</li><li>距离地球最近的恒星（比邻星）距离我们约<strong>4.2光年</strong></li><li>我们看到的星光，是它们几年甚至几百年前发出的！</li></ul></div></div>
-<h4>🧪 动手活动：星座卡片制作</h4>
-<p>用黑纸和牙签扎出星座图案（小熊座、大熊座、猎户座），对着灯光一照，就是一张漂亮的星座灯片！</p>
-<hr>
-<h3>第28课｜宇航员在太空怎么生活？</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解太空环境的特殊性（失重、真空、辐射）</li><li>知道宇航员在空间站的日常生活</li><li>激发对太空探索的兴趣</li></ul>
-<h4>📖 故事引入（3分钟）</h4>
-<blockquote>宇航员在太空如何睡觉？早饭吃什么？怎么洗澡？……太空生活竟然这么奇特！</blockquote>
-<h4>🔬 核心知识点</h4>
-<div class="table-wrap"><table><colgroup><col style="width:20.55%"><col style="width:34.25%"><col style="width:45.21%"></colgroup><thead><tr><th><p><strong>生活场景</strong></p></th><th><p><strong>地球上</strong></p></th><th><p><strong>太空中</strong></p></th></tr></thead><tbody><tr><td><p>😴 睡觉</p></td><td><p>躺在床上</p></td><td><p>钻进睡眠袋，固定在墙上，防止漂走</p></td></tr><tr><td><p>🍽️ 吃饭</p></td><td><p>坐在餐桌前</p></td><td><p>吃特制食品，食物和餐具都要固定，水是球形漂浮的</p></td></tr><tr><td><p>🚿 洗澡</p></td><td><p>淋浴</p></td><td><p>用湿毛巾擦拭，无法普通淋浴</p></td></tr><tr><td><p>🏋️ 运动</p></td><td><p>自由活动</p></td><td><p>每天必须锻炼2小时，防止肌肉萎缩</p></td></tr></tbody></table></div>
-<hr>
-<h3>第29课｜太阳系的八大行星</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>认识太阳系的八大行星</li><li>了解各行星的基本特点</li><li>能按照距离太阳的顺序排列行星</li></ul>
-<h4>🔬 核心知识点</h4>
-<p><strong>记忆口诀</strong>：水金地火，木土天海（按距离太阳由近到远）</p>
-<div class="table-wrap"><table><colgroup><col style="width:10.96%"><col style="width:13.70%"><col style="width:27.40%"><col style="width:47.95%"></colgroup><thead><tr><th><p><strong>顺序</strong></p></th><th><p><strong>行星</strong></p></th><th><p><strong>特点</strong></p></th><th><p><strong>有趣的事实</strong></p></th></tr></thead><tbody><tr><td><p>1</p></td><td><p>水星</p></td><td><p>最小，离太阳最近</p></td><td><p>白天400℃，晚上-180℃，温差超大</p></td></tr><tr><td><p>2</p></td><td><p>金星</p></td><td><p>最亮，有浓密大气层</p></td><td><p>表面温度高达460℃，比水星还热</p></td></tr><tr><td><p>3</p></td><td><p>地球 🌍</p></td><td><p>唯一有已知生命的行星</p></td><td><p>70%被水覆盖，从太空看是蓝色星球</p></td></tr><tr><td><p>4</p></td><td><p>火星</p></td><td><p>红色行星</p></td><td><p>有人类已发射多个探测器，未来可能移民</p></td></tr><tr><td><p>5</p></td><td><p>木星</p></td><td><p>最大行星</p></td><td><p>有大红斑（持续300年的大风暴），79个卫星</p></td></tr><tr><td><p>6</p></td><td><p>土星</p></td><td><p>有美丽的光环</p></td><td><p>密度比水还小，能浮在水上！</p></td></tr><tr><td><p>7</p></td><td><p>天王星</p></td><td><p>蓝绿色，躺着转</p></td><td><p>自转轴几乎水平，像一个滚动的球</p></td></tr><tr><td><p>8</p></td><td><p>海王星</p></td><td><p>离太阳最远的行星</p></td><td><p>风速高达2100千米/时，太阳系最快的风</p></td></tr></tbody></table></div>
-<h3>第30课｜中国的太空梦——天宫空间站</h3>
-<h4>🎯 教学目标</h4>
-<ul><li>了解中国空间站的基本情况</li><li>认识中国航天的重要成就</li><li>激发爱国热情和航天梦想</li></ul>
-<h4>🔬 核心知识点</h4>
-<p>中国天宫空间站是中国独立建造的空间站，由<strong>天和核心舱</strong>、<strong>问天实验舱</strong>、<strong>梦天实验舱</strong>组成，呈T字形。</p>
-<div class="callout" style="background:#fdeaea;border-left-color:#e05252;"><div class="callout-emoji">🚀</div><div class="callout-body"><p><strong>中国航天里程碑</strong></p>
-<ul><li>🛰️ 1970年：东方红一号卫星成功发射，中国成为第5个能发射卫星的国家</li><li>👨‍🚀 2003年：杨利伟成为中国第一位宇航员，搭乘神舟五号进入太空</li><li>🌙 2019年：嫦娥四号实现人类首次月球背面软着陆</li><li>🔭 2021年：天问一号祝融号火星车成功登陆火星</li><li>🏠 2022年：天宫空间站完成建造，中国航天员长期驻守太空</li></ul></div></div>
-<h4>🧪 互动活动：我的太空梦</h4>
-<p>让孩子画出或写出：<strong>"如果我是宇航员，我最想在太空做一件什么事？"</strong>——分享梦想，激励彼此。</p>
-<hr>
-<h2>📊 教学评估体系</h2>
-<div class="callout" style="background:#fff8e1;border-left-color:#f5a623;"><div class="callout-emoji">🏅</div><div class="callout-body"><p><strong>评估理念</strong>：一年级评估以<strong>激励为主，观察为辅</strong>，重点在于发现孩子的闪光点和兴趣点，而非考核知识点掌握程度。</p></div></div>
-<hr>
-<h3>过程性评估（日常记录）</h3>
-<div class="table-wrap"><table><colgroup><col style="width:20.55%"><col style="width:27.40%"><col style="width:52.05%"></colgroup><thead><tr><th><p><strong>评估维度</strong></p></th><th><p><strong>评估方式</strong></p></th><th><p><strong>具体描述</strong></p></th></tr></thead><tbody><tr><td><p>🙋 课堂参与度</p></td><td><p>观察记录</p></td><td><p>是否积极举手、大胆猜测、专注听讲</p></td></tr><tr><td><p>🔬 实验操作</p></td><td><p>观察+拍照记录</p></td><td><p>能否按步骤操作、观察现象、说出发现</p></td></tr><tr><td><p>✏️ 科学日记</p></td><td><p>作品收集</p></td><td><p>是否坚持记录，画面是否反映真实观察</p></td></tr><tr><td><p>🤝 合作能力</p></td><td><p>小组活动观察</p></td><td><p>能否与同学分工合作，分享发现</p></td></tr><tr><td><p>❓ 提问质量</p></td><td><p>记录学生问题</p></td><td><p>是否能提出有创意的"为什么"问题</p></td></tr></tbody></table></div>
-<hr>
-<h3>🏅 科学家徽章体系</h3>
-<p>每完成一个模块，获得对应的科学家徽章：</p>
-<div class="grid grid-3"><div class="grid-col"><p>🌿 <strong>自然探索家</strong>完成模块一（5节课全部完成）</p></div><div class="grid-col"><p>❤️ <strong>健康小卫士</strong>完成模块二（5节课全部完成）</p></div><div class="grid-col"><p>🌍 <strong>地球小守护者</strong>完成模块三（5节课全部完成）</p></div></div>
-<div class="grid grid-3"><div class="grid-col"><p>⚡ <strong>物理小达人</strong>完成模块四（5节课全部完成）</p></div><div class="grid-col"><p>🤖 <strong>科技小创客</strong>完成模块五（5节课全部完成）</p></div><div class="grid-col"><p>🌌 <strong>太空小航员</strong>完成模块六（5节课全部完成）</p></div></div>
-<p>集齐全部6枚徽章，获得：<strong>🔬 超级科学家</strong>荣誉称号！</p>
-<hr>
-<h3>期末展示活动建议</h3>
-<div class="table-wrap"><table><colgroup><col style="width:24.66%"><col style="width:24.66%"><col style="width:50.68%"></colgroup><thead><tr><th><p><strong>活动名称</strong></p></th><th><p><strong>形式</strong></p></th><th><p><strong>说明</strong></p></th></tr></thead><tbody><tr><td><p>🎤 科学分享会</p></td><td><p>个人展示</p></td><td><p>每个孩子分享本学期最喜欢的一个科学发现（1~2分钟）</p></td></tr><tr><td><p>🧪 小实验展览</p></td><td><p>小组展览</p></td><td><p>选一个实验重新演示，向家长和同学展示</p></td></tr><tr><td><p>📔 科学日记展</p></td><td><p>作品展览</p></td><td><p>展示孩子全年的科学日记，配上语音讲解</p></td></tr><tr><td><p>🎨 科学画作展</p></td><td><p>画作展览</p></td><td><p>展示孩子在课堂上创作的科学主题画作</p></td></tr></tbody></table></div>
-<hr>
-<h2>📅 全年课程安排（参考）</h2>
-<div class="table-wrap"><table><colgroup><col style="width:8.22%"><col style="width:10.96%"><col style="width:21.92%"><col style="width:27.40%"><col style="width:31.51%"></colgroup><thead><tr><th><p><strong>周次</strong></p></th><th><p><strong>模块</strong></p></th><th><p><strong>课程主题</strong></p></th><th><p><strong>推荐节气/时机</strong></p></th><th><p><strong>亲子作业</strong></p></th></tr></thead><tbody><tr><td><p>第1周</p></td><td><p>模块一</p></td><td><p>植物是怎么喝水的</p></td><td><p>开学第一课</p></td><td><p>彩色芹菜实验（带回家）</p></td></tr><tr><td><p>第3周</p></td><td><p>模块一</p></td><td><p>种一颗豆子</p></td><td><p>春分前后</p></td><td><p>豆子发芽观察日记</p></td></tr><tr><td><p>第5周</p></td><td><p>模块二</p></td><td><p>心脏在做什么</p></td><td><p>运动会前</p></td><td><p>测量家人的心跳</p></td></tr><tr><td><p>第8周</p></td><td><p>模块三</p></td><td><p>云和水循环</p></td><td><p>梅雨季节</p></td><td><p>制作小雨实验</p></td></tr><tr><td><p>第12周</p></td><td><p>模块四</p></td><td><p>磁铁的秘密</p></td><td><p>任意时间</p></td><td><p>家中磁铁大搜索</p></td></tr><tr><td><p>第16周</p></td><td><p>模块五</p></td><td><p>汽车和飞机</p></td><td><p>出行前</p></td><td><p>纸飞机大赛</p></td></tr><tr><td><p>第20周</p></td><td><p>模块六</p></td><td><p>太阳系大探索</p></td><td><p>夏季晴夜观星</p></td><td><p>夜晚观星打卡</p></td></tr></tbody></table></div>
-<h2>📖 附录：推荐资源清单</h2>
-<h3>推荐绘本</h3>
-<ul><li>《神奇校车》系列（美 乔安娜·科尔）</li><li>《DK儿童百科全书》（DK出版社）</li><li>《我的第一本科学漫画书》系列</li><li>《达芬奇的猫》（科学家故事）</li></ul>
-<h3>推荐视频资源</h3>
-<ul><li>📺 BBC《地球脉动》（儿童版）</li><li>📺 《奇妙的地球》——优酷/爱奇艺</li><li>📺 《神奇的动物》——哔哩哔哩</li><li>📺 中国航天局官方科普视频</li></ul>
-<h3>推荐App/小程序</h3>
-<ul><li>星图（夜晚识别星星）</li><li>形色（拍花识别植物）</li><li>中国国家地理小程序</li></ul>
-<hr>
-<div class="callout" style="background:#e8f2ff;border-left-color:#4a90e2;"><div class="callout-emoji">🌟</div><div class="callout-body"><p><strong>写给老师和家长的话</strong><br>科学教育不是灌输知识，而是培养一种<strong>思维方式</strong>——遇到问题时，先观察、再思考、然后动手验证。当孩子问出"为什么"的时候，不要急于给答案，可以说："我们来试试看！"这一句话，就是最好的科学启蒙。<br>🔬 <strong>愿每一个孩子，都能保持对世界永不熄灭的好奇心！</strong></p></div></div>
-<hr>
-<p><em>本教程版本：V1.0 | 适用年级：小学一年级 | 覆盖课时：30节</em></p>
-    </main>
+  <svg class="wave" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,24 C150,4 250,40 400,24 C550,8 650,38 800,24 C950,10 1050,36 1200,22"
+          fill="none" stroke="#2A211C" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="shelf-label rise" style="animation-delay:.46s">
+      <span>🗂️ 全部课程</span><i></i>
+    </div>
+    <div class="cards" id="cards"></div>
   </div>
-  <a href="#top" class="back-to-top" id="backTop">↑</a>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big">今天也要开开心心学一点 ✨</div>
+    <p>小书桌 · 一年级学习站 · 家庭自用</p>
+  </div>
+</footer>
 
 <script>
-  // Build table of contents from h2/h3 headings
-  (function() {
-    var content = document.getElementById('content');
-    var toc = document.getElementById('toc');
-    var headers = content.querySelectorAll('h2, h3');
-    var frag = document.createDocumentFragment();
-    var counter = 0;
-    headers.forEach(function(h) {
-      counter++;
-      var id = 'sec-' + counter;
-      h.id = id;
-      var a = document.createElement('a');
-      a.href = '#' + id;
-      a.textContent = h.textContent;
-      a.className = h.tagName === 'H2' ? 'level-1' : 'level-2';
-      if (h.tagName === 'H3') { a.style.paddingLeft = '20px'; a.style.fontSize = '13px'; }
-      frag.appendChild(a);
-    });
-    var heading = document.createElement('h4');
-    heading.textContent = '目录';
-    toc.appendChild(heading);
-    toc.appendChild(frag);
-  })();
+/* ===== 页面清单：以后新增页面，只改这个数组 ===== */
+const PAGES = [
+  {
+    href:'kexue.html',
+    emoji:'🔬',
+    mini:['🌿','🌌'],
+    color:'#4E9CFF',
+    title:'小学一年级科普教程',
+    desc:'从身边的小草讲到天上的星星。6 大领域 30 个主题，每节课都配一个能在家做的小实验。',
+    facts:[['6','大领域'],['30','个主题'],['15-20','分钟/节']],
+    badge:''
+  },
+  {
+    href:'siwei.html',
+    emoji:'🧠',
+    mini:['🔢','🧩'],
+    color:'#FFC53D',
+    title:'一年级思维课堂',
+    desc:'找规律、比高矮、数积木——把动脑筋变成闯关游戏。含 8 关互动挑战，答错会讲思路。',
+    facts:[['6','大模块'],['8','关互动'],['15','分钟/天']],
+    badge:'NEW'
+  }
+];
 
-  // back to top button
-  var backTop = document.getElementById('backTop');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 400) { backTop.classList.add('show'); }
-    else { backTop.classList.remove('show'); }
-  });
-  backTop.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  });
+const box = document.getElementById('cards');
+
+box.innerHTML = PAGES.map((p,i)=>`
+  <a class="card rise" href="${p.href}" style="--c:${p.color};animation-delay:${.55 + i*.11}s">
+    ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+    <div class="cover">
+      <span class="mini m1">${p.mini[0]}</span>
+      <span class="em">${p.emoji}</span>
+      <span class="mini m2">${p.mini[1]}</span>
+    </div>
+    <div class="body">
+      <h2>${p.title}</h2>
+      <p class="desc">${p.desc}</p>
+      <div class="facts">${p.facts.map(f=>`<b><em>${f[0]}</em> ${f[1]}</b>`).join('')}</div>
+      <div class="go"><span>进去看看</span><span>→</span></div>
+    </div>
+  </a>
+`).join('') + `
+  <div class="card soon rise" style="animation-delay:${.55 + PAGES.length*.11}s">
+    <div class="body">
+      <span class="em">🧺</span>
+      <h2>更多课程</h2>
+      <p class="desc">正在准备中……</p>
+    </div>
+  </div>`;
 </script>
 </body>
 </html>
