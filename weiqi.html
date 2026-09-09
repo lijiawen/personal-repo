@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>围棋启蒙课 · 从一口气到一盘棋</title>
+<meta name="description" content="小学一年级到初中的围棋阶梯教程：气、吃子、连接、死活、布局、官子，含 12 关死活闯关与 9 路对局实验室">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2A211C;
+  --paper:#FFF4DF;
+  --paper-2:#FFEAC4;
+  --tomato:#FF5B4A;
+  --sun:#FFC53D;
+  --mint:#2FC79A;
+  --sky:#4E9CFF;
+  --grape:#A374FF;
+  --bubble:#FF8FB1;
+  --line:3px solid var(--ink);
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --shadow-lg:10px 10px 0 var(--ink);
+  --font-display:'ZCOOL KuaiLe','PingFang SC','Hiragino Sans GB',sans-serif;
+  --font-body:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  --font-num:'Fredoka','PingFang SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);color:var(--ink);background-color:var(--paper);line-height:1.75;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(42,33,28,.13) 1.5px, transparent 0),
+    radial-gradient(ellipse 65% 45% at 10% 0%, rgba(47,199,154,.30), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 92% 8%, rgba(163,116,255,.22), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(255,197,61,.24), transparent 60%);
+  background-size:26px 26px,100% 100%,100% 100%,100% 100%;
+  overflow-x:hidden;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.30;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:2;}
+.tag{display:inline-block;font-family:var(--font-display);font-size:15px;padding:5px 16px;border:var(--line);
+  border-radius:99px;background:#fff;box-shadow:3px 3px 0 var(--ink);letter-spacing:1px;}
+h2.sec-title{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);line-height:1.25;letter-spacing:1px;margin:14px 0 6px;}
+.sec-sub{font-size:15px;opacity:.72;max-width:600px;}
+section{padding:54px 0;position:relative;}
+
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);background:rgba(255,244,223,.86);border-bottom:var(--line);}
+nav .inner{max-width:1080px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;gap:14px;}
+.logo{font-family:var(--font-display);font-size:21px;display:flex;align-items:center;gap:9px;letter-spacing:1px;}
+.logo .badge{width:36px;height:36px;border:var(--line);border-radius:11px;background:var(--mint);
+  display:grid;place-items:center;font-size:19px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-6deg);}
+nav .links{margin-left:auto;display:flex;gap:6px;}
+nav .links a{font-family:var(--font-display);font-size:15px;text-decoration:none;color:var(--ink);
+  padding:6px 14px;border-radius:99px;border:2px solid transparent;transition:.18s;}
+nav .links a:hover{border-color:var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px);}
+@media(max-width:900px){nav .links{display:none;}}
+.home-btn{flex:0 0 auto;width:38px;height:38px;border:var(--line);border-radius:12px;background:var(--sun);
+  display:grid;place-items:center;font-size:18px;text-decoration:none;color:var(--ink);
+  box-shadow:3px 3px 0 var(--ink);transition:transform .14s, box-shadow .14s;}
+.home-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);}
+.home-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+
+.btn{font-family:var(--font-display);font-size:16px;cursor:pointer;text-decoration:none;color:var(--ink);
+  padding:11px 22px;border:var(--line);border-radius:99px;background:#fff;box-shadow:var(--shadow-sm);
+  transition:transform .14s, box-shadow .14s;letter-spacing:1px;display:inline-flex;align-items:center;gap:8px;}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+.btn.primary{background:var(--tomato);color:#fff;}
+.btn.ghost{background:var(--mint);}
+.btn.sm{font-size:14px;padding:7px 15px;box-shadow:3px 3px 0 var(--ink);}
+
+header{padding:52px 0 20px;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(38px,7.5vw,68px);line-height:1.12;letter-spacing:2px;margin:16px 0 4px;}
+.hero h1 .hl{position:relative;display:inline-block;color:var(--tomato);}
+.hero h1 .hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:6px;height:14px;background:var(--sun);border-radius:99px;z-index:-1;transform:rotate(-1.4deg);}
+.hero p.lead{font-size:17px;max-width:470px;margin-top:14px;opacity:.85;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
+.stat{background:#fff;border:var(--line);border-radius:16px;padding:10px 18px;box-shadow:var(--shadow-sm);}
+.stat b{font-family:var(--font-num);font-size:24px;display:block;line-height:1.1;}
+.stat span{font-size:12.5px;opacity:.7;}
+.stat:nth-child(1){transform:rotate(-2deg);background:var(--mint);}
+.stat:nth-child(2){transform:rotate(1.5deg);background:var(--sun);}
+.stat:nth-child(3){transform:rotate(-1deg);background:var(--bubble);}
+.hero-art{display:grid;place-items:center;position:relative;min-height:280px;}
+.hero-art .float{position:absolute;font-size:34px;filter:drop-shadow(2px 3px 0 rgba(42,33,28,.3));}
+.f1{top:0;left:2%;animation:bob 4.2s ease-in-out infinite;}
+.f2{top:10%;right:0%;animation:bob 5.1s ease-in-out .4s infinite;}
+.f3{bottom:2%;left:0%;animation:bob 4.6s ease-in-out .8s infinite;}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg);}50%{transform:translateY(-14px) rotate(8deg);}}
+.wave{display:block;width:100%;height:44px;margin-top:22px;}
+
+canvas.gb{display:block;border:var(--line);border-radius:14px;box-shadow:var(--shadow-sm);
+  background:#E9BE7C;touch-action:manipulation;max-width:100%;}
+canvas.gb.clickable{cursor:pointer;}
+.board-card{background:#fff;border:var(--line);border-radius:22px;box-shadow:var(--shadow);padding:16px;display:inline-block;}
+
+.lv-track{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px;}
+@media(max-width:900px){.lv-track{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:520px){.lv-track{grid-template-columns:repeat(2,1fr);}}
+.lv{cursor:pointer;background:#fff;border:var(--line);border-radius:18px;padding:14px 10px;text-align:center;
+  box-shadow:var(--shadow-sm);transition:transform .16s, box-shadow .16s;user-select:none;}
+.lv:hover{transform:translate(-2px,-4px);box-shadow:var(--shadow);}
+.lv.on{background:var(--c);transform:translate(-2px,-5px) rotate(-1.5deg);box-shadow:var(--shadow-lg);}
+.lv .n{font-family:var(--font-num);font-weight:600;font-size:13px;letter-spacing:1px;opacity:.65;}
+.lv .e{font-size:28px;display:block;line-height:1.3;}
+.lv strong{font-family:var(--font-display);font-weight:400;font-size:15px;display:block;letter-spacing:.5px;}
+.lv small{font-size:11.5px;opacity:.7;display:block;}
+.lv-detail{margin-top:26px;background:#fff;border:var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;}
+.lv-head{padding:20px 24px;border-bottom:var(--line);display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.lv-head .big{font-family:var(--font-display);font-size:24px;letter-spacing:1px;}
+.lv-head .goal{font-size:14px;opacity:.8;flex:1;min-width:220px;}
+.lv-body{padding:18px 24px 26px;}
+.lesson{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:2px dashed rgba(42,33,28,.18);}
+.lesson:last-child{border-bottom:none;}
+.lesson .no{flex:0 0 40px;height:40px;border:var(--line);border-radius:12px;display:grid;place-items:center;
+  font-family:var(--font-num);font-weight:600;font-size:17px;background:var(--c);box-shadow:3px 3px 0 var(--ink);}
+.lesson h4{font-family:var(--font-display);font-weight:400;font-size:18px;letter-spacing:.5px;}
+.lesson p{font-size:14.5px;opacity:.82;margin-top:2px;}
+.lesson .kw{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;}
+.lesson .kw i{font-style:normal;font-size:12px;background:var(--paper-2);border:2px solid var(--ink);border-radius:99px;padding:1px 10px;}
+.milestone{margin-top:18px;background:var(--paper-2);border:var(--line);border-radius:16px;padding:12px 18px;
+  box-shadow:3px 3px 0 var(--ink);font-size:14.5px;}
+.milestone b{font-family:var(--font-display);font-weight:400;letter-spacing:1px;}
+
+.shape-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:20px;margin-top:30px;}
+.sh{background:#fff;border:var(--line);border-radius:20px;box-shadow:var(--shadow-sm);padding:14px;transition:transform .18s,box-shadow .18s;}
+.sh:hover{transform:translate(-3px,-5px) rotate(-1deg);box-shadow:var(--shadow);}
+.sh .cap{display:flex;align-items:center;gap:8px;margin-top:10px;}
+.sh h4{font-family:var(--font-display);font-weight:400;font-size:18px;letter-spacing:1px;}
+.sh .lvtag{margin-left:auto;font-family:var(--font-num);font-size:11.5px;border:2px solid var(--ink);
+  border-radius:99px;padding:0 9px;background:var(--c);}
+.sh p{font-size:13.5px;opacity:.8;margin-top:5px;}
+
+.game-shell{margin-top:30px;background:#fff;border:var(--line);border-radius:28px;box-shadow:var(--shadow-lg);overflow:hidden;}
+.game-top{padding:14px 20px;border-bottom:var(--line);background:var(--mint);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.game-top .lv-text{font-family:var(--font-display);font-size:17px;letter-spacing:1px;}
+.bar{flex:1;min-width:120px;height:16px;background:#fff;border:var(--line);border-radius:99px;overflow:hidden;}
+.bar i{display:block;height:100%;width:0;background:var(--tomato);transition:width .45s cubic-bezier(.34,1.56,.64,1);}
+.stars{font-size:16px;font-family:var(--font-num);}
+.game-body{padding:26px 20px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:440px;}
+.q-type{font-size:12.5px;letter-spacing:2px;opacity:.6;font-family:var(--font-num);}
+.q-text{font-family:var(--font-display);font-size:clamp(18px,3.2vw,25px);margin:6px 0 18px;letter-spacing:1px;line-height:1.5;max-width:640px;}
+.opts{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px;}
+.opt{cursor:pointer;background:#fff;border:var(--line);border-radius:16px;min-width:82px;padding:12px 20px;
+  box-shadow:var(--shadow-sm);font-family:var(--font-display);font-size:18px;transition:transform .14s,box-shadow .14s,background .2s;user-select:none;}
+.opt:hover:not(.locked){transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink);background:var(--paper-2);}
+.opt.right{background:var(--mint);animation:pop .45s cubic-bezier(.34,1.8,.5,1);}
+.opt.wrong{background:var(--tomato);color:#fff;animation:shake .4s;}
+.opt.locked{cursor:default;}
+@keyframes pop{0%{transform:scale(1);}45%{transform:scale(1.14) rotate(3deg);}100%{transform:scale(1);}}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+.feedback{margin-top:18px;min-height:70px;font-family:var(--font-display);font-size:17px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.hintbox{background:var(--paper-2);border:var(--line);border-radius:16px;padding:9px 18px;box-shadow:3px 3px 0 var(--ink);
+  font-size:14.5px;font-family:var(--font-body);max-width:580px;line-height:1.7;animation:pop .4s ease;}
+.cert{text-align:center;animation:pop .6s cubic-bezier(.34,1.56,.64,1);}
+.cert .medal{font-size:74px;display:inline-block;animation:bob 2.6s ease-in-out infinite;}
+.cert h3{font-family:var(--font-display);font-size:30px;margin:6px 0;letter-spacing:2px;}
+.cert .score{font-family:var(--font-num);font-size:50px;font-weight:600;color:var(--tomato);line-height:1;}
+.confetti{position:fixed;width:11px;height:16px;z-index:998;pointer-events:none;border:2px solid var(--ink);border-radius:3px;}
+
+.play-layout{display:grid;grid-template-columns:auto 1fr;gap:26px;margin-top:30px;align-items:start;}
+@media(max-width:880px){.play-layout{grid-template-columns:1fr;}}
+.panel{background:#fff;border:var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;}
+.panel h4{font-family:var(--font-display);font-weight:400;font-size:18px;letter-spacing:1px;margin-bottom:10px;}
+.seg{display:flex;border:var(--line);border-radius:99px;overflow:hidden;box-shadow:3px 3px 0 var(--ink);margin-bottom:16px;}
+.seg button{flex:1;font-family:var(--font-display);font-size:14px;padding:8px 4px;background:#fff;border:none;
+  border-right:3px solid var(--ink);cursor:pointer;color:var(--ink);transition:.16s;}
+.seg button:last-child{border-right:none;}
+.seg button.on{background:var(--sun);}
+.turn-box{display:flex;align-items:center;gap:10px;background:var(--paper-2);border:var(--line);border-radius:16px;
+  padding:10px 14px;box-shadow:3px 3px 0 var(--ink);margin-bottom:12px;font-family:var(--font-display);font-size:15.5px;}
+.dot{width:24px;height:24px;border:var(--line);border-radius:50%;flex:0 0 24px;}
+.dot.b{background:#231C18;}
+.dot.w{background:#fff;}
+.cap-row{display:flex;gap:10px;margin-bottom:14px;}
+.cap-box{flex:1;background:var(--paper-2);border:var(--line);border-radius:14px;padding:8px 10px;text-align:center;box-shadow:3px 3px 0 var(--ink);}
+.cap-box b{font-family:var(--font-num);font-size:22px;display:block;line-height:1.1;}
+.cap-box span{font-size:11.5px;opacity:.75;}
+.ctrl-row{display:flex;gap:8px;flex-wrap:wrap;}
+.msg{margin-top:14px;font-size:13.5px;min-height:44px;background:var(--paper-2);border:2px dashed var(--ink);
+  border-radius:14px;padding:8px 12px;line-height:1.6;}
+#goWrap{display:flex;justify-content:center;}
+
+.tips{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px;}
+@media(max-width:760px){.tips{grid-template-columns:1fr;}}
+.tip{background:#fff;border:var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:flex-start;}
+.tip .n{flex:0 0 44px;height:44px;border:var(--line);border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-num);font-weight:600;font-size:20px;background:var(--sky);box-shadow:3px 3px 0 var(--ink);}
+.tip h4{font-family:var(--font-display);font-weight:400;font-size:17.5px;}
+.tip p{font-size:14px;opacity:.8;margin-top:3px;}
+.tip:nth-child(2) .n{background:var(--bubble);}
+.tip:nth-child(3) .n{background:var(--mint);}
+.tip:nth-child(4) .n{background:var(--sun);}
+
+footer{border-top:var(--line);margin-top:36px;padding:32px 0;text-align:center;background:var(--paper-2);}
+footer .big{font-family:var(--font-display);font-size:clamp(22px,4.5vw,34px);letter-spacing:2px;}
+footer p{font-size:13px;opacity:.7;margin-top:8px;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1);}
+.reveal.in{opacity:1;transform:none;}
+.rise{opacity:0;transform:translateY(22px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes rise{to{opacity:1;transform:none;}}
+.d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.27s}.d4{animation-delay:.38s}.d5{animation-delay:.5s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}.rise{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="index.html" class="home-btn" title="返回全部课程">←</a>
+    <div class="logo"><span class="badge">⚪</span>围棋启蒙课</div>
+    <div class="links">
+      <a href="#levels">六级课程</a>
+      <a href="#shapes">概念图鉴</a>
+      <a href="#quiz">十二关</a>
+      <a href="#play">对局实验室</a>
+      <a href="#parents">家长指南</a>
+    </div>
+    <a href="#play" class="btn primary sm">摆一盘 →</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div class="hero">
+      <span class="tag rise d1">⚫⚪ 一年级 → 初中 · 六个台阶</span>
+      <h1 class="rise d2">围棋，<br>从<span class="hl">一口气</span><br>开始学起</h1>
+      <p class="lead rise d3">围棋只有一条核心规则：没气的棋要被拿走。剩下的全是它长出来的花样。这里从"数气"讲到"官子大小"，6 级 30 课，配 12 道真题和一块可以随便摆的棋盘。</p>
+      <div class="hero-cta rise d4">
+        <a href="#play" class="btn primary">🧪 打开对局实验室</a>
+        <a href="#levels" class="btn ghost">看看六级课程</a>
+      </div>
+      <div class="stats rise d5">
+        <div class="stat"><b>6</b><span>级 · 一年级到初中</span></div>
+        <div class="stat"><b>30</b><span>节课</span></div>
+        <div class="stat"><b>12</b><span>道死活真题</span></div>
+      </div>
+    </div>
+    <div class="hero-art rise d3">
+      <span class="float f1">🌱</span>
+      <span class="float f2">🏆</span>
+      <span class="float f3">🧠</span>
+      <div class="board-card"><canvas id="heroBoard" class="gb"></canvas></div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 44" preserveAspectRatio="none">
+    <path d="M0,26 C150,4 250,44 400,26 C550,8 650,42 800,26 C950,10 1050,40 1200,24" fill="none" stroke="#2A211C" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+</header>
+
+<!-- ============ 六级课程 ============ -->
+<section id="levels">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">🗺️ 学习地图</span>
+      <h2 class="sec-title">六个台阶，一年上一级</h2>
+      <p class="sec-sub">一年级从 9 路小棋盘开始，三年级换 13 路，五年级上 19 路。棋盘越大，想的东西越多——但规则从头到尾只有那几条。</p>
+    </div>
+    <div class="lv-track" id="lvTrack"></div>
+    <div class="lv-detail" id="lvDetail"></div>
+  </div>
+</section>
+
+<!-- ============ 概念图鉴 ============ -->
+<section id="shapes" style="background:linear-gradient(180deg,transparent,rgba(47,199,154,.20),transparent);">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">📖 必背图鉴</span>
+      <h2 class="sec-title">八个形状，围棋的基本词汇</h2>
+      <p class="sec-sub">围棋和识字一样：先认字，再读句子。下面这八个形状，是从"打吃"到"做活"路上必须先认识的字。</p>
+    </div>
+    <div class="shape-grid" id="shapeGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 闯关 ============ -->
+<section id="quiz">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">🎯 真棋盘真题</span>
+      <h2 class="sec-title">十二关 · 从数气到对杀</h2>
+      <p class="sec-sub">前四关一年级就能答，后面越来越难，第 10、11 关是同一个局面的两面——黑先能活、白先能杀，这是围棋最经典的一对题。</p>
+    </div>
+    <div class="game-shell reveal">
+      <div class="game-top">
+        <span class="lv-text" id="qLv">第 1 关 / 共 12 关</span>
+        <div class="bar"><i id="qBar"></i></div>
+        <span class="stars" id="qStar">⭐ 0</span>
+      </div>
+      <div class="game-body" id="qBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 实验室 ============ -->
+<section id="play" style="background:linear-gradient(180deg,transparent,rgba(163,116,255,.16),transparent);">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">🧪 边下边看</span>
+      <h2 class="sec-title">对局实验室（9 路棋盘）</h2>
+      <p class="sec-sub">这块棋盘装着完整的围棋规则：提子、禁入点、打劫都会自动判断。打开"显示气"，每块棋头上会写着它还剩几口气——这是初学者最需要的那副眼镜。</p>
+    </div>
+    <div class="play-layout">
+      <div class="board-card reveal"><div id="goWrap"><canvas id="goBoard" class="gb clickable"></canvas></div></div>
+      <div class="panel reveal">
+        <h4>模式</h4>
+        <div class="seg" id="segMode">
+          <button data-v="free" class="on">👫 两人对下</button>
+          <button data-v="ai">🤖 打电脑</button>
+        </div>
+        <h4>显示气数</h4>
+        <div class="seg" id="segLib">
+          <button data-v="1" class="on">👓 显示</button>
+          <button data-v="0">隐藏</button>
+        </div>
+        <div class="turn-box" id="turnBox"><span class="dot b" id="turnDot"></span><span id="turnText">轮到黑棋</span></div>
+        <div class="cap-row">
+          <div class="cap-box"><b id="capB">0</b><span>黑提到的子</span></div>
+          <div class="cap-box"><b id="capW">0</b><span>白提到的子</span></div>
+        </div>
+        <div class="ctrl-row">
+          <button class="btn sm ghost" id="btnClear">🔄 清空棋盘</button>
+          <button class="btn sm" id="btnUndo">↩️ 悔一步</button>
+          <button class="btn sm" id="btnPass">⏭️ 停一手</button>
+        </div>
+        <div class="msg" id="msg">点棋盘上的交叉点下子。黑先白后。<br>「打电脑」模式是<b>吃子棋</b>：谁先提到对方 5 颗子谁赢，用来练吃子最合适。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 家长指南 ============ -->
+<section id="parents">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">👨‍👩‍👧 给陪练的大人</span>
+      <h2 class="sec-title">教围棋，最容易踩的四个坑</h2>
+      <p class="sec-sub">围棋的入门曲线比五子棋陡，但只要顺序对，一年级的孩子完全学得会。</p>
+    </div>
+    <div class="tips">
+      <div class="tip reveal"><div class="n">1</div><div><h4>别一上来就 19 路</h4><p>19 路棋盘对 6 岁孩子是"看不到头"的。从 9 路开始，一盘 15 分钟能下完，有输赢有反馈，孩子才愿意下第二盘。</p></div></div>
+      <div class="tip reveal"><div class="n">2</div><div><h4>先玩"吃子棋"，别急着讲围地</h4><p>入门半年内的目标只有一个：熟练地吃子和逃子。"围空、数目"对低年级太抽象，等吃子有感觉了自然会问"那怎么算赢"。</p></div></div>
+      <div class="tip reveal"><div class="n">3</div><div><h4>死活题一天三道就够</h4><p>围棋的功夫在死活题上，但贵精不贵多。做完一道要让孩子摆出对方的应法，能说出"他这样下我就那样"才算真会。</p></div></div>
+      <div class="tip reveal"><div class="n">4</div><div><h4>别用 AI 胜率打击孩子</h4><p>现在的围棋 AI 强得离谱。给孩子看胜率图只会让他觉得自己每步都错。复盘时只讲"这块棋为什么死了"，讲得具体，孩子才接得住。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="big">一手一手来，气够了就活了 ⚫⚪</div>
+    <p>围棋启蒙课 · 小书桌 · 家庭自用</p>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   一、棋盘绘制
+   ================================================================ */
+const DPR = Math.min(window.devicePixelRatio || 1, 2);
+const INK = '#2A211C';
+
+function setupCanvas(cv, size, cell){
+  const pad = Math.round(cell * 0.78);
+  const W = cell * (size - 1) + pad * 2;
+  cv.width = Math.round(W * DPR);
+  cv.height = Math.round(W * DPR);
+  cv.style.width = W + 'px';
+  cv.style.height = W + 'px';
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  return { ctx, pad, W };
+}
+
+/* opt: {size, cell, stones:[[r,c,col]], marks:[[r,c,'A',bg]], last:[r,c], libs:[[r,c,n,col]] } */
+function drawBoard(cv, opt){
+  const size = opt.size, cell = opt.cell;
+  const { ctx, pad, W } = setupCanvas(cv, size, cell);
+  const X = i => pad + i * cell;
+
+  ctx.fillStyle = '#E9BE7C';
+  ctx.fillRect(0, 0, W, W);
+  const g = ctx.createLinearGradient(0, 0, W, W);
+  g.addColorStop(0, 'rgba(255,255,255,.22)');
+  g.addColorStop(.5, 'rgba(255,255,255,0)');
+  g.addColorStop(1, 'rgba(120,70,20,.14)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, W);
+
+  ctx.strokeStyle = INK;
+  ctx.lineWidth = Math.max(1, cell * .045);
+  ctx.lineCap = 'round';
+  for (let i = 0; i < size; i++){
+    ctx.beginPath(); ctx.moveTo(X(0), X(i)); ctx.lineTo(X(size-1), X(i)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(X(i), X(0)); ctx.lineTo(X(i), X(size-1)); ctx.stroke();
+  }
+  ctx.lineWidth = Math.max(2, cell * .085);
+  ctx.strokeRect(X(0), X(0), cell*(size-1), cell*(size-1));
+
+  ctx.fillStyle = INK;
+  (opt.stars || defaultStars(size)).forEach(([r,c])=>{
+    ctx.beginPath(); ctx.arc(X(c), X(r), Math.max(2, cell*.11), 0, 7); ctx.fill();
+  });
+
+  (opt.stones || []).forEach(([r,c,col])=>{
+    drawStone(ctx, X(c), X(r), cell*.45, col);
+  });
+
+  if (opt.last){
+    const [r,c] = opt.last;
+    ctx.fillStyle = '#FF5B4A';
+    ctx.beginPath(); ctx.arc(X(c), X(r), Math.max(2.5, cell*.13), 0, 7); ctx.fill();
+    ctx.strokeStyle = INK; ctx.lineWidth = 1.5; ctx.stroke();
+  }
+
+  /* 气数标注 */
+  (opt.libs || []).forEach(([r,c,n,col])=>{
+    ctx.fillStyle = col === 1 ? '#FFF4DF' : '#2A211C';
+    ctx.font = '600 ' + Math.round(cell*.42) + 'px Fredoka, PingFang SC, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(String(n), X(c), X(r) + cell*.02);
+  });
+
+  (opt.marks || []).forEach(([r,c,t,bg])=>{
+    ctx.beginPath(); ctx.arc(X(c), X(r), cell*.42, 0, 7);
+    ctx.fillStyle = bg || '#FFF4DF'; ctx.fill();
+    ctx.strokeStyle = INK; ctx.lineWidth = Math.max(2, cell*.09); ctx.stroke();
+    ctx.fillStyle = INK;
+    ctx.font = '600 ' + Math.round(cell*.5) + 'px Fredoka, PingFang SC, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(t, X(c), X(r) + cell*.02);
+  });
+}
+
+function drawStone(ctx, x, y, r, col){
+  ctx.beginPath(); ctx.arc(x, y, r, 0, 7);
+  const g = ctx.createRadialGradient(x - r*.35, y - r*.4, r*.1, x, y, r);
+  if (col === 1){ g.addColorStop(0, '#5A4E47'); g.addColorStop(1, '#231C18'); }
+  else { g.addColorStop(0, '#FFFFFF'); g.addColorStop(1, '#E2D8C8'); }
+  ctx.fillStyle = g; ctx.fill();
+  ctx.strokeStyle = INK; ctx.lineWidth = Math.max(1.6, r*.19); ctx.stroke();
+}
+
+function defaultStars(size){
+  if (size === 9) return [[2,2],[2,6],[4,4],[6,2],[6,6]];
+  if (size === 7) return [[3,3]];
+  if (size === 13) return [[3,3],[3,9],[6,6],[9,3],[9,9]];
+  return [];
+}
+
+function hitPoint(cv, ev, size, cell){
+  const pad = Math.round(cell * 0.78);
+  const rect = cv.getBoundingClientRect();
+  const px = ev.clientX - rect.left, py = ev.clientY - rect.top;
+  const c = Math.round((px - pad) / cell);
+  const r = Math.round((py - pad) / cell);
+  if (r < 0 || r >= size || c < 0 || c >= size) return null;
+  if (Math.hypot(px - (pad + c*cell), py - (pad + r*cell)) > cell * .62) return null;
+  return { r, c };
+}
+
+/* ================================================================
+   二、围棋规则引擎
+   ================================================================ */
+function makeRules(G){
+  const idx = (r,c)=> r*G + c;
+  function nb(i){
+    const r = (i / G) | 0, c = i % G, a = [];
+    if (r > 0) a.push(i - G);
+    if (r < G-1) a.push(i + G);
+    if (c > 0) a.push(i - 1);
+    if (c < G-1) a.push(i + 1);
+    return a;
+  }
+  /* 返回 {stones:[], libs:Set} */
+  function groupOf(bd, i){
+    const col = bd[i];
+    const stones = [i];
+    const seen = new Set([i]);
+    const libs = new Set();
+    for (let k = 0; k < stones.length; k++){
+      for (const j of nb(stones[k])){
+        if (bd[j] === 0) libs.add(j);
+        else if (bd[j] === col && !seen.has(j)){ seen.add(j); stones.push(j); }
+      }
+    }
+    return { stones, libs };
+  }
+  /* 在副本上试下，返回 {ok, captured:[], ko, reason} */
+  function tryPlay(bd, i, col, koPoint){
+    if (bd[i] !== 0) return { ok:false, reason:'这个交叉点已经有棋子了。' };
+    if (i === koPoint) return { ok:false, reason:'这里正在打劫，要先在别处下一手（找劫材）才能回提。' };
+    const opp = 3 - col;
+    bd[i] = col;
+    const capSet = new Set();
+    for (const j of nb(i)){
+      if (bd[j] === opp){
+        const g = groupOf(bd, j);
+        if (g.libs.size === 0) g.stones.forEach(s => capSet.add(s));
+      }
+    }
+    const captured = [...capSet];
+    captured.forEach(s => bd[s] = 0);
+    const self = groupOf(bd, i);
+    if (self.libs.size === 0){
+      bd[i] = 0;
+      captured.forEach(s => bd[s] = opp);
+      return { ok:false, reason:'这里是「禁入点」：下下去自己一口气都没有，又提不到对方的子。' };
+    }
+    let ko = -1;
+    if (captured.length === 1 && self.stones.length === 1 && self.libs.size === 1) ko = captured[0];
+    return { ok:true, captured, ko };
+  }
+  return { idx, nb, groupOf, tryPlay };
+}
+
+/* ================================================================
+   三、六级课程
+   ================================================================ */
+const LEVELS = [
+  {
+    n:'L1', grade:'一年级 · 6~7岁', title:'气与棋盘', emoji:'🌱', color:'var(--mint)',
+    goal:'能说清"什么是气"，会数一颗子、一块棋有几口气。',
+    lessons:[
+      {t:'棋盘与交叉点', d:'棋子下在线的交叉点上。入门用 9 路（81 个点），熟练后换 13 路，最后才是正式的 19 路。', kw:['9路','13路','19路']},
+      {t:'黑先白后，可以停一手', d:'黑棋先下，轮流走。想不出好点还可以"停一手"（虚着），这一点和五子棋很不一样。', kw:['黑先','虚着']},
+      {t:'什么是"气"', d:'一颗子上下左右紧挨着的空点，就是它的气。中间的子有 4 口气，边上只有 3 口，角上只有 2 口。', kw:['气','四口气']},
+      {t:'一块棋的气', d:'紧挨在一起的同色子是"一块"，它们的气合起来数，重复的只算一次。连成一块，比一颗颗散着更耐打。', kw:['一块棋','连接']},
+      {t:'数气游戏', d:'家长随便摆几颗子，孩子报出每块的气数。本页实验室打开"显示气"就能自己检查——这是入门期最有用的练习。', kw:['数气训练']}
+    ],
+    milestone:'过关标准：随便一块棋，5 秒内数对它的气。'
+  },
+  {
+    n:'L2', grade:'二年级 · 7~8岁', title:'吃子与逃子', emoji:'🍽️', color:'var(--sun)',
+    goal:'看到"只剩一口气"就有反应：该提的提，该逃的逃。',
+    lessons:[
+      {t:'没气就要被拿走', d:'围棋唯一的核心规则：一块棋的气被填光，就要从棋盘上拿掉，叫"提子"。提掉的子是对方的战利品。', kw:['提子','无气']},
+      {t:'打吃（叫吃）', d:'把对方一块棋紧到只剩 1 口气，叫"打吃"。这是围棋的"将军"，对方必须回应。', kw:['打吃','紧气']},
+      {t:'长气逃跑', d:'被打吃了怎么办？往空的方向长一手，让这块棋气变多。逃之前先看看：逃出去还有几口气？只有 2 口不如不逃。', kw:['长','逃子']},
+      {t:'禁入点', d:'有的点下下去自己立刻没气，又提不到对方子，这种点不许下，叫禁入点。但如果下下去能提对方的子，就可以下。', kw:['禁入点','自杀']},
+      {t:'打二还一', d:'先送两颗给对方吃，再一口气提回对方一颗——听起来吃亏，其实是很多手筋的开头。', kw:['弃子','手筋']}
+    ],
+    milestone:'过关标准：在 9 路盘上玩"吃子棋"，能主动打吃、也能及时逃跑。'
+  },
+  {
+    n:'L3', grade:'三~四年级 · 8~10岁', title:'连接与分断', emoji:'🔗', color:'var(--tomato)',
+    goal:'学会把自己连成整块，把对方切成两块。',
+    lessons:[
+      {t:'断点在哪里', d:'两颗子斜着放（尖），中间有断点；隔一格放（一间跳），也有断点。找断点是攻防的第一步。', kw:['断点','尖','跳']},
+      {t:'虎口', d:'三颗子围出的一个空点叫虎口。对方下进虎口，立刻只剩一口气，等着被提——所以虎口是安全的连接方式。', kw:['虎','连接']},
+      {t:'双打吃', d:'一手棋同时打吃对方两块。对方只能救一块，另一块必被吃。这是低段位最实用的杀招。', kw:['双打吃']},
+      {t:'征子（扭羊头）', d:'连续打吃，把对方赶成一条阶梯，一路追到棋盘边吃掉。下之前一定要看清"征子路线上有没有对方接应的子"。', kw:['征子','引征']},
+      {t:'枷（门吃）', d:'不贴身、隔一格罩住对方，让它往哪跑都跑不掉。征子怕接应，枷不怕——所以能枷就别征。', kw:['枷','门吃']}
+    ],
+    milestone:'过关标准：能一眼看出对方的断点，并判断征子能不能成立。'
+  },
+  {
+    n:'L4', grade:'五年级 · 10~11岁', title:'对杀与打劫', emoji:'⚔️', color:'var(--sky)',
+    goal:'会数气比大小，知道打劫要先找劫材。',
+    lessons:[
+      {t:'对杀先数气', d:'两块棋互相围，谁先把对方的气填光谁赢。所以第一件事永远是：数一数，我几口气，他几口气。', kw:['对杀','数气']},
+      {t:'先紧对方的气', d:'对杀时不要先补自己，要先去填对方的气。气一样多时，谁先动手谁赢。', kw:['紧气','先手']},
+      {t:'公气要留到最后', d:'两块棋共用的气叫公气。公气填了对自己也不利，所以要先填外气，公气留到最后。', kw:['公气','外气']},
+      {t:'打劫的规则', d:'提了一子之后，对方不能马上提回来，必须先在别处下一手。这条规则是为了防止棋局无限循环。', kw:['劫','循环禁止']},
+      {t:'劫材', d:'"在别处下一手"不能乱下，要下对方必须应的地方，这叫劫材。劫材多的一方打劫才有底气。', kw:['劫材','劫争']}
+    ],
+    milestone:'过关标准：遇到劫能说出"我该去哪里找劫材"。'
+  },
+  {
+    n:'L5', grade:'六年级 · 11~12岁', title:'死活与做眼', emoji:'👁️', color:'var(--grape)',
+    goal:'掌握"两只真眼才活"，会做活也会点杀。',
+    lessons:[
+      {t:'眼是什么', d:'被自己的棋完全围住的空点叫眼。对方下进来立刻没气，所以他不能下——眼就是"永远填不掉的气"。', kw:['眼','活棋']},
+      {t:'两只眼才活', d:'只有一只眼，外面被填光时整块还是要被提；有两只分开的眼，对方永远填不满，这块棋就是活的。', kw:['两眼','净活']},
+      {t:'真眼和假眼', d:'眼位的四个斜角很关键。中腹要占三个角，边上要占两个，角上要占一个——不够就是假眼，会被断掉。', kw:['真眼','假眼','斜角']},
+      {t:'常见死活形状', d:'直三、弯三、丁四、方四是死形（对方点中间就死）；直四、板六是活形。这几个形状要背下来。', kw:['直三','板六','方四']},
+      {t:'点杀与扩大眼位', d:'杀棋的第一感是"点在中间"，做活的第一感是"往宽处长"。同一个局面，谁先走结果就相反。', kw:['点杀','做活']}
+    ],
+    milestone:'过关标准：能独立做出 5 道基础死活题，并说明对方的最强抵抗。'
+  },
+  {
+    n:'L6', grade:'初中 · 12岁+', title:'布局与官子', emoji:'🧠', color:'var(--bubble)',
+    goal:'能下完整的 19 路棋，会数目、会比较官子大小。',
+    lessons:[
+      {t:'金角银边草肚皮', d:'角上围空最省子（两条边帮忙），边次之，中间最费力。所以开局顺序是：先占角，再守边，最后才向中间发展。', kw:['占角','守角','挂角']},
+      {t:'基础定式', d:'星位小飞挂、单关挂之后的固定下法叫定式。背定式不是目的，理解"为什么这样交换是两分"才是。', kw:['星位','定式','两分']},
+      {t:'厚薄与大场', d:'一块厚棋不容易被攻击，能反过来去攻别人。判断"该抢大场还是该补一手"，是业余和入门的分水岭。', kw:['厚势','大场','急场']},
+      {t:'官子大小计算', d:'收官时要算"这手棋值几目"，从大到小收。逆收、双方先手、单方先手的算法不同，这是初中数学能理解的部分。', kw:['官子','目数','逆收']},
+      {t:'数子与数目', d:'中国规则数子（子 + 空），日韩规则数目（空 + 提子）。中国规则黑贴 3¾ 子，算法不同但结论基本一致。', kw:['中国规则','贴目']}
+    ],
+    milestone:'过关标准：完整下完一盘 19 路棋并自己数出胜负。'
+  }
+];
+
+const lvTrack = document.getElementById('lvTrack');
+const lvDetail = document.getElementById('lvDetail');
+lvTrack.innerHTML = LEVELS.map((L,i)=>`
+  <div class="lv reveal${i===0?' on':''}" data-i="${i}" style="--c:${L.color}">
+    <span class="n">${L.n}</span><span class="e">${L.emoji}</span>
+    <strong>${L.title}</strong><small>${L.grade.split(' · ')[0]}</small>
+  </div>`).join('');
+
+function renderLv(i){
+  const L = LEVELS[i];
+  lvDetail.innerHTML = `
+    <div class="lv-head" style="background:${L.color}">
+      <span class="big">${L.emoji} ${L.n} · ${L.title}</span>
+      <span class="tag" style="background:#fff">${L.grade}</span>
+      <span class="goal">🎯 目标：${L.goal}</span>
+    </div>
+    <div class="lv-body">
+      ${L.lessons.map((s,k)=>`
+        <div class="lesson">
+          <div class="no" style="--c:${L.color}">${k+1}</div>
+          <div><h4>${s.t}</h4><p>${s.d}</p>
+          <div class="kw">${s.kw.map(w=>`<i>${w}</i>`).join('')}</div></div>
+        </div>`).join('')}
+      <div class="milestone">🏁 <b>${L.milestone}</b></div>
+    </div>`;
+}
+renderLv(0);
+lvTrack.querySelectorAll('.lv').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    lvTrack.querySelectorAll('.lv').forEach(x=>x.classList.remove('on'));
+    el.classList.add('on');
+    renderLv(+el.dataset.i);
+  });
+});
+
+/* ================================================================
+   四、概念图鉴
+   ================================================================ */
+const B = 1, W = 2;
+const SHAPES = [
+  { name:'四口气', lv:'L1', c:'var(--mint)',
+    stones:[[3,3,B]], libs:[[3,3,4,B]],
+    d:'棋盘中间的一颗子，上下左右四个空点就是它的四口气。' },
+  { name:'角上两口气', lv:'L1', c:'var(--mint)',
+    stones:[[0,0,B]], libs:[[0,0,2,B]],
+    d:'角上的子只有两口气，最容易被吃。所以初学不要往角上乱贴。' },
+  { name:'打吃', lv:'L2', c:'var(--sun)',
+    stones:[[3,3,B],[2,3,W],[4,3,W],[3,2,W]], libs:[[3,3,1,B]],
+    d:'黑子只剩一口气了。白棋再下右边那一点，就能把它提走。' },
+  { name:'禁入点（A）', lv:'L2', c:'var(--sun)',
+    stones:[[2,3,B],[4,3,B],[3,2,B],[3,4,B]],
+    marks:[[3,3,'A','#FF8FB1']],
+    d:'白棋不能下 A：下下去自己没有气，也提不到黑子。这叫禁入点。' },
+  { name:'虎口（A）', lv:'L3', c:'var(--tomato)',
+    stones:[[2,3,B],[3,2,B],[3,4,B]],
+    marks:[[3,3,'A','#FF8FB1']],
+    d:'三颗黑子围出的 A 点是虎口。白下进去只剩一口气，马上被提。' },
+  { name:'双打吃（A）', lv:'L3', c:'var(--tomato)',
+    stones:[[2,3,B],[4,3,B],[2,2,W],[3,2,W],[3,4,W],[4,4,W]],
+    marks:[[3,3,'A','#FFC53D']],
+    d:'白下 A，上下两颗黑子同时只剩一口气。黑只能救一颗。' },
+  { name:'两只真眼＝活', lv:'L5', c:'var(--grape)',
+    stones:[[0,0,B],[0,2,B],[0,4,B],[1,0,B],[1,1,B],[1,2,B],[1,3,B],[1,4,B],
+            [2,0,W],[2,1,W],[2,2,W],[2,3,W],[2,4,W],[2,5,W],[1,5,W],[0,5,W]],
+    d:'黑棋围出两个分开的空点，白棋下进任何一个都立刻没气。填不满，这块棋就是活的。' },
+  { name:'直三被点＝死', lv:'L5', c:'var(--grape)',
+    stones:[[0,0,B],[0,4,B],[1,0,B],[1,1,B],[1,2,B],[1,3,B],[1,4,B],
+            [2,0,W],[2,1,W],[2,2,W],[2,3,W],[2,4,W],[2,5,W],[1,5,W],[0,5,W]],
+    marks:[[0,2,'✕','#FF5B4A']],
+    d:'黑只有三个空点连成一条。白点在正中间（✕），黑就做不出两只眼了。' }
+];
+
+document.getElementById('shapeGrid').innerHTML = SHAPES.map((s,i)=>`
+  <div class="sh reveal" style="--c:${s.c}">
+    <canvas class="gb" id="sh${i}" style="box-shadow:3px 3px 0 var(--ink)"></canvas>
+    <div class="cap"><h4>${s.name}</h4><span class="lvtag">${s.lv}</span></div>
+    <p>${s.d}</p>
+  </div>`).join('');
+SHAPES.forEach((s,i)=>{
+  drawBoard(document.getElementById('sh'+i), {
+    size:7, cell:26, stones:s.stones, marks:s.marks, libs:s.libs
+  });
+});
+
+/* HERO 小棋盘：一个 9 路布局中盘的样子 */
+drawBoard(document.getElementById('heroBoard'), {
+  size:9, cell:Math.min(30, Math.floor(Math.min(window.innerWidth-90, 300)/9)),
+  stones:[[2,2,B],[6,6,B],[4,3,B],[3,5,B],[5,5,B],[6,2,W],[2,6,W],[5,4,W],[4,6,W]],
+  last:[5,5]
+});
+
+/* ================================================================
+   五、十二关
+   ================================================================ */
+const QUIZ = [
+  { lv:'L1 · 数气', mode:'choice', size:9, cell:34,
+    q:'棋盘正中间这一颗黑子，一共有几口气？',
+    stones:[[4,4,B]],
+    opts:['3 口','4 口','5 口'], answer:1,
+    hint:'气是紧挨着的空点：上、下、左、右四个方向，所以中间的子有 4 口气。斜着的不算气！' },
+
+  { lv:'L1 · 角上的气', mode:'choice', size:9, cell:34,
+    q:'角上这颗黑子有几口气？',
+    stones:[[0,0,B]],
+    opts:['2 口','3 口','4 口'], answer:0,
+    hint:'角上只有右边和下面两个方向有交叉点，所以只有 2 口气。这就是"角上最容易被吃"的原因。' },
+
+  { lv:'L2 · 提子', mode:'click', size:9, cell:34,
+    q:'黑子只剩一口气了。白棋下在哪里能把它提走？',
+    stones:[[4,4,B],[3,4,W],[5,4,W],[4,3,W]],
+    answers:[[4,5]],
+    hint:'黑子上、下、左都被白棋占了，只剩右边一口气。白棋填掉这最后一口气，黑子就要从棋盘上拿走。' },
+
+  { lv:'L2 · 逃跑', mode:'click', size:9, cell:34,
+    q:'轮到黑棋，这两颗黑子只剩一口气了。往哪里逃？',
+    stones:[[4,4,B],[4,5,B],[3,4,W],[5,4,W],[4,3,W],[3,5,W],[5,5,W]],
+    answers:[[4,6]],
+    hint:'唯一的出口是右边那一点。逃出去以后这块棋变成三颗子，气又变多了。逃之前记得数一数：逃出去有几口气？' },
+
+  { lv:'L2 · 禁入点', mode:'choice', size:9, cell:34,
+    q:'棋盘上标了 A、B、C 三个点。白棋不能下在哪一个？',
+    stones:[[3,4,B],[5,4,B],[4,3,B],[4,5,B]],
+    marks:[[4,4,'A','#FF8FB1'],[1,1,'B','#4E9CFF'],[7,6,'C','#2FC79A']],
+    opts:['A','B','C'], answer:0,
+    hint:'A 点四周全是黑棋，白子下进去立刻没有气，又提不到任何黑子——这叫"禁入点"，规则不允许。但要注意：如果下进去能提掉对方的子，那就可以下。' },
+
+  { lv:'L3 · 双打吃', mode:'click', size:9, cell:34,
+    q:'白棋下在哪一点，能同时打吃上下两颗黑子？',
+    stones:[[3,4,B],[5,4,B],[2,4,W],[3,3,W],[6,4,W],[5,3,W]],
+    answers:[[4,4]],
+    hint:'下在中间这一点，上面那颗黑子只剩右边一口气，下面那颗也只剩右边一口气。黑棋只有一只手，救得了一颗救不了另一颗——这就是"双打吃"。' },
+
+  { lv:'L3 · 往哪边打吃', mode:'click', size:9, cell:34,
+    q:'黑子有两口气。白棋从哪边打吃更好？',
+    stones:[[4,1,B],[3,1,W],[5,1,W]],
+    answers:[[4,2]],
+    hint:'要从"宽的那边"打，把对方按在边线上。打在右边，黑棋只能往左边逃，而左边就是棋盘边缘，很快就没路了。反过来打在左边，黑棋就跑向中间的大片空地，追不上了。' },
+
+  { lv:'L3 · 虎口', mode:'choice', size:9, cell:34,
+    q:'黑棋围出了一个虎口 A。白棋下进 A 会怎样？',
+    stones:[[3,4,B],[4,3,B],[4,5,B]],
+    marks:[[4,4,'A','#FF8FB1']],
+    opts:['立刻被提走','只剩一口气，黑随时能提','很安全，可以切断黑棋'],
+    answer:1,
+    hint:'白子下进虎口后，上、左、右都是黑棋，只剩下面一口气，等于自己送上门被打吃。所以虎口是很牢固的连接——对方不敢进来。' },
+
+  { lv:'L5 · 真眼还是假眼', mode:'choice', size:9, cell:34,
+    q:'黑棋围住了中间的"?"点。这是真眼还是假眼？',
+    stones:[[3,4,B],[5,4,B],[4,3,B],[4,5,B],[3,5,B],[5,3,B],[3,3,W],[5,5,W]],
+    marks:[[4,4,'?','#FFC53D']],
+    opts:['真眼','假眼'], answer:1,
+    hint:'看眼位的四个斜角：在棋盘中间，必须占住其中三个才算真眼。这里黑棋只占了两个，另外两个是白子——白棋可以先断掉一边，这个眼就没了，所以是假眼。（在边上只要占两个角，在角上占一个就够。）' },
+
+  { lv:'L5 · 做活', mode:'click', size:9, cell:34,
+    q:'轮到黑棋。黑棋下在哪里，能一次做出两只眼活棋？',
+    stones:[[0,0,B],[0,4,B],[1,0,B],[1,1,B],[1,2,B],[1,3,B],[1,4,B],
+            [2,0,W],[2,1,W],[2,2,W],[2,3,W],[2,4,W],[2,5,W],[1,5,W],[0,5,W]],
+    answers:[[0,2]],
+    hint:'黑棋围出的空地是连成一条的三个点（叫"直三"）。下在正中间，就把它切成左右两个独立的眼，白棋两边都填不进来——活了。要是下在旁边，剩下的空地连成两格，白棋一点就死。' },
+
+  { lv:'L5 · 点杀', mode:'click', size:9, cell:34,
+    q:'同一个局面，这次轮到白棋。白棋下在哪里能杀死这块黑棋？',
+    stones:[[0,0,B],[0,4,B],[1,0,B],[1,1,B],[1,2,B],[1,3,B],[1,4,B],
+            [2,0,W],[2,1,W],[2,2,W],[2,3,W],[2,4,W],[2,5,W],[1,5,W],[0,5,W]],
+    answers:[[0,2]],
+    hint:'还是正中间那一点！"直三"的死穴就在中央：白棋点进去以后，黑棋两边都只剩一格，做不出两只眼，整块棋就是死的。<br>同一个点，黑先走活、白先走死——围棋里管这叫"要点"，也叫"急所"。' },
+
+  { lv:'L4 · 对杀', mode:'click', size:9, cell:34,
+    q:'黑白两块棋在对杀。轮到黑棋，先下哪里？',
+    stones:[[4,4,W],[4,5,W],[3,4,B],[3,5,B],[5,4,B],[5,5,B]],
+    answers:[[4,3],[4,6]],
+    hint:'先数气：白棋这两颗只有左右两口气，黑棋外面空空的气多得多。对杀的原则是"先紧对方的气，别先补自己"。黑棋随便紧掉一边，白棋就只剩一口气，下一手就能提。' }
+];
+
+let qi = 0, qStars = 0, qLocked = false;
+const qBody = document.getElementById('qBody');
+const qBar = document.getElementById('qBar');
+const qLvT = document.getElementById('qLv');
+const qStarT = document.getElementById('qStar');
+const PRAISE = ['太棒了！🎉','就是这里！👏','算得准！⭐','好眼力！💡','完全正确！🌟'];
+const CHEER = ['再看看～ 🤔','没关系，看提示 💪','差一点点！','数一数气再想想 👀'];
+
+function renderQuiz(){
+  if (qi >= QUIZ.length) return renderCert();
+  const Q = QUIZ[qi];
+  qLocked = false;
+  qLvT.textContent = `第 ${qi+1} 关 / 共 ${QUIZ.length} 关`;
+  qBar.style.width = (qi / QUIZ.length * 100) + '%';
+  qStarT.textContent = '⭐ ' + qStars;
+
+  qBody.innerHTML = `
+    <div class="q-type">${Q.lv}</div>
+    <div class="q-text">${Q.q}</div>
+    <canvas class="gb ${Q.mode==='click'?'clickable':''}" id="qBoard" style="box-shadow:var(--shadow-sm)"></canvas>
+    ${Q.mode==='choice' ? `<div class="opts">${Q.opts.map((o,i)=>`<div class="opt" data-i="${i}">${o}</div>`).join('')}</div>` : ''}
+    <div class="feedback" id="qFb">${Q.mode==='click' ? '<div style="font-size:14px;opacity:.6;font-family:var(--font-body)">👆 直接点棋盘上的交叉点作答</div>' : ''}</div>`;
+
+  const cell = Math.min(Q.cell, Math.floor(Math.min(window.innerWidth - 90, 460) / Q.size));
+  const cv = document.getElementById('qBoard');
+  drawBoard(cv, { size:Q.size, cell, stones:Q.stones, marks:Q.marks });
+
+  if (Q.mode === 'click'){
+    cv.onclick = (ev)=>{
+      if (qLocked) return;
+      const p = hitPoint(cv, ev, Q.size, cell);
+      if (!p) return;
+      if (Q.stones.some(s=>s[0]===p.r && s[1]===p.c)) return;
+      const ok = Q.answers.some(a=>a[0]===p.r && a[1]===p.c);
+      if (ok){
+        qLocked = true; qStars++;
+        const col = /白棋/.test(Q.q) ? W : B;
+        // 用真实规则走一手，这样被提掉的子会从图上消失
+        const RR = makeRules(Q.size);
+        const tb = new Int8Array(Q.size * Q.size);
+        Q.stones.forEach(([r,c,v])=> tb[r*Q.size + c] = v);
+        const res = RR.tryPlay(tb, p.r*Q.size + p.c, col, -1);
+        let shown;
+        if (res.ok){
+          shown = [];
+          for (let k=0;k<tb.length;k++) if (tb[k]) shown.push([(k/Q.size)|0, k%Q.size, tb[k]]);
+        } else {
+          shown = Q.stones.concat([[p.r, p.c, col]]);
+        }
+        drawBoard(cv, { size:Q.size, cell, stones:shown, marks:Q.marks, last:[p.r,p.c] });
+        boom(cv); finishQ();
+      } else {
+        drawBoard(cv, { size:Q.size, cell, stones:Q.stones, marks:(Q.marks||[]).concat([[p.r,p.c,'✗','#FF5B4A']]) });
+        showTry();
+      }
+    };
+  } else {
+    qBody.querySelectorAll('.opt').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        if (qLocked) return;
+        if (+el.dataset.i === Q.answer){
+          qLocked = true; qStars++;
+          el.classList.add('right','locked');
+          qBody.querySelectorAll('.opt').forEach(o=>o.classList.add('locked'));
+          boom(el); finishQ();
+        } else {
+          el.classList.add('wrong');
+          setTimeout(()=>el.classList.remove('wrong'), 420);
+          showTry();
+        }
+      });
+    });
+  }
+}
+function finishQ(){
+  const Q = QUIZ[qi];
+  qStarT.textContent = '⭐ ' + qStars;
+  document.getElementById('qFb').innerHTML = `
+    <div>${PRAISE[Math.floor(Math.random()*PRAISE.length)]}</div>
+    <div class="hintbox">💡 <b>为什么：</b>${Q.hint}</div>
+    <button class="btn primary" id="qNext">${qi === QUIZ.length-1 ? '看看我的成绩 🏅' : '下一关 →'}</button>`;
+  document.getElementById('qNext').onclick = ()=>{ qi++; renderQuiz(); };
+}
+function showTry(){
+  document.getElementById('qFb').innerHTML = `
+    <div>${CHEER[Math.floor(Math.random()*CHEER.length)]}</div>
+    <div class="hintbox">🔎 <b>小提示：</b>${QUIZ[qi].hint}</div>`;
+}
+function renderCert(){
+  qBar.style.width = '100%';
+  qLvT.textContent = '全部完成！';
+  const lvl = qStars >= 12 ? '围棋小棋圣' : qStars >= 9 ? '围棋小高手' : '围棋练习生';
+  qBody.innerHTML = `
+    <div class="cert">
+      <div class="medal">🏅</div>
+      <h3>${lvl}</h3>
+      <div class="score">${qStars} / ${QUIZ.length}</div>
+      <p style="margin-top:12px;opacity:.8;max-width:470px">
+        ${qStars >= 12 ? '十二关全对！气、吃子、死活都过关了，可以开始正式做死活题集了。'
+         : qStars >= 9 ? '大部分都答对了。把错的那几关的提示读一遍，明天再来一次就全会了。'
+         : '第一次能做完十二关就很棒。先回到 L1、L2 把"数气"练熟——围棋所有的招法都是从数气长出来的。'}
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap">
+        <button class="btn primary" id="qAgain">🔄 再来一次</button>
+        <a href="#play" class="btn ghost">去摆一盘 →</a>
+      </div>
+    </div>`;
+  document.getElementById('qAgain').onclick = ()=>{ qi=0; qStars=0; renderQuiz(); };
+  for (let i=0;i<4;i++) setTimeout(()=>boom(document.querySelector('.medal')), i*170);
+}
+function boom(el){
+  const r = el.getBoundingClientRect();
+  const cx = r.left + r.width/2, cy = r.top + r.height/2;
+  const colors = ['#FF5B4A','#FFC53D','#2FC79A','#4E9CFF','#A374FF','#FF8FB1'];
+  for (let i=0;i<20;i++){
+    const p = document.createElement('div');
+    p.className = 'confetti';
+    p.style.background = colors[i % colors.length];
+    p.style.left = cx + 'px'; p.style.top = cy + 'px';
+    document.body.appendChild(p);
+    const ang = (Math.PI*2*i)/20 + Math.random()*.5;
+    const dist = 80 + Math.random()*120;
+    p.animate([
+      {transform:'translate(-50%,-50%) rotate(0deg)', opacity:1},
+      {transform:`translate(${Math.cos(ang)*dist-20}px, ${Math.sin(ang)*dist+170}px) rotate(${540+Math.random()*360}deg)`, opacity:0}
+    ], {duration:950+Math.random()*450, easing:'cubic-bezier(.2,.7,.4,1)'}).onfinish = ()=>p.remove();
+  }
+}
+renderQuiz();
+
+/* ================================================================
+   六、对局实验室（9 路，完整规则）
+   ================================================================ */
+const G = 9;
+const R = makeRules(G);
+let gb = new Int8Array(G*G);
+let gTurn = 1, koPoint = -1, showLibs = true, mode = 'free';
+let caps = { 1:0, 2:0 };
+let gHist = [];
+let lastMove = null, aiThinking = false, gameOver = false;
+const WIN_CAPS = 5;
+
+const goCv = document.getElementById('goBoard');
+const msgEl = document.getElementById('msg');
+const turnTextEl = document.getElementById('turnText');
+const turnDotEl = document.getElementById('turnDot');
+
+function goCell(){
+  const w = document.getElementById('goWrap').clientWidth || 360;
+  return Math.max(26, Math.min(42, Math.floor((w - 8) / (G + 1.6))));
+}
+function libsData(){
+  if (!showLibs) return [];
+  const out = [], done = new Set();
+  for (let i=0;i<G*G;i++){
+    if (!gb[i] || done.has(i)) continue;
+    const g = R.groupOf(gb, i);
+    g.stones.forEach(s=>done.add(s));
+    const n = g.libs.size;
+    g.stones.forEach(s=> out.push([(s/G)|0, s%G, n, gb[s]]));
+  }
+  return out;
+}
+function goPaint(){
+  const stones = [];
+  for (let i=0;i<G*G;i++) if (gb[i]) stones.push([(i/G)|0, i%G, gb[i]]);
+  drawBoard(goCv, { size:G, cell:goCell(), stones, last:lastMove, libs:libsData() });
+  document.getElementById('capB').textContent = caps[1];
+  document.getElementById('capW').textContent = caps[2];
+  if (gameOver) return;
+  turnDotEl.className = 'dot ' + (gTurn === 1 ? 'b' : 'w');
+  turnTextEl.textContent = (mode === 'ai' && gTurn === 2)
+    ? '电脑（白）思考中…'
+    : (gTurn === 1 ? '轮到黑棋' : '轮到白棋');
+}
+function say(html){ msgEl.innerHTML = html; }
+
+function doMove(i, col){
+  // tryPlay 会直接在 gb 上落子并提子，所以快照必须先拍
+  const snapshot = { board: Int8Array.from(gb), turn: gTurn, ko: koPoint, caps: {...caps}, last: lastMove };
+  const res = R.tryPlay(gb, i, col, koPoint);
+  if (!res.ok){ say('🚫 ' + res.reason); return false; }
+  gHist.push(snapshot);
+  caps[col] += res.captured.length;
+  koPoint = res.ko;
+  lastMove = [(i/G)|0, i%G];
+  const g = R.groupOf(gb, i);
+  let m = `${col===1?'黑':'白'}棋下在 ${'ABCDEFGHJ'[i%G]}${G-((i/G)|0)}，这块棋现在有 <b>${g.libs.size}</b> 口气。`;
+  if (res.captured.length) m = `🎯 提掉 ${res.captured.length} 颗${col===1?'白':'黑'}子！` + m;
+  if (res.ko >= 0) m += ' 这里形成了「劫」，对方不能马上提回来。';
+  if (g.libs.size === 1) m += ' ⚠️ 只剩一口气了，小心被提。';
+  say(m);
+  gTurn = 3 - col;
+  if (mode === 'ai' && caps[col] >= WIN_CAPS){
+    gameOver = true;
+    turnTextEl.textContent = col === 1 ? '🎉 你赢了！' : '😼 电脑赢了';
+    say(`${col===1?'你':'电脑'}先提到 ${WIN_CAPS} 颗子，这盘吃子棋结束。点「清空棋盘」再来一盘。`);
+    goPaint();
+    if (col === 1) boom(goCv);
+    return true;
+  }
+  goPaint();
+  return true;
+}
+
+/* ---------- 吃子棋的练习电脑 ---------- */
+function aiPick(col){
+  const opp = 3 - col;
+  let best = -1, bestScore = -1e9;
+  for (let i=0;i<G*G;i++){
+    if (gb[i] !== 0 || i === koPoint) continue;
+    const test = Int8Array.from(gb);
+    const res = R.tryPlay(test, i, col, koPoint);
+    if (!res.ok) continue;
+    let s = res.captured.length * 150;
+    const self = R.groupOf(test, i);
+    s += Math.min(self.libs.size, 4) * 7;
+    if (self.libs.size === 1) s -= 80;
+    if (self.libs.size === 2) s -= 10;
+    // 打吃对方
+    for (const j of R.nb(i)){
+      if (test[j] === opp){
+        const g = R.groupOf(test, j);
+        if (g.libs.size === 1) s += 45 + g.stones.length * 12;
+        else if (g.libs.size === 2) s += 12;
+      }
+    }
+    // 救自己：落子前我方有块只剩 1 气，落子后这块气变多
+    for (const j of R.nb(i)){
+      if (gb[j] === col){
+        const before = R.groupOf(gb, j).libs.size;
+        const after = R.groupOf(test, i).libs.size;
+        if (before === 1 && after >= 2) s += 60;
+      }
+    }
+    // 位置分：喜欢靠近已有棋子，不喜欢第一线
+    const r = (i/G)|0, c = i%G;
+    const edge = Math.min(r, c, G-1-r, G-1-c);
+    s += edge === 0 ? -14 : (edge === 1 ? 4 : 8);
+    let near = 0;
+    for (const j of R.nb(i)) if (gb[j]) near++;
+    s += near * 6;
+    s += Math.random() * 10;
+    if (s > bestScore){ bestScore = s; best = i; }
+  }
+  return best;
+}
+function aiTurn(){
+  if (gameOver || mode !== 'ai' || gTurn !== 2) return;
+  aiThinking = true;
+  goPaint();
+  setTimeout(()=>{
+    const i = aiPick(2);
+    aiThinking = false;
+    if (i < 0){ gTurn = 1; say('电脑找不到能下的点，停一手。'); goPaint(); return; }
+    doMove(i, 2);
+  }, 320);
+}
+goCv.addEventListener('click', (ev)=>{
+  if (gameOver || aiThinking) return;
+  if (mode === 'ai' && gTurn !== 1) return;
+  const p = hitPoint(goCv, ev, G, goCell());
+  if (!p) return;
+  const col = gTurn;
+  if (doMove(p.r*G + p.c, col) && mode === 'ai') aiTurn();
+});
+document.getElementById('btnClear').onclick = ()=>{
+  gb = new Int8Array(G*G); gTurn = 1; koPoint = -1; caps = {1:0,2:0};
+  gHist = []; lastMove = null; gameOver = false; aiThinking = false;
+  say('棋盘清空了，黑棋先下。');
+  goPaint();
+};
+document.getElementById('btnUndo').onclick = ()=>{
+  if (aiThinking || !gHist.length) return;
+  const steps = (mode === 'ai' && gHist.length >= 2) ? 2 : 1;
+  let st;
+  for (let k=0;k<steps;k++) st = gHist.pop();
+  gb = Int8Array.from(st.board);
+  gTurn = st.turn; koPoint = st.ko; caps = {...st.caps}; lastMove = st.last;
+  gameOver = false;
+  say('退回上一步。');
+  goPaint();
+};
+document.getElementById('btnPass').onclick = ()=>{
+  if (gameOver || aiThinking) return;
+  gHist.push({ board: Int8Array.from(gb), turn: gTurn, ko: koPoint, caps:{...caps}, last: lastMove });
+  gTurn = 3 - gTurn; koPoint = -1;
+  say('停一手（虚着）。围棋允许不下——这是和五子棋最大的不同之一。');
+  goPaint();
+  if (mode === 'ai') aiTurn();
+};
+document.querySelectorAll('#segMode button').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('#segMode button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    mode = b.dataset.v;
+    document.getElementById('btnClear').click();
+    say(mode === 'ai'
+      ? `吃子棋模式：你执黑先下，谁先提到对方 ${WIN_CAPS} 颗子谁赢。电脑很弱，专门用来练打吃和逃跑。`
+      : '两人对下模式：你和小伙伴轮流点棋盘。提子、禁入点、打劫都会自动判断。');
+  };
+});
+document.querySelectorAll('#segLib button').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('#segLib button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    showLibs = b.dataset.v === '1';
+    goPaint();
+  };
+});
+goPaint();
+
+let rz;
+window.addEventListener('resize', ()=>{
+  clearTimeout(rz);
+  rz = setTimeout(goPaint, 160);
+});
+
+const io = new IntersectionObserver((es)=>{
+  es.forEach((e,i)=>{
+    if (e.isIntersecting){
+      e.target.style.transitionDelay = (i*60) + 'ms';
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

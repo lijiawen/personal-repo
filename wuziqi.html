@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五子棋成长课 · 从摆棋到算杀</title>
+<meta name="description" content="小学一年级到初中的五子棋阶梯教程：棋型、连击、防守、开局、算杀，含闯关练习与人机对弈">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ 设计变量（与全站一致） ============ */
+:root{
+  --ink:#2A211C;
+  --paper:#FFF4DF;
+  --paper-2:#FFEAC4;
+  --tomato:#FF5B4A;
+  --sun:#FFC53D;
+  --mint:#2FC79A;
+  --sky:#4E9CFF;
+  --grape:#A374FF;
+  --bubble:#FF8FB1;
+  --wood:#E9BE7C;
+  --line:3px solid var(--ink);
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --shadow-lg:10px 10px 0 var(--ink);
+  --font-display:'ZCOOL KuaiLe','PingFang SC','Hiragino Sans GB',sans-serif;
+  --font-body:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  --font-num:'Fredoka','PingFang SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);color:var(--ink);background-color:var(--paper);line-height:1.75;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(42,33,28,.13) 1.5px, transparent 0),
+    radial-gradient(ellipse 70% 50% at 12% 0%, rgba(42,33,28,.14), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 90% 10%, rgba(255,197,61,.30), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(78,156,255,.18), transparent 60%);
+  background-size:26px 26px,100% 100%,100% 100%,100% 100%;
+  overflow-x:hidden;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.30;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:2;}
+.tag{
+  display:inline-block;font-family:var(--font-display);font-size:15px;
+  padding:5px 16px;border:var(--line);border-radius:99px;background:#fff;
+  box-shadow:3px 3px 0 var(--ink);letter-spacing:1px;
+}
+h2.sec-title{font-family:var(--font-display);font-size:clamp(28px,5vw,42px);line-height:1.25;letter-spacing:1px;margin:14px 0 6px;}
+.sec-sub{font-size:15px;opacity:.72;max-width:600px;}
+section{padding:54px 0;position:relative;}
+
+/* ============ 导航 ============ */
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);background:rgba(255,244,223,.86);border-bottom:var(--line);}
+nav .inner{max-width:1080px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;gap:14px;}
+.logo{font-family:var(--font-display);font-size:21px;display:flex;align-items:center;gap:9px;letter-spacing:1px;}
+.logo .badge{width:36px;height:36px;border:var(--line);border-radius:11px;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-size:19px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-6deg);}
+nav .links{margin-left:auto;display:flex;gap:6px;}
+nav .links a{font-family:var(--font-display);font-size:15px;text-decoration:none;color:var(--ink);
+  padding:6px 14px;border-radius:99px;border:2px solid transparent;transition:.18s;}
+nav .links a:hover{border-color:var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);transform:translateY(-1px);}
+@media(max-width:860px){nav .links{display:none;}}
+.home-btn{flex:0 0 auto;width:38px;height:38px;border:var(--line);border-radius:12px;background:var(--mint);
+  display:grid;place-items:center;font-size:18px;text-decoration:none;color:var(--ink);
+  box-shadow:3px 3px 0 var(--ink);transition:transform .14s, box-shadow .14s;}
+.home-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);}
+.home-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+
+/* ============ 按钮 ============ */
+.btn{font-family:var(--font-display);font-size:16px;cursor:pointer;text-decoration:none;color:var(--ink);
+  padding:11px 22px;border:var(--line);border-radius:99px;background:#fff;
+  box-shadow:var(--shadow-sm);transition:transform .14s, box-shadow .14s;letter-spacing:1px;
+  display:inline-flex;align-items:center;gap:8px;}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
+.btn.primary{background:var(--tomato);color:#fff;}
+.btn.ghost{background:var(--mint);}
+.btn.sm{font-size:14px;padding:7px 15px;box-shadow:3px 3px 0 var(--ink);}
+.btn[disabled]{opacity:.45;pointer-events:none;}
+
+/* ============ HERO ============ */
+header{padding:52px 0 20px;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(38px,7.5vw,68px);line-height:1.12;letter-spacing:2px;margin:16px 0 4px;}
+.hero h1 .hl{position:relative;display:inline-block;color:var(--tomato);}
+.hero h1 .hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:6px;height:14px;background:var(--sun);border-radius:99px;z-index:-1;transform:rotate(-1.4deg);}
+.hero p.lead{font-size:17px;max-width:470px;margin-top:14px;opacity:.85;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;}
+.stat{background:#fff;border:var(--line);border-radius:16px;padding:10px 18px;box-shadow:var(--shadow-sm);}
+.stat b{font-family:var(--font-num);font-size:24px;display:block;line-height:1.1;}
+.stat span{font-size:12.5px;opacity:.7;}
+.stat:nth-child(1){transform:rotate(-2deg);background:var(--sun);}
+.stat:nth-child(2){transform:rotate(1.5deg);background:var(--bubble);}
+.stat:nth-child(3){transform:rotate(-1deg);background:var(--mint);}
+.hero-art{display:grid;place-items:center;position:relative;min-height:280px;}
+.hero-art .float{position:absolute;font-size:34px;filter:drop-shadow(2px 3px 0 rgba(42,33,28,.3));}
+.f1{top:0;left:2%;animation:bob 4.2s ease-in-out infinite;}
+.f2{top:10%;right:0%;animation:bob 5.1s ease-in-out .4s infinite;}
+.f3{bottom:2%;left:0%;animation:bob 4.6s ease-in-out .8s infinite;}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg);}50%{transform:translateY(-14px) rotate(8deg);}}
+.wave{display:block;width:100%;height:44px;margin-top:22px;}
+
+/* ============ 棋盘通用 ============ */
+canvas.gb{
+  display:block;border:var(--line);border-radius:14px;box-shadow:var(--shadow-sm);
+  background:var(--wood);touch-action:manipulation;max-width:100%;
+}
+canvas.gb.clickable{cursor:pointer;}
+.board-card{background:#fff;border:var(--line);border-radius:22px;box-shadow:var(--shadow);padding:16px;display:inline-block;}
+
+/* ============ 分级 ============ */
+.lv-track{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px;}
+@media(max-width:900px){.lv-track{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:520px){.lv-track{grid-template-columns:repeat(2,1fr);}}
+.lv{
+  cursor:pointer;background:#fff;border:var(--line);border-radius:18px;padding:14px 10px;text-align:center;
+  box-shadow:var(--shadow-sm);transition:transform .16s, box-shadow .16s;position:relative;user-select:none;
+}
+.lv:hover{transform:translate(-2px,-4px);box-shadow:var(--shadow);}
+.lv.on{background:var(--c);transform:translate(-2px,-5px) rotate(-1.5deg);box-shadow:var(--shadow-lg);}
+.lv .n{font-family:var(--font-num);font-weight:600;font-size:13px;letter-spacing:1px;opacity:.65;}
+.lv .e{font-size:28px;display:block;line-height:1.3;}
+.lv strong{font-family:var(--font-display);font-weight:400;font-size:15px;display:block;letter-spacing:.5px;}
+.lv small{font-size:11.5px;opacity:.7;display:block;}
+
+.lv-detail{margin-top:26px;background:#fff;border:var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;}
+.lv-head{padding:20px 24px;border-bottom:var(--line);display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.lv-head .big{font-family:var(--font-display);font-size:24px;letter-spacing:1px;}
+.lv-head .goal{font-size:14px;opacity:.8;flex:1;min-width:220px;}
+.lv-body{padding:18px 24px 26px;}
+.lesson{
+  display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:2px dashed rgba(42,33,28,.18);
+}
+.lesson:last-child{border-bottom:none;}
+.lesson .no{
+  flex:0 0 40px;height:40px;border:var(--line);border-radius:12px;display:grid;place-items:center;
+  font-family:var(--font-num);font-weight:600;font-size:17px;background:var(--c);box-shadow:3px 3px 0 var(--ink);
+}
+.lesson h4{font-family:var(--font-display);font-weight:400;font-size:18px;letter-spacing:.5px;}
+.lesson p{font-size:14.5px;opacity:.82;margin-top:2px;}
+.lesson .kw{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;}
+.lesson .kw i{font-style:normal;font-size:12px;background:var(--paper-2);border:2px solid var(--ink);border-radius:99px;padding:1px 10px;}
+.milestone{
+  margin-top:18px;background:var(--paper-2);border:var(--line);border-radius:16px;padding:12px 18px;
+  box-shadow:3px 3px 0 var(--ink);font-size:14.5px;
+}
+.milestone b{font-family:var(--font-display);font-weight:400;letter-spacing:1px;}
+
+/* ============ 棋型图鉴 ============ */
+.shape-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:20px;margin-top:30px;}
+.sh{background:#fff;border:var(--line);border-radius:20px;box-shadow:var(--shadow-sm);padding:14px;transition:transform .18s,box-shadow .18s;}
+.sh:hover{transform:translate(-3px,-5px) rotate(-1deg);box-shadow:var(--shadow);}
+.sh .cap{display:flex;align-items:center;gap:8px;margin-top:10px;}
+.sh h4{font-family:var(--font-display);font-weight:400;font-size:18px;letter-spacing:1px;}
+.sh .danger{margin-left:auto;font-family:var(--font-num);font-size:12px;border:2px solid var(--ink);border-radius:99px;padding:0 9px;background:var(--c);}
+.sh p{font-size:13.5px;opacity:.8;margin-top:5px;}
+
+/* ============ 闯关 ============ */
+.game-shell{margin-top:30px;background:#fff;border:var(--line);border-radius:28px;box-shadow:var(--shadow-lg);overflow:hidden;}
+.game-top{padding:14px 20px;border-bottom:var(--line);background:var(--sun);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.game-top .lv-text{font-family:var(--font-display);font-size:17px;letter-spacing:1px;}
+.bar{flex:1;min-width:120px;height:16px;background:#fff;border:var(--line);border-radius:99px;overflow:hidden;}
+.bar i{display:block;height:100%;width:0;background:var(--tomato);transition:width .45s cubic-bezier(.34,1.56,.64,1);}
+.stars{font-size:16px;font-family:var(--font-num);}
+.game-body{padding:26px 20px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:430px;}
+.q-type{font-size:12.5px;letter-spacing:2px;opacity:.6;font-family:var(--font-num);}
+.q-text{font-family:var(--font-display);font-size:clamp(18px,3.2vw,25px);margin:6px 0 18px;letter-spacing:1px;line-height:1.5;max-width:640px;}
+.opts{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px;}
+.opt{cursor:pointer;background:#fff;border:var(--line);border-radius:16px;min-width:82px;padding:12px 20px;
+  box-shadow:var(--shadow-sm);font-family:var(--font-display);font-size:18px;transition:transform .14s,box-shadow .14s,background .2s;user-select:none;}
+.opt:hover:not(.locked){transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink);background:var(--paper-2);}
+.opt.right{background:var(--mint);animation:pop .45s cubic-bezier(.34,1.8,.5,1);}
+.opt.wrong{background:var(--tomato);color:#fff;animation:shake .4s;}
+.opt.locked{cursor:default;}
+@keyframes pop{0%{transform:scale(1);}45%{transform:scale(1.14) rotate(3deg);}100%{transform:scale(1);}}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+.feedback{margin-top:18px;min-height:70px;font-family:var(--font-display);font-size:17px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.hintbox{background:var(--paper-2);border:var(--line);border-radius:16px;padding:9px 18px;box-shadow:3px 3px 0 var(--ink);
+  font-size:14.5px;font-family:var(--font-body);max-width:580px;line-height:1.7;animation:pop .4s ease;}
+.cert{text-align:center;animation:pop .6s cubic-bezier(.34,1.56,.64,1);}
+.cert .medal{font-size:74px;display:inline-block;animation:bob 2.6s ease-in-out infinite;}
+.cert h3{font-family:var(--font-display);font-size:30px;margin:6px 0;letter-spacing:2px;}
+.cert .score{font-family:var(--font-num);font-size:50px;font-weight:600;color:var(--tomato);line-height:1;}
+.confetti{position:fixed;width:11px;height:16px;z-index:998;pointer-events:none;border:2px solid var(--ink);border-radius:3px;}
+
+/* ============ 对弈 ============ */
+.play-layout{display:grid;grid-template-columns:auto 1fr;gap:26px;margin-top:30px;align-items:start;}
+@media(max-width:880px){.play-layout{grid-template-columns:1fr;}}
+.panel{background:#fff;border:var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;}
+.panel h4{font-family:var(--font-display);font-weight:400;font-size:18px;letter-spacing:1px;margin-bottom:10px;}
+.seg{display:flex;border:var(--line);border-radius:99px;overflow:hidden;box-shadow:3px 3px 0 var(--ink);margin-bottom:16px;}
+.seg button{
+  flex:1;font-family:var(--font-display);font-size:14px;padding:8px 4px;background:#fff;border:none;
+  border-right:3px solid var(--ink);cursor:pointer;color:var(--ink);transition:.16s;
+}
+.seg button:last-child{border-right:none;}
+.seg button.on{background:var(--sun);}
+.turn-box{
+  display:flex;align-items:center;gap:10px;background:var(--paper-2);border:var(--line);border-radius:16px;
+  padding:10px 14px;box-shadow:3px 3px 0 var(--ink);margin-bottom:14px;font-family:var(--font-display);font-size:16px;
+}
+.dot{width:26px;height:26px;border:var(--line);border-radius:50%;display:inline-block;flex:0 0 26px;}
+.dot.b{background:#231C18;}
+.dot.w{background:#fff;}
+.ctrl-row{display:flex;gap:8px;flex-wrap:wrap;}
+.ai-note{font-size:12.5px;opacity:.7;margin-top:14px;line-height:1.6;}
+#boardWrap{display:flex;justify-content:center;}
+
+/* ============ 家长指南 ============ */
+.tips{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px;}
+@media(max-width:760px){.tips{grid-template-columns:1fr;}}
+.tip{background:#fff;border:var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:flex-start;}
+.tip .n{flex:0 0 44px;height:44px;border:var(--line);border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-num);font-weight:600;font-size:20px;background:var(--sky);box-shadow:3px 3px 0 var(--ink);}
+.tip h4{font-family:var(--font-display);font-weight:400;font-size:17.5px;}
+.tip p{font-size:14px;opacity:.8;margin-top:3px;}
+.tip:nth-child(2) .n{background:var(--bubble);}
+.tip:nth-child(3) .n{background:var(--mint);}
+.tip:nth-child(4) .n{background:var(--sun);}
+
+footer{border-top:var(--line);margin-top:36px;padding:32px 0;text-align:center;background:var(--paper-2);}
+footer .big{font-family:var(--font-display);font-size:clamp(22px,4.5vw,34px);letter-spacing:2px;}
+footer p{font-size:13px;opacity:.7;margin-top:8px;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1);}
+.reveal.in{opacity:1;transform:none;}
+.rise{opacity:0;transform:translateY(22px);animation:rise .7s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes rise{to{opacity:1;transform:none;}}
+.d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.27s}.d4{animation-delay:.38s}.d5{animation-delay:.5s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}.rise{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="index.html" class="home-btn" title="返回全部课程">←</a>
+    <div class="logo"><span class="badge">⚫</span>五子棋成长课</div>
+    <div class="links">
+      <a href="#levels">六级课程</a>
+      <a href="#shapes">棋型图鉴</a>
+      <a href="#quiz">十关挑战</a>
+      <a href="#play">人机对弈</a>
+      <a href="#parents">家长指南</a>
+    </div>
+    <a href="#play" class="btn primary sm">下一盘 →</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div class="hero">
+      <span class="tag rise d1">♟️ 一年级 → 初中 · 六个台阶</span>
+      <h1 class="rise d2">五子棋，<br>从<span class="hl">连成五个</span><br>到算得出胜负</h1>
+      <p class="lead rise d3">一年级只要会数"五个连起来"，初中要能在脑子里往前算八步。这里把这条路拆成 6 级 30 课，每一级都配一张图、一道题、一盘棋。</p>
+      <div class="hero-cta rise d4">
+        <a href="#play" class="btn primary">🎮 和电脑下一盘</a>
+        <a href="#levels" class="btn ghost">看看六级课程</a>
+      </div>
+      <div class="stats rise d5">
+        <div class="stat"><b>6</b><span>级 · 一年级到初中</span></div>
+        <div class="stat"><b>30</b><span>节课</span></div>
+        <div class="stat"><b>10</b><span>关实战题</span></div>
+      </div>
+    </div>
+    <div class="hero-art rise d3">
+      <span class="float f1">⭐</span>
+      <span class="float f2">🏆</span>
+      <span class="float f3">🧠</span>
+      <div class="board-card"><canvas id="heroBoard" class="gb"></canvas></div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 44" preserveAspectRatio="none">
+    <path d="M0,26 C150,4 250,44 400,26 C550,8 650,42 800,26 C950,10 1050,40 1200,24" fill="none" stroke="#2A211C" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+</header>
+
+<!-- ============ 六级课程 ============ -->
+<section id="levels">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">🗺️ 学习地图</span>
+      <h2 class="sec-title">六个台阶，一年上一级</h2>
+      <p class="sec-sub">点一点上面的级别，看这一级到底学什么。每一级都有"过关标准"——达到了再往上走，不用赶。</p>
+    </div>
+    <div class="lv-track" id="lvTrack"></div>
+    <div class="lv-detail" id="lvDetail"></div>
+  </div>
+</section>
+
+<!-- ============ 棋型图鉴 ============ -->
+<section id="shapes" style="background:linear-gradient(180deg,transparent,rgba(255,197,61,.20),transparent);">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">📖 必背图鉴</span>
+      <h2 class="sec-title">九种棋型，认出来就赢一半</h2>
+      <p class="sec-sub">五子棋的全部战斗，都是这几种形状在打架。看图记名字，下棋时脑子里才有"警报器"。红色叹号越多越危险。</p>
+    </div>
+    <div class="shape-grid" id="shapeGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 闯关 ============ -->
+<section id="quiz">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">🎯 真棋盘真题</span>
+      <h2 class="sec-title">十关挑战 · 从找第五子到算杀</h2>
+      <p class="sec-sub">前四关一年级就能做，后面越来越难，第 10 关是初中水平的连续算杀。答错不扣分，每题都讲为什么。</p>
+    </div>
+    <div class="game-shell reveal">
+      <div class="game-top">
+        <span class="lv-text" id="qLv">第 1 关 / 共 10 关</span>
+        <div class="bar"><i id="qBar"></i></div>
+        <span class="stars" id="qStar">⭐ 0</span>
+      </div>
+      <div class="game-body" id="qBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对弈 ============ -->
+<section id="play" style="background:linear-gradient(180deg,transparent,rgba(78,156,255,.16),transparent);">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">🤖 练手对象</span>
+      <h2 class="sec-title">和电脑下一盘（15 路标准盘）</h2>
+      <p class="sec-sub">电脑用的就是第 6 级课里讲的"棋型评分 + 往前算一步"。赢不了就调难度，卡住了点"支支招"。</p>
+    </div>
+    <div class="play-layout">
+      <div class="board-card reveal" id="boardCard"><div id="boardWrap"><canvas id="board" class="gb clickable"></canvas></div></div>
+      <div class="panel reveal">
+        <h4>难度</h4>
+        <div class="seg" id="segLevel">
+          <button data-v="easy">🍼 轻松</button>
+          <button data-v="normal" class="on">🙂 普通</button>
+          <button data-v="hard">🔥 挑战</button>
+        </div>
+        <h4>我执</h4>
+        <div class="seg" id="segSide">
+          <button data-v="1" class="on">⚫ 黑（先手）</button>
+          <button data-v="2">⚪ 白（后手）</button>
+        </div>
+        <div class="turn-box" id="turnBox"><span class="dot b"></span><span id="turnText">轮到你走</span></div>
+        <div class="ctrl-row">
+          <button class="btn sm ghost" id="btnNew">🔄 重新开局</button>
+          <button class="btn sm" id="btnUndo">↩️ 悔一步</button>
+          <button class="btn sm" id="btnHint">💡 支支招</button>
+        </div>
+        <p class="ai-note">
+          说明：本盘用<b>无禁手</b>规则（黑棋不限制三三、四四、长连），适合小朋友。
+          正式比赛的黑方禁手规则在第 5 级课里讲。<br>
+          电脑思考的过程：先看有没有一步成五 → 再看要不要堵 → 然后给每个空点按棋型打分，挑分数最高的。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 家长指南 ============ -->
+<section id="parents">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">👨‍👩‍👧 给陪练的大人</span>
+      <h2 class="sec-title">陪孩子下棋，四条实用建议</h2>
+      <p class="sec-sub">五子棋最大的教育价值不是"赢"，是让孩子第一次体验"我刚才那步没想清楚"。</p>
+    </div>
+    <div class="tips">
+      <div class="tip reveal"><div class="n">1</div><div><h4>别让棋，但要"降级"</h4><p>故意下臭棋孩子看得出来，会觉得被敷衍。正确做法是缩小棋盘（9 路）或规定自己只能防守，实力差距靠规则调，不靠假装。</p></div></div>
+      <div class="tip reveal"><div class="n">2</div><div><h4>每步先问一句"对方想干嘛"</h4><p>低年级孩子只顾自己连，看不见对方的三。养成"先扫描对方、再想自己"的顺序，比学十种杀法都管用。</p></div></div>
+      <div class="tip reveal"><div class="n">3</div><div><h4>输了要复盘那一步</h4><p>不用全盘复盘。只问："你觉得哪一步走错了？"让孩子自己指出来，再摆回去重下一次。这是把失败变成方法的唯一途径。</p></div></div>
+      <div class="tip reveal"><div class="n">4</div><div><h4>三年级前不碰禁手规则</h4><p>三三禁手这些是为了平衡先手优势，规则复杂。低年级先玩无禁手，等能稳定赢过大人再引入，否则只会让孩子觉得"这游戏好烦"。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="big">下一步棋之前，先想三秒 ⚫⚪</div>
+    <p>五子棋成长课 · 小书桌 · 家庭自用</p>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   一、棋盘绘制工具（五子棋 / 小棋型图共用）
+   ================================================================ */
+const DPR = Math.min(window.devicePixelRatio || 1, 2);
+const INK = '#2A211C';
+
+function setupCanvas(cv, size, cell){
+  const pad = Math.round(cell * 0.78);
+  const W = cell * (size - 1) + pad * 2;
+  cv.width = Math.round(W * DPR);
+  cv.height = Math.round(W * DPR);
+  cv.style.width = W + 'px';
+  cv.style.height = W + 'px';
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  return { ctx, pad, W };
+}
+
+/* opt: {size, cell, stones:[[r,c,color]], marks:[[r,c,'A']], last:[r,c],
+        hint:[r,c], stars:[[r,c]], dim:true} color: 1黑 2白 */
+function drawBoard(cv, opt){
+  const size = opt.size, cell = opt.cell;
+  const { ctx, pad, W } = setupCanvas(cv, size, cell);
+  const X = i => pad + i * cell;
+
+  // 木纹底
+  ctx.fillStyle = '#E9BE7C';
+  ctx.fillRect(0, 0, W, W);
+  const g = ctx.createLinearGradient(0, 0, W, W);
+  g.addColorStop(0, 'rgba(255,255,255,.22)');
+  g.addColorStop(.5, 'rgba(255,255,255,0)');
+  g.addColorStop(1, 'rgba(120,70,20,.14)');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, W);
+
+  // 网格线
+  ctx.strokeStyle = INK;
+  ctx.lineWidth = Math.max(1, cell * .045);
+  ctx.lineCap = 'round';
+  for (let i = 0; i < size; i++){
+    ctx.beginPath(); ctx.moveTo(X(0), X(i)); ctx.lineTo(X(size-1), X(i)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(X(i), X(0)); ctx.lineTo(X(i), X(size-1)); ctx.stroke();
+  }
+  // 外框加粗
+  ctx.lineWidth = Math.max(2, cell * .085);
+  ctx.strokeRect(X(0), X(0), cell*(size-1), cell*(size-1));
+
+  // 星位
+  const stars = opt.stars || defaultStars(size);
+  ctx.fillStyle = INK;
+  stars.forEach(([r,c])=>{
+    ctx.beginPath(); ctx.arc(X(c), X(r), Math.max(2, cell*.11), 0, 7); ctx.fill();
+  });
+
+  // 棋子
+  (opt.stones || []).forEach(([r,c,col])=>{
+    drawStone(ctx, X(c), X(r), cell*.45, col);
+  });
+
+  // 最后一手红点
+  if (opt.last){
+    const [r,c] = opt.last;
+    ctx.fillStyle = '#FF5B4A';
+    ctx.beginPath(); ctx.arc(X(c), X(r), Math.max(2.5, cell*.13), 0, 7); ctx.fill();
+    ctx.strokeStyle = INK; ctx.lineWidth = 1.5; ctx.stroke();
+  }
+
+  // 提示圈
+  if (opt.hint){
+    const [r,c] = opt.hint;
+    ctx.strokeStyle = '#FF5B4A';
+    ctx.lineWidth = Math.max(2, cell*.11);
+    ctx.setLineDash([cell*.22, cell*.18]);
+    ctx.beginPath(); ctx.arc(X(c), X(r), cell*.45, 0, 7); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // 字母标记
+  (opt.marks || []).forEach(([r,c,t,bg])=>{
+    ctx.beginPath(); ctx.arc(X(c), X(r), cell*.42, 0, 7);
+    ctx.fillStyle = bg || '#FFF4DF'; ctx.fill();
+    ctx.strokeStyle = INK; ctx.lineWidth = Math.max(2, cell*.09); ctx.stroke();
+    ctx.fillStyle = INK;
+    ctx.font = '600 ' + Math.round(cell*.5) + 'px Fredoka, PingFang SC, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(t, X(c), X(r) + cell*.02);
+  });
+}
+
+function drawStone(ctx, x, y, r, col){
+  ctx.beginPath(); ctx.arc(x, y, r, 0, 7);
+  if (col === 1){
+    const g = ctx.createRadialGradient(x - r*.35, y - r*.4, r*.1, x, y, r);
+    g.addColorStop(0, '#5A4E47'); g.addColorStop(1, '#231C18');
+    ctx.fillStyle = g;
+  } else {
+    const g = ctx.createRadialGradient(x - r*.35, y - r*.4, r*.1, x, y, r);
+    g.addColorStop(0, '#FFFFFF'); g.addColorStop(1, '#E2D8C8');
+    ctx.fillStyle = g;
+  }
+  ctx.fill();
+  ctx.strokeStyle = INK; ctx.lineWidth = Math.max(1.6, r*.19); ctx.stroke();
+}
+
+function defaultStars(size){
+  if (size === 15) return [[3,3],[3,7],[3,11],[7,3],[7,7],[7,11],[11,3],[11,7],[11,11]];
+  if (size === 9)  return [[2,2],[2,6],[4,4],[6,2],[6,6]];
+  return [];
+}
+
+/* 画布坐标 → 交叉点 */
+function hitPoint(cv, ev, size, cell){
+  const pad = Math.round(cell * 0.78);
+  const rect = cv.getBoundingClientRect();
+  const px = ev.clientX - rect.left;
+  const py = ev.clientY - rect.top;
+  const c = Math.round((px - pad) / cell);
+  const r = Math.round((py - pad) / cell);
+  if (r < 0 || r >= size || c < 0 || c >= size) return null;
+  const dx = px - (pad + c*cell), dy = py - (pad + r*cell);
+  if (Math.hypot(dx, dy) > cell * .62) return null;
+  return { r, c };
+}
+
+/* ================================================================
+   二、六级课程数据
+   ================================================================ */
+const LEVELS = [
+  {
+    n:'L1', grade:'一年级 · 6~7岁', title:'认识棋盘', emoji:'🌱', color:'var(--mint)',
+    goal:'能自己摆棋、轮流下、并且一眼看出"谁连成五个了"。',
+    lessons:[
+      {t:'棋盘长什么样', d:'15 条横线、15 条竖线，棋子下在线和线的交叉点上，不是格子里。中间那个点叫"天元"。', kw:['交叉点','天元','星位']},
+      {t:'黑先白后，一人一步', d:'黑棋先下。下了就不能再动，手离开棋子这步就算数——这是最重要的规矩。', kw:['黑先','落子无悔']},
+      {t:'五连的四个方向', d:'横着、竖着、左斜、右斜，任意一个方向连成 5 颗同色棋子就赢。斜着的最容易被漏看。', kw:['横','竖','撇','捺']},
+      {t:'找第五颗子', d:'大人摆好 4 颗，孩子找出能赢的那一点。每天 10 道，一周就能形成"条件反射"。', kw:['眼力训练']},
+      {t:'输赢的规矩课', d:'赢了不笑话对手，输了不掀棋盘，下完握个手。这一课比棋艺重要得多。', kw:['棋品']}
+    ],
+    milestone:'过关标准：给你一盘乱棋，10 秒内能指出谁快连成五了。'
+  },
+  {
+    n:'L2', grade:'二年级 · 7~8岁', title:'基本棋型', emoji:'🧩', color:'var(--sun)',
+    goal:'认识"活"和"眠"，知道活三必须挡、冲四必须应。',
+    lessons:[
+      {t:'二、三、四怎么叫', d:'连着 2 颗叫"二"，3 颗叫"三"，4 颗叫"四"。加上"活/眠"两个字，就是全部棋型的名字。', kw:['连二','连三','连四']},
+      {t:'"活"和"眠"的区别', d:'两头都是空的叫活，被对方堵住一头叫眠（也叫死）。活三下一步能变活四，眠三下一步只能变冲四。', kw:['活三','眠三']},
+      {t:'活四为什么必胜', d:'活四有两个点都能成五，对方只有一只手，堵得了左边堵不了右边。所以：让对方成活四 = 输。', kw:['活四','必胜形']},
+      {t:'冲四是"将军"', d:'冲四只有一个点能成五，对方一堵就没事了。但堵的过程中你是"先手"，可以趁机布置别的地方。', kw:['冲四','先手']},
+      {t:'跳着的也算', d:'⚫⚫_⚫ 中间空一个，也是三；⚫⚫_⚫⚫ 是四。小朋友最容易漏掉跳型，被"隔山打牛"。', kw:['跳三','跳四']}
+    ],
+    milestone:'过关标准：看到对方出现活三，能不用提醒就自己去挡。'
+  },
+  {
+    n:'L3', grade:'三~四年级 · 8~10岁', title:'连击战术', emoji:'⚡', color:'var(--tomato)',
+    goal:'学会制造"两个威胁"，因为对方一次只能挡一个。',
+    lessons:[
+      {t:'先手和后手', d:'能逼对方不得不应的棋叫先手（冲四、活三）。会下棋 = 一直保持先手，让对方没空进攻。', kw:['先手','后手']},
+      {t:'双三（33）', d:'一步棋同时做出两个活三。对方挡了这个，那个就变活四。这是最常用的胜利方式。', kw:['双活三']},
+      {t:'四三杀（43）', d:'一步棋既是冲四又是活三。对方必须先挡四（否则马上输），你再把活三变活四——赢。', kw:['四三','必胜']},
+      {t:'双四（44）', d:'两个冲四同时出现，一样挡不过来。比双三更硬，因为四是绝对先手。', kw:['双四']},
+      {t:'提前占住"交叉点"', d:'防守的诀窍：找到对方两条线交叉的那个点，先占了它，双三就永远做不成。', kw:['要点','防守']}
+    ],
+    milestone:'过关标准：能在自己的棋里主动做出一次双三或四三。'
+  },
+  {
+    n:'L4', grade:'五年级 · 10~11岁', title:'防守与效率', emoji:'🛡️', color:'var(--sky)',
+    goal:'从"跟着对方走"变成"用防守换先手"。',
+    lessons:[
+      {t:'活三挡哪一头', d:'挡有发展空间的那一头。挡完之后看一眼：我这颗防守子，顺便有没有帮我连出二或三？', kw:['挡三','一子两用']},
+      {t:'与其挡，不如反冲四', d:'高手的防守：先用冲四逼对方应一手，把先手抢回来，再回头处理。这叫"以攻代守"。', kw:['反先手','以攻代守']},
+      {t:'每步的扫描顺序', d:'① 我能不能成五 ② 对方能不能成五 ③ 我能不能活四/双三 ④ 对方能不能 ⑤ 都没有再想布局。', kw:['思考顺序','检查表']},
+      {t:'别被牵着鼻子走', d:'对方连续冲四不一定是在杀你，可能只是想把你的棋堵死。看清他冲完之后想干嘛。', kw:['判断意图']},
+      {t:'棋子效率', d:'好的一手会同时参与横、竖、斜好几条线。孤零零贴在角落的子，等于没下。', kw:['效率','中腹']}
+    ],
+    milestone:'过关标准：整局能说出每一步"我为什么下这里"。'
+  },
+  {
+    n:'L5', grade:'六年级 · 11~12岁', title:'开局与规则', emoji:'📐', color:'var(--grape)',
+    goal:'知道正式规则为什么要限制黑棋，并会走三种标准开局。',
+    lessons:[
+      {t:'黑棋先手到底多强', d:'无禁手的自由五子棋，黑棋理论上必胜（1993 年已被计算机证明）。所以正式比赛必须给黑棋加限制。', kw:['先手必胜','平衡']},
+      {t:'三种禁手', d:'黑棋不能走：三三（同时两个活三）、四四（同时两个四）、长连（六子以上）。走了直接判负。白棋没有禁手。', kw:['三三','四四','长连']},
+      {t:'开局定式', d:'前三手的固定下法有 26 种。先学三个：浦月（斜指型）、花月（直指型）、疏星。记住名字，也记住第一步的应法。', kw:['浦月','花月','疏星']},
+      {t:'三手交换 / 五手两打', d:'职业规则：第 3 手后白方可以选择交换黑白；第 5 手黑方要提供两个点让白方选。目的还是削弱先手。', kw:['交换规则']},
+      {t:'开局陷阱', d:'有些开局看着舒服，其实几步之后就被对方做成四三。背几个常见陷阱，比临场硬算省力。', kw:['定式记忆']}
+    ],
+    milestone:'过关标准：能在无禁手和有禁手两种规则下都正常下完一盘。'
+  },
+  {
+    n:'L6', grade:'初中 · 12岁+', title:'算杀与思维', emoji:'🧠', color:'var(--bubble)',
+    goal:'能在脑子里推演 5~9 步，并说清楚计算机是怎么下棋的。',
+    lessons:[
+      {t:'VCF：连续冲四取胜', d:'从头到尾只走冲四，对方每步都被迫应，最后一手成五。因为对方没有选择，所以能一路算到底。', kw:['VCF','强制序列']},
+      {t:'VCT：冲四加活三', d:'比 VCF 多了活三，对方的应法变多，算起来更难，但威力更大。这是业余高手的主要武器。', kw:['VCT','算杀']},
+      {t:'在脑子里建"变化树"', d:'我走 A，他有 2 种应法；每种应法我再走…… 画成树。算杀的本质是把树的每条枝都走到底。', kw:['搜索树','剪枝']},
+      {t:'计算机怎么想', d:'给每种棋型定分数（活四 10 万分、活三 1 千分），把所有空点打一遍分，再往前推几步取最好的。本页的电脑就是这么写的。', kw:['评估函数','极小极大']},
+      {t:'记谱与复盘', d:'用坐标记下每一手（如 H8、I9），赛后找出"败着"。职业选手 80% 的进步来自复盘，不是来自多下几盘。', kw:['棋谱','复盘']}
+    ],
+    milestone:'过关标准：能找出 5 步以内的 VCF，并写下完整的着法顺序。'
+  }
+];
+
+const lvTrack = document.getElementById('lvTrack');
+const lvDetail = document.getElementById('lvDetail');
+let curLv = 0;
+
+lvTrack.innerHTML = LEVELS.map((L,i)=>`
+  <div class="lv reveal${i===0?' on':''}" data-i="${i}" style="--c:${L.color}">
+    <span class="n">${L.n}</span>
+    <span class="e">${L.emoji}</span>
+    <strong>${L.title}</strong>
+    <small>${L.grade.split(' · ')[0]}</small>
+  </div>`).join('');
+
+function renderLv(i){
+  const L = LEVELS[i];
+  lvDetail.innerHTML = `
+    <div class="lv-head" style="background:${L.color}">
+      <span class="big">${L.emoji} ${L.n} · ${L.title}</span>
+      <span class="tag" style="background:#fff">${L.grade}</span>
+      <span class="goal">🎯 目标：${L.goal}</span>
+    </div>
+    <div class="lv-body">
+      ${L.lessons.map((s,k)=>`
+        <div class="lesson">
+          <div class="no" style="--c:${L.color}">${k+1}</div>
+          <div>
+            <h4>${s.t}</h4>
+            <p>${s.d}</p>
+            <div class="kw">${s.kw.map(w=>`<i>${w}</i>`).join('')}</div>
+          </div>
+        </div>`).join('')}
+      <div class="milestone">🏁 <b>${L.milestone}</b></div>
+    </div>`;
+}
+renderLv(0);
+lvTrack.querySelectorAll('.lv').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    lvTrack.querySelectorAll('.lv').forEach(x=>x.classList.remove('on'));
+    el.classList.add('on');
+    curLv = +el.dataset.i;
+    renderLv(curLv);
+  });
+});
+
+/* ================================================================
+   三、棋型图鉴
+   ================================================================ */
+const B = 1, W = 2;
+const SHAPES = [
+  { name:'活二', danger:1, dc:'var(--mint)',
+    stones:[[3,2,B],[3,3,B]],
+    d:'两头都空的两颗子。还不危险，但它是所有进攻的起点。' },
+  { name:'活三', danger:3, dc:'var(--sun)',
+    stones:[[3,2,B],[3,3,B],[3,4,B]],
+    d:'两头都空的三连。不挡它，下一步就是活四——必须马上处理。' },
+  { name:'跳三', danger:3, dc:'var(--sun)',
+    stones:[[3,1,B],[3,2,B],[3,4,B]],
+    d:'中间空一格的三，威力和活三一样。小朋友最容易漏掉的形状。' },
+  { name:'眠三（死三）', danger:2, dc:'var(--mint)',
+    stones:[[3,1,W],[3,2,B],[3,3,B],[3,4,B]],
+    d:'一头被堵住的三。它只能变成冲四，不能变活四，威胁小很多。' },
+  { name:'活四', danger:5, dc:'var(--tomato)',
+    stones:[[3,1,B],[3,2,B],[3,3,B],[3,4,B]],
+    d:'两头都能成五，一只手堵不过来。出现活四这局基本就结束了。' },
+  { name:'冲四', danger:4, dc:'var(--tomato)',
+    stones:[[3,0,W],[3,1,B],[3,2,B],[3,3,B],[3,4,B]],
+    d:'只有一个点能成五，对方堵掉就行。但你在"逼他应"，先手在你手里。' },
+  { name:'跳四', danger:4, dc:'var(--tomato)',
+    stones:[[3,1,B],[3,2,B],[3,4,B],[3,5,B]],
+    d:'中间缺一颗的四。补上中间那点就是五，同样是冲四级别的威胁。' },
+  { name:'双三（A 点）', danger:5, dc:'var(--tomato)',
+    stones:[[3,1,B],[3,2,B],[1,3,B],[2,3,B]],
+    marks:[[3,3,'A','#FFC53D']],
+    d:'下在 A 点，横竖同时出现两个活三。对方挡一个，另一个就变活四。' },
+  { name:'四三杀（A 点）', danger:5, dc:'var(--tomato)',
+    stones:[[3,0,B],[3,1,B],[3,2,B],[1,3,B],[2,3,B]],
+    marks:[[3,3,'A','#FFC53D']],
+    d:'下在 A 点，横向成冲四、竖向成活三。对方必须先挡四，你再走活四获胜。' }
+];
+
+document.getElementById('shapeGrid').innerHTML = SHAPES.map((s,i)=>`
+  <div class="sh reveal" style="--c:${s.dc}">
+    <canvas class="gb" id="sh${i}" style="box-shadow:3px 3px 0 var(--ink)"></canvas>
+    <div class="cap">
+      <h4>${s.name}</h4>
+      <span class="danger">${'❗'.repeat(s.danger)}</span>
+    </div>
+    <p>${s.d}</p>
+  </div>`).join('');
+
+SHAPES.forEach((s,i)=>{
+  drawBoard(document.getElementById('sh'+i), {
+    size:7, cell:26, stones:s.stones, marks:s.marks, stars:[[3,3]]
+  });
+});
+
+/* HERO 小棋盘：一个四三杀局面 */
+drawBoard(document.getElementById('heroBoard'), {
+  size:9, cell:Math.min(30, Math.floor((Math.min(window.innerWidth-90, 300))/9)),
+  stones:[[4,2,B],[4,3,B],[4,4,B],[2,6,W],[3,5,W],[5,4,W],[6,6,W],[2,4,B],[3,4,B]],
+  last:[3,4]
+});
+
+/* ================================================================
+   四、十关挑战
+   ================================================================ */
+const QUIZ = [
+  {
+    lv:'L1 · 找第五子', mode:'click', size:9, cell:34,
+    q:'黑棋横着已经有四颗了，下在哪里就赢？（两个点都对）',
+    stones:[[4,2,B],[4,3,B],[4,4,B],[4,5,B],[7,7,W],[6,2,W],[2,3,W]],
+    answers:[[4,1],[4,6]],
+    hint:'两头都是空的，这叫"活四"——左边下能成五，右边下也能成五，对方根本堵不住。'
+  },
+  {
+    lv:'L1 · 斜线也算', mode:'click', size:9, cell:34,
+    q:'斜着数一数，黑棋下哪里能连成五颗？',
+    stones:[[2,2,B],[3,3,B],[4,4,B],[5,5,B],[1,5,W],[6,2,W],[3,6,W],[7,4,W]],
+    answers:[[1,1],[6,6]],
+    hint:'斜线最容易看漏。从左上到右下已经四颗，两端的 (1,1) 和 (6,6) 都能成五。'
+  },
+  {
+    lv:'L2 · 活三必挡', mode:'click', size:9, cell:34,
+    q:'黑棋做出了活三，轮到白棋。白棋应该挡在哪里？（两端都可以）',
+    stones:[[4,3,B],[4,4,B],[4,5,B],[1,1,W],[6,6,W],[2,7,B]],
+    answers:[[4,2],[4,6]],
+    hint:'活三不挡，下一步就变活四；活四两头都能成五，那时候再挡就来不及了。所以看到活三必须立刻堵一头。'
+  },
+  {
+    lv:'L2 · 冲四只能挡一处', mode:'click', size:9, cell:34,
+    q:'黑棋四颗连着，左边已经被白棋堵住。白棋现在必须下哪里？',
+    stones:[[4,1,W],[4,2,B],[4,3,B],[4,4,B],[4,5,B],[7,2,W],[2,6,B]],
+    answers:[[4,6]],
+    hint:'这是"冲四"：只剩右边一个点能成五。白棋不堵这一点，黑棋下一手就赢了。'
+  },
+  {
+    lv:'L2 · 别漏了跳型', mode:'click', size:9, cell:34,
+    q:'黑棋这排中间空了一格。白棋要挡在哪里才安全？',
+    stones:[[4,2,B],[4,3,B],[4,5,B],[4,6,B],[1,2,W],[6,5,W],[7,7,B]],
+    answers:[[4,4]],
+    hint:'这叫"跳四"：黑棋只要补上中间那个洞，就是五连。中间那点是唯一的死穴。'
+  },
+  {
+    lv:'L3 · 找双三点', mode:'click', size:9, cell:34,
+    q:'黑棋下在哪一点，能同时做出两个活三？',
+    stones:[[4,2,B],[4,3,B],[2,4,B],[3,4,B],[0,0,W],[8,8,W],[7,1,W]],
+    answers:[[4,4]],
+    hint:'下在两条线的交叉点：横向变成三连（两头空），竖向也变成三连（两头空）。对方挡一边，另一边就成活四。'
+  },
+  {
+    lv:'L3 · 四三杀', mode:'click', size:9, cell:34,
+    q:'黑棋下在哪一点，既是冲四、又是活三？（这一步就锁定胜局）',
+    stones:[[4,0,W],[4,1,B],[4,2,B],[4,3,B],[2,4,B],[3,4,B],[8,1,W],[0,7,W]],
+    answers:[[4,4]],
+    hint:'横向：左边被白棋堵住，下这点变成冲四，白必须去挡右边。竖向：同时形成两头空的活三。白挡完四之后，黑再把活三变活四——赢定了。'
+  },
+  {
+    lv:'L4 · 该防还是该攻', mode:'choice', size:9, cell:34,
+    q:'对方做出了活三，而我这边刚好也能冲四。最好的一手是？',
+    stones:[[4,3,W],[4,4,W],[4,5,W],[6,2,B],[6,3,B],[6,4,B],[6,1,W],[2,7,B]],
+    opts:['马上挡对方的活三','先冲四逼对方应一手','不理他，自己连自己的'],
+    answer:1,
+    hint:'冲四是绝对先手——对方必须应，否则你就成五。先冲四把先手抢过来，看清局面后再回头挡，是高年级的标准思路。（当然，如果冲完发现还是挡不住，就老实挡三。）'
+  },
+  {
+    lv:'L5 · 禁手规则', mode:'choice', size:9, cell:34,
+    q:'正式比赛规则里，黑棋走了下面哪种棋会直接判负？',
+    stones:[[4,2,B],[4,3,B],[4,4,B],[2,4,B],[3,4,B],[6,6,W],[1,1,W]],
+    opts:['三三（两个活三）','四四 / 长连','以上都是禁手'],
+    answer:2,
+    hint:'黑棋的三三、四四、长连（六子以上）都是禁手，走了判负；白棋没有任何禁手。因为无禁手时黑先必胜，规则要给白棋一点补偿。'
+  },
+  {
+    lv:'L6 · 两步算杀', mode:'click', size:9, cell:34,
+    q:'黑棋能两步取胜，但顺序不能错。第一步该下哪里？',
+    stones:[[2,1,W],[2,2,B],[2,3,B],[2,4,B],[4,5,B],[5,5,B],[7,2,W],[6,7,W],[0,6,W]],
+    answers:[[2,5]],
+    hint:'先下 (2,5) 形成冲四——白棋被迫去挡 (2,6)，没空管别处；然后黑再下 (3,5)，竖着 (2,5)(3,5)(4,5)(5,5) 变成两头空的活四，白棋堵不过来。<br>如果顺序反过来先下 (3,5)，那只是个活三，白棋直接挡掉就没戏了。这就是 VCF 的思路：用强制手段争取时间。'
+  }
+];
+
+let qi = 0, qStars = 0, qLocked = false;
+const qBody = document.getElementById('qBody');
+const qBar = document.getElementById('qBar');
+const qLvT = document.getElementById('qLv');
+const qStarT = document.getElementById('qStar');
+const PRAISE = ['太棒了！🎉','就是这里！👏','算得准！⭐','漂亮！💡','完全正确！🌟'];
+const CHEER = ['再看看～ 🤔','没关系，看提示 💪','差一点点！','换个方向想想 👀'];
+
+function renderQuiz(){
+  if (qi >= QUIZ.length) return renderCert();
+  const Q = QUIZ[qi];
+  qLocked = false;
+  qLvT.textContent = `第 ${qi+1} 关 / 共 ${QUIZ.length} 关`;
+  qBar.style.width = (qi / QUIZ.length * 100) + '%';
+  qStarT.textContent = '⭐ ' + qStars;
+
+  qBody.innerHTML = `
+    <div class="q-type">${Q.lv}</div>
+    <div class="q-text">${Q.q}</div>
+    <canvas class="gb ${Q.mode==='click'?'clickable':''}" id="qBoard" style="box-shadow:var(--shadow-sm)"></canvas>
+    ${Q.mode==='choice' ? `<div class="opts">${Q.opts.map((o,i)=>`<div class="opt" data-i="${i}">${o}</div>`).join('')}</div>` : ''}
+    <div class="feedback" id="qFb">${Q.mode==='click' ? '<div style="font-size:14px;opacity:.6;font-family:var(--font-body)">👆 直接点棋盘上的交叉点作答</div>' : ''}</div>`;
+
+  const cell = Math.min(Q.cell, Math.floor((Math.min(window.innerWidth - 90, 460)) / Q.size));
+  const cv = document.getElementById('qBoard');
+  drawBoard(cv, { size:Q.size, cell, stones:Q.stones });
+
+  if (Q.mode === 'click'){
+    cv.onclick = (ev)=>{
+      if (qLocked) return;
+      const p = hitPoint(cv, ev, Q.size, cell);
+      if (!p) return;
+      if (Q.stones.some(s=>s[0]===p.r && s[1]===p.c)) return;
+      const ok = Q.answers.some(a=>a[0]===p.r && a[1]===p.c);
+      if (ok){
+        qLocked = true; qStars++;
+        const col = /白棋/.test(Q.q) ? W : B;
+        drawBoard(cv, { size:Q.size, cell, stones:Q.stones.concat([[p.r,p.c,col]]), last:[p.r,p.c] });
+        boom(cv);
+        finishQ(true);
+      } else {
+        drawBoard(cv, { size:Q.size, cell, stones:Q.stones, marks:[[p.r,p.c,'✗','#FF5B4A']] });
+        showTry();
+      }
+    };
+  } else {
+    qBody.querySelectorAll('.opt').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        if (qLocked) return;
+        if (+el.dataset.i === Q.answer){
+          qLocked = true; qStars++;
+          el.classList.add('right','locked');
+          qBody.querySelectorAll('.opt').forEach(o=>o.classList.add('locked'));
+          boom(el);
+          finishQ(true);
+        } else {
+          el.classList.add('wrong');
+          setTimeout(()=>el.classList.remove('wrong'), 420);
+          showTry();
+        }
+      });
+    });
+  }
+}
+
+function finishQ(){
+  const Q = QUIZ[qi];
+  qStarT.textContent = '⭐ ' + qStars;
+  document.getElementById('qFb').innerHTML = `
+    <div>${PRAISE[Math.floor(Math.random()*PRAISE.length)]}</div>
+    <div class="hintbox">💡 <b>为什么：</b>${Q.hint}</div>
+    <button class="btn primary" id="qNext">${qi === QUIZ.length-1 ? '看看我的成绩 🏅' : '下一关 →'}</button>`;
+  document.getElementById('qNext').onclick = ()=>{ qi++; renderQuiz(); };
+}
+
+function showTry(){
+  const Q = QUIZ[qi];
+  document.getElementById('qFb').innerHTML = `
+    <div>${CHEER[Math.floor(Math.random()*CHEER.length)]}</div>
+    <div class="hintbox">🔎 <b>小提示：</b>${Q.hint}</div>`;
+}
+
+function renderCert(){
+  qBar.style.width = '100%';
+  qLvT.textContent = '全部完成！';
+  const lvl = qStars >= 10 ? '五子棋小棋王' : qStars >= 7 ? '五子棋小高手' : '五子棋练习生';
+  qBody.innerHTML = `
+    <div class="cert">
+      <div class="medal">🏅</div>
+      <h3>${lvl}</h3>
+      <div class="score">${qStars} / ${QUIZ.length}</div>
+      <p style="margin-top:12px;opacity:.8;max-width:460px">
+        ${qStars >= 10 ? '十关全对，棋型和算杀都过关了，可以去挑战"🔥 挑战"难度的电脑了。'
+         : qStars >= 7 ? '大部分都想明白了。错的那两关回去把提示读一遍，明天再来一次。'
+         : '第一次能做完十关已经很棒。先回到 L2 棋型图鉴，把活三、冲四认熟再来。'}
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap">
+        <button class="btn primary" id="qAgain">🔄 再来一次</button>
+        <a href="#play" class="btn ghost">去下一盘 →</a>
+      </div>
+    </div>`;
+  document.getElementById('qAgain').onclick = ()=>{ qi=0; qStars=0; renderQuiz(); };
+  for (let i=0;i<4;i++) setTimeout(()=>boom(document.querySelector('.medal')), i*170);
+}
+
+function boom(el){
+  const r = el.getBoundingClientRect();
+  const cx = r.left + r.width/2, cy = r.top + r.height/2;
+  const colors = ['#FF5B4A','#FFC53D','#2FC79A','#4E9CFF','#A374FF','#FF8FB1'];
+  for (let i=0;i<20;i++){
+    const p = document.createElement('div');
+    p.className = 'confetti';
+    p.style.background = colors[i % colors.length];
+    p.style.left = cx + 'px'; p.style.top = cy + 'px';
+    document.body.appendChild(p);
+    const ang = (Math.PI*2*i)/20 + Math.random()*.5;
+    const dist = 80 + Math.random()*120;
+    p.animate([
+      {transform:'translate(-50%,-50%) rotate(0deg)', opacity:1},
+      {transform:`translate(${Math.cos(ang)*dist-20}px, ${Math.sin(ang)*dist+170}px) rotate(${540+Math.random()*360}deg)`, opacity:0}
+    ], {duration:950+Math.random()*450, easing:'cubic-bezier(.2,.7,.4,1)'}).onfinish = ()=>p.remove();
+  }
+}
+
+renderQuiz();
+
+/* ================================================================
+   五、人机对弈（15 路）
+   ================================================================ */
+const N = 15;
+const DIRS = [[0,1],[1,0],[1,1],[1,-1]];
+let bd = new Int8Array(N*N);
+let hist = [];
+let human = 1, ai = 2, turn = 1, over = false, aiLevel = 'normal', hintPt = null, thinking = false;
+
+const boardCv = document.getElementById('board');
+const turnText = document.getElementById('turnText');
+const turnDot = document.querySelector('#turnBox .dot');
+
+function cellSize(){
+  const w = document.getElementById('boardWrap').clientWidth || 420;
+  return Math.max(17, Math.min(32, Math.floor((w - 8) / (N + 1.6))));
+}
+
+function paint(){
+  const stones = [];
+  for (let r=0;r<N;r++) for (let c=0;c<N;c++){
+    const v = bd[r*N+c];
+    if (v) stones.push([r,c,v]);
+  }
+  const last = hist.length ? [hist[hist.length-1].r, hist[hist.length-1].c] : null;
+  drawBoard(boardCv, { size:N, cell:cellSize(), stones, last, hint:hintPt });
+}
+
+/* ---------- 棋型判断：以某点为中心取一条 9 格的线 ---------- */
+function getLine(board, r, c, dr, dc, me){
+  const L = [];
+  for (let k=-4;k<=4;k++){
+    const rr = r + dr*k, cc = c + dc*k;
+    if (rr<0||rr>=N||cc<0||cc>=N){ L.push(3); continue; }
+    const v = board[rr*N+cc];
+    L.push(v === 0 ? 0 : (v === me ? 1 : 2));
+  }
+  return L;
+}
+function hasFive(L){
+  let run = 0;
+  for (let i=0;i<L.length;i++){ run = (L[i]===1) ? run+1 : 0; if (run>=5) return true; }
+  return false;
+}
+function winSpots(L){
+  const s = [];
+  for (let i=0;i<L.length;i++){
+    if (L[i]!==0) continue;
+    L[i] = 1;
+    if (hasFive(L)) s.push(i);
+    L[i] = 0;
+  }
+  return s;
+}
+/* 5=成五 4.5=活四 4=冲四 3.5=活三 3=眠三 2.5=活二 1=其它 */
+function levelOfLine(L){
+  if (hasFive(L)) return 5;
+  const w = winSpots(L);
+  if (w.length >= 2) return 4.5;
+  if (w.length === 1) return 4;
+  for (let i=0;i<L.length;i++){
+    if (L[i]!==0) continue;
+    L[i] = 1; const k = winSpots(L).length; L[i] = 0;
+    if (k >= 2) return 3.5;
+  }
+  for (let i=0;i<L.length;i++){
+    if (L[i]!==0) continue;
+    L[i] = 1; const k = winSpots(L).length; L[i] = 0;
+    if (k >= 1) return 3;
+  }
+  for (let i=0;i<L.length;i++){
+    if (L[i]!==0) continue;
+    L[i] = 1;
+    let good = false;
+    for (let j=0;j<L.length;j++){
+      if (L[j]!==0) continue;
+      L[j] = 1;
+      if (winSpots(L).length >= 2) good = true;
+      L[j] = 0;
+      if (good) break;
+    }
+    L[i] = 0;
+    if (good) return 2.5;
+  }
+  return 1;
+}
+function scoreLevels(lv){
+  let s = 0, n45 = 0, n4 = 0, n35 = 0;
+  for (const v of lv){
+    if (v === 5) return 10000000;
+    if (v === 4.5){ s += 120000; n45++; }
+    else if (v === 4){ s += 4200; n4++; }
+    else if (v === 3.5){ s += 3600; n35++; }
+    else if (v === 3){ s += 320; }
+    else if (v === 2.5){ s += 260; }
+    else s += 2;
+  }
+  const fours = n45 + n4;
+  if (fours >= 2) s += 85000;
+  if (fours >= 1 && n35 >= 1) s += 72000;
+  if (n35 >= 2) s += 26000;
+  return s;
+}
+function evalPoint(board, r, c, me){
+  board[r*N+c] = me;
+  const lv = DIRS.map(([dr,dc]) => levelOfLine(getLine(board, r, c, dr, dc, me)));
+  board[r*N+c] = 0;
+  return scoreLevels(lv);
+}
+function candidates(board){
+  const out = [];
+  let empty = true;
+  for (let i=0;i<N*N;i++) if (board[i]) { empty = false; break; }
+  if (empty) return [{r:7,c:7}];
+  for (let r=0;r<N;r++) for (let c=0;c<N;c++){
+    if (board[r*N+c]) continue;
+    let near = false;
+    for (let dr=-2;dr<=2 && !near;dr++) for (let dc=-2;dc<=2;dc++){
+      const rr=r+dr, cc=c+dc;
+      if (rr<0||rr>=N||cc<0||cc>=N) continue;
+      if (board[rr*N+cc]){ near = true; break; }
+    }
+    if (near) out.push({r,c});
+  }
+  return out;
+}
+function bestMove(board, me, level){
+  const opp = 3 - me;
+  const cands = candidates(board);
+  const defW = level === 'easy' ? 0.55 : 0.92;
+  const scored = cands.map(p=>{
+    const my = evalPoint(board, p.r, p.c, me);
+    const op = evalPoint(board, p.r, p.c, opp);
+    const center = 6 - (Math.abs(p.r-7) + Math.abs(p.c-7)) * 0.25;
+    return { ...p, my, op, s: my + op*defW + center };
+  });
+  scored.sort((a,b)=>b.s - a.s);
+
+  // 一步成五 / 必堵
+  if (scored[0].my >= 10000000) return scored[0];
+  const mustBlock = scored.find(p=>p.op >= 10000000);
+  if (mustBlock) return mustBlock;
+
+  if (level === 'easy'){
+    const pool = scored.slice(0, Math.min(6, scored.length));
+    return pool[Math.floor(Math.random()*pool.length)];
+  }
+  if (level !== 'hard') return scored[0];
+
+  // 挑战难度：对前几个候选往前多算一步
+  const top = scored.slice(0, 6);
+  let best = top[0], bestV = -Infinity;
+  for (const p of top){
+    board[p.r*N+p.c] = me;
+    const rep = candidates(board).map(q=>{
+      const m2 = evalPoint(board, q.r, q.c, opp);
+      const o2 = evalPoint(board, q.r, q.c, me);
+      return m2 + o2*0.9;
+    });
+    const oppBest = rep.length ? Math.max(...rep) : 0;
+    board[p.r*N+p.c] = 0;
+    const v = p.my + p.op*0.85 - oppBest*0.9;
+    if (v > bestV){ bestV = v; best = p; }
+  }
+  return best;
+}
+function checkWin(board, r, c, me){
+  for (const [dr,dc] of DIRS){
+    let n = 1;
+    for (let k=1;k<5;k++){ const rr=r+dr*k, cc=c+dc*k;
+      if (rr<0||rr>=N||cc<0||cc>=N||board[rr*N+cc]!==me) break; n++; }
+    for (let k=1;k<5;k++){ const rr=r-dr*k, cc=c-dc*k;
+      if (rr<0||rr>=N||cc<0||cc>=N||board[rr*N+cc]!==me) break; n++; }
+    if (n >= 5) return true;
+  }
+  return false;
+}
+
+function setTurnUI(txt, col){
+  turnText.textContent = txt;
+  turnDot.className = 'dot ' + (col === 1 ? 'b' : 'w');
+}
+function place(r, c, col){
+  bd[r*N+c] = col;
+  hist.push({r,c,col});
+  hintPt = null;
+  paint();
+  if (checkWin(bd, r, c, col)){
+    over = true;
+    setTurnUI(col === human ? '🎉 你赢了！' : '😼 电脑赢了', col);
+    if (col === human) boom(boardCv);
+    return true;
+  }
+  if (hist.length === N*N){ over = true; setTurnUI('平局，棋盘满了', col); return true; }
+  return false;
+}
+function aiTurn(){
+  if (over) return;
+  thinking = true;
+  setTurnUI('电脑思考中…', ai);
+  setTimeout(()=>{
+    const mv = bestMove(bd, ai, aiLevel);
+    thinking = false;
+    if (!mv){ over = true; setTurnUI('平局', ai); return; }
+    if (!place(mv.r, mv.c, ai)){ turn = human; setTurnUI('轮到你走', human); }
+  }, 260);
+}
+boardCv.addEventListener('click', (ev)=>{
+  if (over || thinking || turn !== human) return;
+  const p = hitPoint(boardCv, ev, N, cellSize());
+  if (!p || bd[p.r*N+p.c]) return;
+  if (!place(p.r, p.c, human)){ turn = ai; aiTurn(); }
+});
+function newGame(){
+  bd = new Int8Array(N*N); hist = []; over = false; hintPt = null; thinking = false;
+  ai = 3 - human; turn = 1;
+  paint();
+  if (human === 1){ setTurnUI('轮到你走（你执黑先行）', 1); }
+  else { setTurnUI('电脑先走…', 1); aiTurn(); }
+}
+document.getElementById('btnNew').onclick = newGame;
+document.getElementById('btnUndo').onclick = ()=>{
+  if (thinking || hist.length === 0) return;
+  // 退回到上一次轮到自己走的状态
+  let steps = 0;
+  while (hist.length && steps < 2){
+    const h = hist.pop();
+    bd[h.r*N+h.c] = 0;
+    steps++;
+    if (hist.length === 0 || hist[hist.length-1].col === ai) break;
+  }
+  over = false; turn = human; hintPt = null;
+  paint(); setTurnUI('轮到你走', human);
+};
+document.getElementById('btnHint').onclick = ()=>{
+  if (over || thinking || turn !== human) return;
+  const mv = bestMove(bd, human, 'normal');
+  if (mv){ hintPt = [mv.r, mv.c]; paint(); }
+};
+document.querySelectorAll('#segLevel button').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('#segLevel button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    aiLevel = b.dataset.v;
+  };
+});
+document.querySelectorAll('#segSide button').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('#segSide button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    human = +b.dataset.v;
+    newGame();
+  };
+});
+newGame();
+
+let rz;
+window.addEventListener('resize', ()=>{
+  clearTimeout(rz);
+  rz = setTimeout(()=>{ paint(); }, 160);
+});
+
+/* ---------- 滚动入场 ---------- */
+const io = new IntersectionObserver((es)=>{
+  es.forEach((e,i)=>{
+    if (e.isIntersecting){
+      e.target.style.transitionDelay = (i*60) + 'ms';
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
