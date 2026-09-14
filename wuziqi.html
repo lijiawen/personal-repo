@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>五子棋成长课 · 从摆棋到算杀</title>
-<meta name="description" content="小学一年级到初中的五子棋阶梯教程：棋型、连击、防守、开局、算杀，含闯关练习与人机对弈">
+<meta name="description" content="小学一年级到初中的五子棋阶梯教程：棋型、连击、防守、开局、算杀，含闯关练习、人机对弈与双人对战">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
@@ -207,6 +207,8 @@ canvas.gb.clickable{cursor:pointer;}
   display:flex;align-items:center;gap:10px;background:var(--paper-2);border:var(--line);border-radius:16px;
   padding:10px 14px;box-shadow:3px 3px 0 var(--ink);margin-bottom:14px;font-family:var(--font-display);font-size:16px;
 }
+.turn-box .move-no{margin-left:auto;font-family:var(--font-num);font-size:13px;background:#fff;
+  border:2px solid var(--ink);border-radius:99px;padding:1px 11px;letter-spacing:.5px;white-space:nowrap;}
 .dot{width:26px;height:26px;border:var(--line);border-radius:50%;display:inline-block;flex:0 0 26px;}
 .dot.b{background:#231C18;}
 .dot.w{background:#fff;}
@@ -248,7 +250,7 @@ footer p{font-size:13px;opacity:.7;margin-top:8px;}
       <a href="#levels">六级课程</a>
       <a href="#shapes">棋型图鉴</a>
       <a href="#quiz">十关挑战</a>
-      <a href="#play">人机对弈</a>
+      <a href="#play">对弈练习</a>
       <a href="#parents">家长指南</a>
     </div>
     <a href="#play" class="btn primary sm">下一盘 →</a>
@@ -262,7 +264,7 @@ footer p{font-size:13px;opacity:.7;margin-top:8px;}
       <h1 class="rise d2">五子棋，<br>从<span class="hl">连成五个</span><br>到算得出胜负</h1>
       <p class="lead rise d3">一年级只要会数"五个连起来"，初中要能在脑子里往前算八步。这里把这条路拆成 6 级 30 课，每一级都配一张图、一道题、一盘棋。</p>
       <div class="hero-cta rise d4">
-        <a href="#play" class="btn primary">🎮 和电脑下一盘</a>
+        <a href="#play" class="btn primary">🎮 下一盘棋</a>
         <a href="#levels" class="btn ghost">看看六级课程</a>
       </div>
       <div class="stats rise d5">
@@ -332,34 +334,40 @@ footer p{font-size:13px;opacity:.7;margin-top:8px;}
   <div class="wrap">
     <div class="reveal">
       <span class="tag">🤖 练手对象</span>
-      <h2 class="sec-title">和电脑下一盘（15 路标准盘）</h2>
-      <p class="sec-sub">电脑用的就是第 6 级课里讲的"棋型评分 + 往前算一步"。赢不了就调难度，卡住了点"支支招"。</p>
+      <h2 class="sec-title">下一盘（15 路标准盘）</h2>
+      <p class="sec-sub">一个人玩就和电脑下，赢不了就调难度；两个人就选"双人对战"，同一块屏幕上轮流点，大人陪孩子正好。</p>
     </div>
     <div class="play-layout">
       <div class="board-card reveal" id="boardCard"><div id="boardWrap"><canvas id="board" class="gb clickable"></canvas></div></div>
       <div class="panel reveal">
-        <h4>难度</h4>
-        <div class="seg" id="segLevel">
-          <button data-v="easy">🍼 轻松</button>
-          <button data-v="normal" class="on">🙂 普通</button>
-          <button data-v="hard">🔥 挑战</button>
+        <h4>对战模式</h4>
+        <div class="seg" id="segMode">
+          <button data-v="ai" class="on">🤖 人机对战</button>
+          <button data-v="pvp">👥 双人对战</button>
         </div>
-        <h4>我执</h4>
-        <div class="seg" id="segSide">
-          <button data-v="1" class="on">⚫ 黑（先手）</button>
-          <button data-v="2">⚪ 白（后手）</button>
+        <div id="aiOnly">
+          <h4>难度</h4>
+          <div class="seg" id="segLevel">
+            <button data-v="easy">🍼 轻松</button>
+            <button data-v="normal" class="on">🙂 普通</button>
+            <button data-v="hard">🔥 挑战</button>
+          </div>
+          <h4>我执</h4>
+          <div class="seg" id="segSide">
+            <button data-v="1" class="on">⚫ 黑（先手）</button>
+            <button data-v="2">⚪ 白（后手）</button>
+          </div>
         </div>
-        <div class="turn-box" id="turnBox"><span class="dot b"></span><span id="turnText">轮到你走</span></div>
+        <div class="turn-box" id="turnBox">
+          <span class="dot b"></span><span id="turnText">轮到你走</span>
+          <span class="move-no" id="moveNo">第 0 手</span>
+        </div>
         <div class="ctrl-row">
           <button class="btn sm ghost" id="btnNew">🔄 重新开局</button>
           <button class="btn sm" id="btnUndo">↩️ 悔一步</button>
           <button class="btn sm" id="btnHint">💡 支支招</button>
         </div>
-        <p class="ai-note">
-          说明：本盘用<b>无禁手</b>规则（黑棋不限制三三、四四、长连），适合小朋友。
-          正式比赛的黑方禁手规则在第 5 级课里讲。<br>
-          电脑思考的过程：先看有没有一步成五 → 再看要不要堵 → 然后给每个空点按棋型打分，挑分数最高的。
-        </p>
+        <p class="ai-note" id="aiNote"></p>
       </div>
     </div>
   </div>
@@ -906,10 +914,23 @@ const DIRS = [[0,1],[1,0],[1,1],[1,-1]];
 let bd = new Int8Array(N*N);
 let hist = [];
 let human = 1, ai = 2, turn = 1, over = false, aiLevel = 'normal', hintPt = null, thinking = false;
+let mode = 'ai';   // 'ai' = 人机对战，'pvp' = 双人对战
 
 const boardCv = document.getElementById('board');
 const turnText = document.getElementById('turnText');
 const turnDot = document.querySelector('#turnBox .dot');
+const moveNoEl = document.getElementById('moveNo');
+const aiOnlyBox = document.getElementById('aiOnly');
+const aiNoteEl = document.getElementById('aiNote');
+
+const NOTE = {
+  ai:`说明：本盘用<b>无禁手</b>规则（黑棋不限制三三、四四、长连），适合小朋友。
+      正式比赛的黑方禁手规则在第 5 级课里讲。<br>
+      电脑思考的过程：先看有没有一步成五 → 再看要不要堵 → 然后给每个空点按棋型打分，挑分数最高的。`,
+  pvp:`双人对战：两个人用同一块棋盘，<b>黑先白后</b>轮流点交叉点，上方会提示现在轮到谁。<br>
+       "悔一步"每次退回一手，可以连着点；"支支招"给当前该走的这一方提建议——说好不用就别偷看。<br>
+       同样是<b>无禁手</b>规则。大人陪练时，建议看一眼"家长指南"里的四条建议。`
+};
 
 function cellSize(){
   const w = document.getElementById('boardWrap').clientWidth || 420;
@@ -1079,6 +1100,13 @@ function checkWin(board, r, c, me){
 function setTurnUI(txt, col){
   turnText.textContent = txt;
   turnDot.className = 'dot ' + (col === 1 ? 'b' : 'w');
+  moveNoEl.textContent = '第 ' + hist.length + ' 手';
+}
+/* 提示"现在轮到谁"，两种模式说法不同 */
+function updateTurn(){
+  if (over) return;
+  if (mode === 'pvp') setTurnUI(turn === 1 ? '⚫ 轮到黑棋' : '⚪ 轮到白棋', turn);
+  else setTurnUI(turn === human ? '轮到你走' : '电脑思考中…', turn);
 }
 function place(r, c, col){
   bd[r*N+c] = col;
@@ -1087,8 +1115,13 @@ function place(r, c, col){
   paint();
   if (checkWin(bd, r, c, col)){
     over = true;
-    setTurnUI(col === human ? '🎉 你赢了！' : '😼 电脑赢了', col);
-    if (col === human) boom(boardCv);
+    if (mode === 'pvp'){
+      setTurnUI(col === 1 ? '🎉 黑棋赢了！' : '🎉 白棋赢了！', col);
+      boom(boardCv);
+    } else {
+      setTurnUI(col === human ? '🎉 你赢了！' : '😼 电脑赢了', col);
+      if (col === human) boom(boardCv);
+    }
     return true;
   }
   if (hist.length === N*N){ over = true; setTurnUI('平局，棋盘满了', col); return true; }
@@ -1106,37 +1139,67 @@ function aiTurn(){
   }, 260);
 }
 boardCv.addEventListener('click', (ev)=>{
-  if (over || thinking || turn !== human) return;
+  if (over || thinking) return;
+  if (mode === 'ai' && turn !== human) return;
   const p = hitPoint(boardCv, ev, N, cellSize());
   if (!p || bd[p.r*N+p.c]) return;
-  if (!place(p.r, p.c, human)){ turn = ai; aiTurn(); }
+  const col = (mode === 'pvp') ? turn : human;
+  if (!place(p.r, p.c, col)){
+    turn = 3 - col;
+    if (mode === 'pvp') updateTurn();
+    else aiTurn();
+  }
 });
 function newGame(){
   bd = new Int8Array(N*N); hist = []; over = false; hintPt = null; thinking = false;
-  ai = 3 - human; turn = 1;
+  turn = 1;
   paint();
+  if (mode === 'pvp'){
+    setTurnUI('⚫ 黑棋先走', 1);
+    return;
+  }
+  ai = 3 - human;
   if (human === 1){ setTurnUI('轮到你走（你执黑先行）', 1); }
   else { setTurnUI('电脑先走…', 1); aiTurn(); }
 }
 document.getElementById('btnNew').onclick = newGame;
 document.getElementById('btnUndo').onclick = ()=>{
   if (thinking || hist.length === 0) return;
-  // 退回到上一次轮到自己走的状态
-  let steps = 0;
-  while (hist.length && steps < 2){
+  if (mode === 'pvp'){
+    // 双人对战：一次退一手，谁刚下的就轮回给谁
     const h = hist.pop();
     bd[h.r*N+h.c] = 0;
-    steps++;
-    if (hist.length === 0 || hist[hist.length-1].col === ai) break;
+    turn = h.col;
+  } else {
+    // 人机：退回到上一次轮到自己走的状态
+    let steps = 0;
+    while (hist.length && steps < 2){
+      const h = hist.pop();
+      bd[h.r*N+h.c] = 0;
+      steps++;
+      if (hist.length === 0 || hist[hist.length-1].col === ai) break;
+    }
+    turn = human;
   }
-  over = false; turn = human; hintPt = null;
-  paint(); setTurnUI('轮到你走', human);
+  over = false; hintPt = null;
+  paint(); updateTurn();
 };
 document.getElementById('btnHint').onclick = ()=>{
-  if (over || thinking || turn !== human) return;
-  const mv = bestMove(bd, human, 'normal');
+  if (over || thinking) return;
+  if (mode === 'ai' && turn !== human) return;
+  const mv = bestMove(bd, turn, 'normal');
   if (mv){ hintPt = [mv.r, mv.c]; paint(); }
 };
+document.querySelectorAll('#segMode button').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('#segMode button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    mode = b.dataset.v;
+    aiOnlyBox.style.display = (mode === 'ai') ? '' : 'none';
+    aiNoteEl.innerHTML = NOTE[mode];
+    newGame();
+  };
+});
 document.querySelectorAll('#segLevel button').forEach(b=>{
   b.onclick = ()=>{
     document.querySelectorAll('#segLevel button').forEach(x=>x.classList.remove('on'));
@@ -1152,6 +1215,7 @@ document.querySelectorAll('#segSide button').forEach(b=>{
     newGame();
   };
 });
+aiNoteEl.innerHTML = NOTE[mode];
 newGame();
 
 let rz;
