@@ -221,6 +221,10 @@ section{padding:56px 0;position:relative;}
 .shape{width:56px;height:56px;display:inline-block;position:relative;}
 .shape.circle{border-radius:50%;border:var(--line);}
 .shape.square{border-radius:12px;border:var(--line);}
+.shape.triangle{
+  width:0;height:0;border-left:28px solid transparent;border-right:28px solid transparent;
+  border-bottom:50px solid currentColor;
+}
 .shape.tri{
   width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;
   border-bottom:52px solid var(--sc);
@@ -346,16 +350,16 @@ footer p{font-size:13px;opacity:.7;margin-top:8px;}
 <header>
   <div class="wrap hero-grid">
     <div class="hero">
-      <span class="tag rise d1">🎈 一年级 · 7-8岁 · 每天 8 关</span>
+      <span class="tag rise d1">🎈 一年级 · 7-8岁 · 每周自动更新</span>
       <h1 class="rise d2">一周五天<br>每天<span class="hl">8 关</span>思维操</h1>
-      <p class="lead rise d3">周一到周五，每天一个主题：数字热身、图形挑战、规律侦探、推理法庭、综合闯关。点一点下面的星期卡片，就能开始当天的 8 道题。</p>
+      <p class="lead rise d3">周一到周五，每天一个主题：数字热身、图形挑战、规律侦探、推理法庭、综合闯关。每周一自动换新题，孩子总有新挑战。</p>
       <div class="hero-cta rise d4">
         <a href="#week" class="btn primary">📅 选一天开始</a>
         <a href="#modules" class="btn ghost">看看学什么</a>
       </div>
       <div class="stats rise d5">
         <div class="stat"><b>5</b><span>天主题路线</span></div>
-        <div class="stat"><b>40</b><span>道思维题</span></div>
+        <div class="stat"><b>40</b><span>道思维题 / 周</span></div>
         <div class="stat"><b>15<small style="font-size:13px">分钟</small></b><span>每日刚刚好</span></div>
       </div>
     </div>
@@ -461,6 +465,7 @@ footer p{font-size:13px;opacity:.7;margin-top:8px;}
     <div class="game-shell reveal">
       <div class="game-top">
         <span class="lv" id="lvText">第 1 关 / 共 8 关</span>
+        <span class="today" id="weekTag">第 1 周</span>
         <span class="today" id="todayTag">周一 · 数字热身</span>
         <div class="bar"><i id="bar"></i></div>
         <span class="stars" id="starText">⭐ 0</span>
@@ -489,13 +494,17 @@ footer p{font-size:13px;opacity:.7;margin-top:8px;}
 <footer>
   <div class="wrap">
     <div class="big">今天，也要开开心心动脑筋 🧠✨</div>
-    <p>小小思维家 · 一周思维闯关 · 家庭自用示例页面</p>
+    <p>小小思维家 · 每周自动更新 · 家庭自用示例页面</p>
   </div>
 </footer>
 
 <script>
 /* ================= 颜色常量 ================= */
 const C = {tomato:'#FF5B4A',sun:'#FFC53D',mint:'#2FC79A',sky:'#4E9CFF',grape:'#A374FF',bubble:'#FF8FB1',ink:'#2A211C',paper2:'#FFEAC4'};
+
+/* ================= 第一周的基准日（周一） ================= */
+/* 注意：月份从 0 开始，8 表示 9 月 */
+const START_DATE = new Date(2026, 8, 15);
 
 /* ================= 全局状态 ================= */
 let WEEK = {};
@@ -515,14 +524,35 @@ const bar  = document.getElementById('bar');
 const lvT  = document.getElementById('lvText');
 const stT  = document.getElementById('starText');
 const todayTag = document.getElementById('todayTag');
+const weekTag  = document.getElementById('weekTag');
 const playTitle = document.getElementById('playTitle');
 const playSub = document.getElementById('playSub');
 
-/* ================= 从 JSON 加载题库 ================= */
+/* ================= 计算当前是第几周 ================= */
+function getWeekNumber(){
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const start = new Date(START_DATE.getFullYear(), START_DATE.getMonth(), START_DATE.getDate());
+  const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+  const week = Math.floor(diffDays / 7) + 1;
+  return week > 0 ? week : 1;
+}
+
+/* ================= 从 JSON 加载题库（带兜底） ================= */
 async function loadConfig(){
+  const week = getWeekNumber();
+  weekTag.textContent = `第 ${week} 周`;
+
   try{
-    const res = await fetch('week-config.json?v=' + Date.now());
-    if(!res.ok) throw new Error('HTTP ' + res.status);
+    // 先尝试加载对应周的题库
+    let res = await fetch(`week-config-${week}.json?v=` + Date.now());
+
+    // 如果这一周还没准备好，回退到第一周
+    if(!res.ok && week !== 1){
+      res = await fetch('week-config-1.json?v=' + Date.now());
+    }
+    if(!res.ok) throw new Error(`找不到 week-config-${week}.json`);
+
     const data = await res.json();
     WEEK = data.days;
     switchDay('mon');
@@ -532,7 +562,7 @@ async function loadConfig(){
       '<div style="padding:40px;font-family:var(--font-display);font-size:20px;text-align:center;">' +
       '😢 题库加载失败<br>' +
       '<small style="font-size:14px;opacity:.6">' + err.message + '</small><br><br>' +
-      '<small style="font-size:13px;opacity:.5">请确认 week-config.json 与 siwei.html 在同一目录</small>' +
+      '<small style="font-size:13px;opacity:.5">请确认 week-config-1.json 已上传到仓库</small>' +
       '</div>';
   }
 }
@@ -541,6 +571,7 @@ async function loadConfig(){
 function shapeHTML(s){
   if(s.s === '?') return '<span class="shape qmark">?</span>';
   if(s.s === 'tri') return `<span class="shape tri" style="--sc:${s.c}"></span>`;
+  if(s.s === 'triangle') return `<span class="shape triangle" style="color:${s.c}"></span>`;
   if(s.s === 'rot') return `<span style="display:inline-block;transform:rotate(${s.d}deg);font-size:52px;line-height:1;">🔺</span>`;
   return `<span class="shape ${s.s}" style="background:${s.c}"></span>`;
 }
