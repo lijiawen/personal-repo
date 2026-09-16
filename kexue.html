@@ -1626,10 +1626,10 @@ const anim1 = {
 
     cap('🌊 芹菜的茎泡在水里，茎里有许多细细的<b>导管</b>，像一根根小吸管。');
     q('#a1arrows').setAttribute('opacity', 1);
-    if(!await wait(1500, alive)) return;
+    if(!await wait(5000, alive)) return;
 
     cap('⬆️ 水被吸进导管，顺着茎一路往上爬——看，茎正在被染色！');
-    if(!await tween(3200, t => {
+    if(!await tween(8000, t => {
       const e = easeInOut(t);
       const top = 290 - e * 210;
       rect.setAttribute('y', top);
@@ -1639,10 +1639,10 @@ const anim1 = {
 
     cap('🍃 水到达叶子了！叶子也变蓝了，说明水真的走到了这里。');
     q('#a1arrows').setAttribute('opacity', 0);
-    if(!await wait(1700, alive)) return;
+    if(!await wait(5000, alive)) return;
 
     cap('💨 叶子把水变成水蒸气跑到空中（叫<b>蒸腾</b>），这股"拉力"又把下面的水拉上来——植物就这样一直喝水啦！');
-    if(!await tween(1400, t => q('#a1vapor').setAttribute('opacity', t), alive)) return;
+    if(!await tween(8000, t => q('#a1vapor').setAttribute('opacity', t), alive)) return;
   }
 };
 
