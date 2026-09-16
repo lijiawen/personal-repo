@@ -24,15 +24,16 @@ body{
   box-shadow:0 2px 12px rgba(0,0,0,.10);
 }
 .topbar .brand{font-weight:700;font-size:16px;letter-spacing:.5px;margin-right:auto;}
-.topbar .home-link,.topbar .toc-toggle{
+.topbar .home-link,.topbar .toc-toggle,.topbar .voice-toggle{
   display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;
   background:rgba(255,255,255,.18);color:#fff;text-decoration:none;border:none;
   padding:6px 14px;border-radius:8px;font-size:14px;white-space:nowrap;cursor:pointer;
   transition:background .18s,transform .18s;font-family:inherit;
 }
-.topbar .home-link:hover,.topbar .toc-toggle:hover{background:rgba(255,255,255,.34);}
+.topbar .home-link:hover,.topbar .toc-toggle:hover,.topbar .voice-toggle:hover{background:rgba(255,255,255,.34);}
 .topbar .home-link:hover{transform:translateX(-2px);}
 .topbar .toc-toggle{display:none;}
+.topbar .voice-toggle.off{opacity:.6;}
 .topbar .progress-pill{
   background:rgba(255,255,255,.2);border-radius:99px;padding:4px 14px;font-size:13px;
   white-space:nowrap;font-variant-numeric:tabular-nums;
@@ -41,6 +42,7 @@ body{
   .topbar .toc-toggle{display:inline-flex;}
   .topbar .home-link .t{display:none;}
   .topbar .progress-pill{display:none;}
+  .topbar .voice-toggle{padding:6px 10px;font-size:13px;}
 }
 
 /* ---------- 布局 ---------- */
@@ -248,6 +250,7 @@ tbody tr:hover{background:#fafbfd;}
   <a href="index.html" class="home-link">←<span class="t">全部课程</span></a>
   <button class="toc-toggle" id="tocToggle">☰ 目录</button>
   <div class="brand">🔬 小学一年级科普教程</div>
+  <button class="voice-toggle" id="voiceToggle" title="开关语音朗读">🔊 语音</button>
   <span class="progress-pill" id="progressPill">已读 0 / 30 周</span>
 </div>
 
@@ -283,7 +286,7 @@ tbody tr:hover{background:#fafbfd;}
 <div class="callout" style="background:#f2f3f5;border-left-color:#8a8f99;"><div class="callout-emoji">✏️</div><div class="callout-body"><p><strong>Step 5｜画一画 / 说一说</strong>（4分钟）用画笔记录今天的发现，或用一句话分享给同学</p></div></div>
 <hr>
 <h3>📚 六大领域总览</h3>
-<div class="table-wrap"><table><colgroup><col style="width:8.22%"><col style="width:16.44%"><col style="width:16.44%"><col style="width:58.90%"></colgroup><thead><tr><th><p><strong>序号</strong></p></th><th><p><strong>领域</strong></p></th><th><p><strong>主题数量</strong></p></th><th><p><strong>核心目标</strong></p></th></tr></thead><tbody><tr><td><p>01</p></td><td><p>🌿 自然与生命</p></td><td><p>5个主题<br>      &lt;/lark:td&gt;<br>      了解植物、动物的生长规律，感受生命的神奇</p></td><td></td></tr><tr><td><p>02</p></td><td><p>❤️ 身体与健康</p></td><td><p>5个主题</p></td><td><p>认识自己的身体，养成健康好习惯</p></td></tr><tr><td><p>03</p></td><td><p>🌍 地球与环境</p></td><td><p>5个主题</p></td><td><p>理解自然现象，培养环保意识</p></td></tr><tr><td><p>04</p></td><td><p>⚡ 物理与能量</p></td><td><p>5个主题</p></td><td><p>感受物理现象，建立基础科学思维</p></td></tr><tr><td><p>05</p></td><td><p>🤖 科技与生活</p></td><td><p>5个主题</p></td><td><p>认识身边科技，了解科技如何改变生活</p></td></tr><tr><td><p>06</p></td><td><p>🌌 宇宙与太空</p></td><td><p>5个主题</p></td><td><p>认识宇宙天体，开启太空探索梦想</p></td></tr></tbody></table></div>
+<div class="table-wrap"><table><colgroup><col style="width:8.22%"><col style="width:16.44%"><col style="width:16.44%"><col style="width:58.90%"></colgroup><thead><tr><th><p><strong>序号</strong></p></th><th><p><strong>领域</strong></p></th><th><p><strong>主题数量</strong></p></th><th><p><strong>核心目标</strong></p></th></tr></thead><tbody><tr><td><p>01</p></td><td><p>🌿 自然与生命</p></td><td><p>5个主题</p></td><td><p>了解植物、动物的生长规律，感受生命的神奇</p></td></tr><tr><td><p>02</p></td><td><p>❤️ 身体与健康</p></td><td><p>5个主题</p></td><td><p>认识自己的身体，养成健康好习惯</p></td></tr><tr><td><p>03</p></td><td><p>🌍 地球与环境</p></td><td><p>5个主题</p></td><td><p>理解自然现象，培养环保意识</p></td></tr><tr><td><p>04</p></td><td><p>⚡ 物理与能量</p></td><td><p>5个主题</p></td><td><p>感受物理现象，建立基础科学思维</p></td></tr><tr><td><p>05</p></td><td><p>🤖 科技与生活</p></td><td><p>5个主题</p></td><td><p>认识身边科技，了解科技如何改变生活</p></td></tr><tr><td><p>06</p></td><td><p>🌌 宇宙与太空</p></td><td><p>5个主题</p></td><td><p>认识宇宙天体，开启太空探索梦想</p></td></tr></tbody></table></div>
 <hr>
 <blockquote>💡 <strong>教程核心理念</strong>：一年级的科普不需要让孩子"学会"知识，而是要点燃他们 <strong>"想知道为什么"</strong> 的那颗好奇心 🔥</blockquote>
 <hr>
@@ -364,7 +367,7 @@ tbody tr:hover{background:#fafbfd;}
 <p><strong>实验步骤</strong>：</p>
 <ol><li>在透明杯壁和杯底铺上湿润的棉花或纸巾</li><li>将豆子放在杯壁与棉花之间（让豆子紧贴透明杯壁，方便观察）</li><li>每天保持棉花湿润，放在温暖明亮的地方</li><li>每天观察并在科学日记上<strong>画下豆子的变化</strong></li></ol>
 <p><strong>观察记录表</strong>：</p>
-<div class="table-wrap"><table><colgroup><col style="width:13.70%"><col style="width:24.66%"><col style="width:24.66%"><col style="width:36.99%"></colgroup><thead><tr><th><p><strong>天数</strong></p></th><th><p><strong>豆子的样子</strong></p></th><th><p><strong>有没有变化</strong></p></th><th><p><strong>我的发现</strong></p></th></tr></thead><tbody><tr><td><p>第1天</p></td><td><p>圆圆的，硬硬的</p></td><td><p>还没有变化</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第3天</p></td><td><p>豆子变大，皮裂开</p></td><td><p>冒出了白色小芽</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第5天</p></td><td><p>长出了小叶子<br>      向着光的方向弯曲</p></td><td><p>（孩子填写）</p></td><td></td></tr><tr><td><p>第7天</p></td><td><p>小苗越长越高</p></td><td><p>有了2~3片叶子</p></td><td><p>（孩子填写）</p></td></tr></tbody></table></div>
+<div class="table-wrap"><table><colgroup><col style="width:13.70%"><col style="width:24.66%"><col style="width:24.66%"><col style="width:36.99%"></colgroup><thead><tr><th><p><strong>天数</strong></p></th><th><p><strong>豆子的样子</strong></p></th><th><p><strong>有没有变化</strong></p></th><th><p><strong>我的发现</strong></p></th></tr></thead><tbody><tr><td><p>第1天</p></td><td><p>圆圆的，硬硬的</p></td><td><p>还没有变化</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第3天</p></td><td><p>豆子变大，皮裂开</p></td><td><p>冒出了白色小芽</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第5天</p></td><td><p>长出了小叶子</p><p>向着光的方向弯曲</p></td><td><p>（孩子填写）</p></td><td><p>（孩子填写）</p></td></tr><tr><td><p>第7天</p></td><td><p>小苗越长越高</p></td><td><p>有了2~3片叶子</p></td><td><p>（孩子填写）</p></td></tr></tbody></table></div>
 <hr>
       <div class="wk-foot"><a data-go="w1" class="prev"><span class="k">← 上一周</span><span class="v">第1周 · 植物是怎么喝水的？</span></a><a data-go="w3" class="next"><span class="k">下一周 →</span><span class="v">第3周 · 蚂蚁的大家庭</span></a></div>
     </div>
@@ -1353,6 +1356,72 @@ tbody tr:hover{background:#fafbfd;}
 <button class="back-to-top" id="toTop" title="回到顶部">↑</button>
 
 <script>
+/* ============================================================
+   语音朗读模块（Web Speech API）
+   —— 每次更新字幕时同步朗读，无需音频文件
+   ============================================================ */
+const Voice = {
+  enabled: true,          // 默认开启；想默认静音就改成 false
+  voice: null,
+  ready: false,
+
+  init(){
+    if(!('speechSynthesis' in window)){
+      console.warn('当前浏览器不支持语音合成');
+      return;
+    }
+    const pick = () => {
+      const voices = speechSynthesis.getVoices();
+      this.voice = voices.find(v => /zh[-_]CN/i.test(v.lang))
+                || voices.find(v => /^zh/i.test(v.lang))
+                || null;
+      this.ready = true;
+    };
+    pick();
+    speechSynthesis.onvoiceschanged = pick;   // Chrome 异步加载 voices
+  },
+
+  speak(text){
+    if(!this.enabled || !this.ready || !text) return;
+    speechSynthesis.cancel();                 // 打断上一句，避免叠音
+    const plain = text
+      .replace(/<[^>]+>/g, '')                // 去 HTML 标签
+      .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '') // 去 emoji
+      .replace(/\s+/g, ' ')
+      .trim();
+    if(!plain) return;
+    const u = new SpeechSynthesisUtterance(plain);
+    u.lang = 'zh-CN';
+    if(this.voice) u.voice = this.voice;
+    u.rate = 0.95;    // 稍慢，适合低龄
+    u.pitch = 1.1;    // 稍高，更亲切
+    u.volume = 1;
+    speechSynthesis.speak(u);
+  },
+
+  stop(){ if('speechSynthesis' in window) speechSynthesis.cancel(); },
+
+  toggle(){
+    this.enabled = !this.enabled;
+    if(!this.enabled) this.stop();
+    return this.enabled;
+  }
+};
+Voice.init();
+
+/* ---------- 语音开关按钮 ---------- */
+const voiceBtn = document.getElementById('voiceToggle');
+function paintVoiceBtn(){
+  voiceBtn.textContent = Voice.enabled ? '🔊 语音' : '🔇 静音';
+  voiceBtn.classList.toggle('off', !Voice.enabled);
+}
+paintVoiceBtn();
+voiceBtn.onclick = () => {
+  const on = Voice.toggle();
+  paintVoiceBtn();
+  if(on) Voice.speak('语音已开启');
+};
+
 const WEEKS = [{"week": 1, "title": "植物是怎么喝水的？", "module": 0}, {"week": 2, "title": "种一颗豆子，看它长大", "module": 0}, {"week": 3, "title": "蚂蚁的大家庭", "module": 0}, {"week": 4, "title": "四季为什么会变化？", "module": 0}, {"week": 5, "title": "动物的睡眠——谁在冬眠？", "module": 0}, {"week": 6, "title": "我们的心脏在\"扑通扑通\"做什么？", "module": 1}, {"week": 7, "title": "食物去哪里了？", "module": 1}, {"week": 8, "title": "为什么要刷牙？细菌的秘密", "module": 1}, {"week": 9, "title": "眼睛是怎么看东西的？", "module": 1}, {"week": 10, "title": "为什么我们要睡觉？", "module": 1}, {"week": 11, "title": "云是怎么来的？（水循环）", "module": 2}, {"week": 12, "title": "彩虹是怎么形成的？", "module": 2}, {"week": 13, "title": "地球是圆的，为什么我们不掉下去？", "module": 2}, {"week": 14, "title": "垃圾分类小达人", "module": 2}, {"week": 15, "title": "为什么会下雷雨？", "module": 2}, {"week": 16, "title": "磁铁有魔法吗？", "module": 3}, {"week": 17, "title": "影子会变大变小——光与影", "module": 3}, {"week": 18, "title": "为什么气球会飞？（空气与浮力）", "module": 3}, {"week": 19, "title": "声音是怎么传播的？", "module": 3}, {"week": 20, "title": "为什么铁会生锈？", "module": 3}, {"week": 21, "title": "我们身边的机器人", "module": 4}, {"week": 22, "title": "手机里住着什么？", "module": 4}, {"week": 23, "title": "汽车靠什么动起来？", "module": 4}, {"week": 24, "title": "飞机为什么能飞上天？", "module": 4}, {"week": 25, "title": "光伏板——太阳能是怎么变成电的？", "module": 4}, {"week": 26, "title": "太阳、地球、月亮是好朋友", "module": 5}, {"week": 27, "title": "为什么白天有太阳、晚上有星星？", "module": 5}, {"week": 28, "title": "宇航员在太空怎么生活？", "module": 5}, {"week": 29, "title": "太阳系的八大行星", "module": 5}, {"week": 30, "title": "中国的太空梦——天宫空间站", "module": 5}];
 const MODCOLORS = ['var(--m0)','var(--m1)','var(--m2)','var(--m3)','var(--m4)','var(--m5)'];
 const MODS = [{"emoji": "🌿", "full": "模块一：自然与生命", "short": "自然与生命"}, {"emoji": "❤️", "full": "模块二：身体与健康", "short": "身体与健康"}, {"emoji": "🌍", "full": "模块三：地球与环境", "short": "地球与环境"}, {"emoji": "⚡", "full": "模块四：物理与能量", "short": "物理与能量"}, {"emoji": "🤖", "full": "模块五：科技与生活", "short": "科技与生活"}, {"emoji": "🌌", "full": "模块六：宇宙与太空", "short": "宇宙与太空"}];
@@ -1399,11 +1468,11 @@ function go(id, push){
     try { localStorage.setItem(SEEN_KEY, JSON.stringify([...seen])); } catch(e){}
     paintSeen();
     stopAllAnims();
+    Voice.stop();                                  // ← 切换周时停止朗读
     const act = document.querySelector(`.wk[data-go="${id}"]`);
     if(act) act.scrollIntoView({block:'nearest'});
   }
   if(push !== false && location.hash !== '#' + id){
-    // file:// 协议下 pushState 会抛 SecurityError，降级为直接改 hash
     try { history.pushState(null, '', '#' + id); }
     catch(e){ location.hash = id; }
   }
@@ -1562,10 +1631,10 @@ const anim1 = {
     cap('⬆️ 水被吸进导管，顺着茎一路往上爬——看，茎正在被染色！');
     if(!await tween(3200, t => {
       const e = easeInOut(t);
-      const top = 290 - e * 210;            // 从杯底染到叶子
+      const top = 290 - e * 210;
       rect.setAttribute('y', top);
       rect.setAttribute('height', 300 - top);
-      surf.setAttribute('cy', 232 + e * 7); // 杯里水位略降
+      surf.setAttribute('cy', 232 + e * 7);
     }, alive)) return;
 
     cap('🍃 水到达叶子了！叶子也变蓝了，说明水真的走到了这里。');
@@ -1620,23 +1689,19 @@ const anim2 = {
     const q = s => root.querySelector(s);
     const SEED_Y = 196;
 
-    // 根：第 1 天开始往下扎
     const rootLen = Math.max(0, Math.min(1, (d - 1) / 4)) * 74;
     q('#a2root').setAttribute('d', rootLen <= 0 ? '' :
       `M210,${SEED_Y+8} q-3,${rootLen*.4} -14,${rootLen}
        M210,${SEED_Y+8} q4,${rootLen*.45} 12,${rootLen*.86}
        M210,${SEED_Y+8} V${SEED_Y+8+rootLen}`);
 
-    // 种子裂开
     q('#a2crack').setAttribute('opacity', d >= 1 && d < 5 ? 1 : 0);
     q('#a2seed').setAttribute('opacity', d >= 7 ? Math.max(0, 1 - (d-7)/3) : 1);
 
-    // 茎：第 3 天破土
     const stemH = Math.max(0, Math.min(1, (d - 3) / 6)) * 122;
     q('#a2stem').setAttribute('d', stemH <= 0 ? '' :
       `M210,${SEED_Y} V${SEED_Y - stemH}`);
 
-    // 叶子：第 6 天展开
     const lf = Math.max(0, Math.min(1, (d - 6) / 4));
     const topY = SEED_Y - stemH;
     if(lf <= 0){ q('#a2leafL').setAttribute('d',''); q('#a2leafR').setAttribute('d',''); }
@@ -1688,20 +1753,15 @@ const anim3 = {
       <g opacity=".5" fill="#e0d7c2">
         <circle cx="70" cy="70" r="13"/><circle cx="330" cy="230" r="16"/><circle cx="120" cy="250" r="10"/>
       </g>
-      <!-- 曲折路径（第一只蚂蚁） -->
       <path id="a3wander" d="M62,238 C110,150 96,120 150,140 C210,162 176,88 234,96 C286,103 300,74 344,66"
             fill="none" stroke="#d9b44a" stroke-width="0" stroke-linecap="round" opacity="0"/>
-      <!-- 直路径（后来的蚂蚁） -->
       <path id="a3direct" d="M62,238 C140,206 240,130 344,66"
             fill="none" stroke="#e0a92e" stroke-width="0" stroke-linecap="round" opacity="0"/>
-      <!-- 蚁巢 -->
       <ellipse cx="62" cy="248" rx="34" ry="18" fill="#9c7a4d"/>
       <ellipse cx="62" cy="242" rx="22" ry="12" fill="#6f5433"/>
       <text x="30" y="284" font-size="12" fill="#7a6244" font-weight="700">🏠 蚁巢</text>
-      <!-- 食物 -->
       <text x="330" y="56" font-size="26">🍬</text>
       <text x="310" y="30" font-size="12" fill="#7a6244" font-weight="700">🍬 食物</text>
-      <!-- 蚂蚁 -->
       <text id="a3ant" x="62" y="243" font-size="17" text-anchor="middle">🐜</text>
       <g id="a3crowd" opacity="0">
         <text id="a3ant2" x="62" y="243" font-size="14" text-anchor="middle">🐜</text>
@@ -1749,7 +1809,7 @@ const anim3 = {
     if(!await tween(2600, t => {
       direct.setAttribute('stroke-width', 3 + t * 4);
       direct.setAttribute('stroke-dashoffset', dlen * (1 - t));
-      wander.setAttribute('opacity', .55 * (1 - t));   // 弯路气味变淡
+      wander.setAttribute('opacity', .55 * (1 - t));
       move(ant, direct, Math.min(1, t * 1.1));
       ants.forEach((a, i) => move(a, direct, Math.max(0, Math.min(1, t * 1.1 - .13 * (i+1)))));
     }, alive)) return;
@@ -1786,7 +1846,6 @@ const anim4 = {
         <circle r="19" fill="#3d92d8"/>
         <path d="M-12,-6 q7,-5 13,1 q6,5 12,-1 M-13,7 q8,5 15,0 q5,-4 11,1"
               stroke="#5fb56d" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-        <!-- 地轴：角度固定不变，这是四季的关键 -->
         <line x1="-8" y1="-25" x2="8" y2="25" stroke="#fff" stroke-width="2" opacity=".85"/>
         <circle cx="-8" cy="-25" r="2.6" fill="#fff"/>
         <text x="-24" y="-30" font-size="9" fill="#cfe3ff">北</text>
@@ -1804,7 +1863,6 @@ const anim4 = {
   place(root, ang){
     const q = s => root.querySelector(s);
     const cx = 210 + 150 * Math.cos(ang), cy = 152 + 86 * Math.sin(ang);
-    // 地轴倾斜方向恒定：只平移，不旋转
     q('#a4earth').setAttribute('transform', `translate(${cx},${cy})`);
   },
   season(root, i){
@@ -1853,10 +1911,8 @@ const anim5 = {
         <circle cx="330" cy="26" r="2.2"/><circle cx="100" cy="86" r="2.6"/><circle cx="290" cy="96" r="2.4"/>
         <circle cx="196" cy="70" r="2"/><circle cx="366" cy="70" r="2.6"/>
       </g>
-      <!-- 山洞 -->
       <path d="M20,300 L20,190 Q20,132 96,132 Q172,132 172,190 L172,300 Z" fill="#6b5a4a"/>
       <path d="M34,300 L34,196 Q34,148 96,148 Q158,148 158,196 L158,300 Z" fill="#33281f"/>
-      <!-- 熊 -->
       <g id="a5bear" transform="translate(96,232)">
         <ellipse cx="0" cy="0" rx="46" ry="30" fill="#8a6240"/>
         <circle cx="-30" cy="-16" r="18" fill="#8a6240"/>
@@ -1867,7 +1923,6 @@ const anim5 = {
         <path id="a5eye" d="M-33,-19 q4,3 8,0" stroke="#33281f" stroke-width="1.8" fill="none" stroke-linecap="round"/>
         <text id="a5zzz" x="6" y="-34" font-size="15" opacity="0">💤</text>
       </g>
-      <!-- 仪表 -->
       <g transform="translate(206,150)">
         <rect x="0" y="-64" width="196" height="60" rx="12" fill="#fff" opacity=".9"/>
         <text x="14" y="-42" font-size="13" fill="#646a73">🌡️ 体温</text>
@@ -1918,7 +1973,7 @@ const anim5 = {
     }, alive)) return;
 
     q('#a5season').textContent = '❄️ 冬天 · 冬眠中';
-    q('#a5eye').setAttribute('d', 'M-33,-17 q4,0 8,0');   // 闭眼
+    q('#a5eye').setAttribute('d', 'M-33,-17 q4,0 8,0');
     q('#a5zzz').setAttribute('opacity', 1);
 
     cap('🔋 身体开启"省电模式"：<b>体温降下来，心跳慢下来</b>，能量消耗变得极少。');
@@ -1936,7 +1991,6 @@ const anim5 = {
    ============================================================ */
 const ANIMS = {1:anim1, 2:anim2, 3:anim3, 4:anim4, 5:anim5};
 
-// 心跳关键帧
 const _st = document.createElement('style');
 _st.textContent = '@keyframes a5beat{0%,100%{transform:scale(1)}45%{transform:scale(1.3)}}';
 document.head.appendChild(_st);
@@ -1950,9 +2004,13 @@ document.querySelectorAll('.demo[data-anim]').forEach(demo => {
   const cap   = demo.querySelector('.demo-cap');
   stage.insertAdjacentHTML('afterbegin', a.build());
   const root = stage.querySelector('svg');
-  const setCap = t => cap.innerHTML = t;
 
-  // 滑块（仅 anim2）
+  // ← 字幕更新时同步朗读
+  const setCap = t => {
+    cap.innerHTML = t;
+    Voice.speak(t);
+  };
+
   let slider = null;
   if(a.slider){
     const box = document.createElement('div');
@@ -1963,10 +2021,13 @@ document.querySelectorAll('.demo[data-anim]').forEach(demo => {
     slider = box.querySelector('input');
     const lab = box.querySelector('.lab');
     slider.addEventListener('input', () => {
-      RUN++;                                   // 手动拖动即停止自动播放
+      RUN++;
       const d = +slider.value;
       lab.textContent = a.slider.label(d);
+      const prev = Voice.enabled;          // ← 拖动时临时静音，避免鬼畜朗读
+      Voice.enabled = false;
       a.onSlide(root, setCap, d);
+      Voice.enabled = prev;
     });
   }
   const ui = { setSlider(v){ if(slider){ slider.value = v;
@@ -1983,6 +2044,7 @@ document.querySelectorAll('.demo[data-anim]').forEach(demo => {
   };
   demo.querySelector('[data-act="reset"]').onclick = () => {
     RUN++;
+    Voice.stop();
     a.reset(root);
     setCap('点击 <b>▶ 播放</b> 开始演示');
   };
