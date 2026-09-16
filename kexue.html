@@ -1791,13 +1791,13 @@ const anim3 = {
     const wlen = wander.getTotalLength();
     wander.setAttribute('stroke-dasharray', wlen);
     wander.setAttribute('stroke-dashoffset', wlen);
-    if(!await tween(3000, t => {
+    if(!await tween(8000, t => {
       wander.setAttribute('stroke-dashoffset', wlen * (1 - t));
       move(ant, wander, t);
     }, alive)) return;
 
     cap('🍬 找到糖啦！它一边往回走，一边在地上留下<b>气味（信息素）</b>。');
-    if(!await tween(1800, t => move(ant, wander, 1 - t), alive)) return;
+    if(!await tween(8000, t => move(ant, wander, 1 - t), alive)) return;
 
     cap('👃 别的蚂蚁闻到气味就跟着走。走的蚂蚁越多，气味<b>越浓</b>。');
     q('#a3crowd').setAttribute('opacity', 1);
@@ -1806,7 +1806,7 @@ const anim3 = {
     direct.setAttribute('stroke-dasharray', dlen);
     direct.setAttribute('stroke-dashoffset', dlen);
     const ants = ['#a3ant2','#a3ant3','#a3ant4'].map(s => q(s));
-    if(!await tween(2600, t => {
+    if(!await tween(8000, t => {
       direct.setAttribute('stroke-width', 3 + t * 4);
       direct.setAttribute('stroke-dashoffset', dlen * (1 - t));
       wander.setAttribute('opacity', .55 * (1 - t));
@@ -1875,16 +1875,16 @@ const anim4 = {
   reset(root){ this.place(root, Math.PI); this.season(root, 0); },
   async play(root, cap, alive){
     cap('🌍 地球一边自转，一边绕着太阳跑。跑完一圈正好是<b>一年</b>。注意看地球的<b>白色小轴</b>——它一直斜向同一个方向。');
-    if(!await wait(2200, alive)) return;
+    if(!await wait(8000, alive)) return;
 
     const starts = [Math.PI, Math.PI*1.5, 0, Math.PI*0.5];
     for(let i = 0; i < 4; i++){
       const from = starts[i], to = starts[i] + Math.PI/2;
-      if(!await tween(2000, t => this.place(root, from + (to-from)*easeInOut(t)), alive)) return;
+      if(!await tween(8000, t => this.place(root, from + (to-from)*easeInOut(t)), alive)) return;
       const next = (i+1) % 4;
       this.season(root, next);
       cap(this.SEASONS[next].tip);
-      if(!await wait(1600, alive)) return;
+      if(!await wait(8000, alive)) return;
     }
     cap('🔑 关键：<b>不是因为离太阳更近才热</b>！而是地球一直斜着，公转时北半球有时朝着太阳、有时背着太阳，于是有了四季。');
   }
@@ -1963,10 +1963,10 @@ const anim5 = {
     const lerp = (a,b,t) => a + (b-a)*t;
 
     cap('🍂 秋天，熊拼命吃东西，把能量<b>存成脂肪</b>。这时体温 37°C、心跳 40 次/分，和平时一样。');
-    if(!await wait(2400, alive)) return;
+    if(!await wait(8000, alive)) return;
 
     cap('❄️ 冬天来了，外面又冷又找不到吃的。熊钻进山洞，准备<b>冬眠</b>。');
-    if(!await tween(2200, t => {
+    if(!await tween(8000, t => {
       q('#a5sky1').setAttribute('stop-color', `hsl(${lerp(36,205,t)},${lerp(100,45,t)}%,${lerp(82,86,t)}%)`);
       q('#a5sky2').setAttribute('stop-color', `hsl(${lerp(38,205,t)},${lerp(100,40,t)}%,${lerp(90,95,t)}%)`);
       q('#a5snow').setAttribute('opacity', t);
@@ -1977,7 +1977,7 @@ const anim5 = {
     q('#a5zzz').setAttribute('opacity', 1);
 
     cap('🔋 身体开启"省电模式"：<b>体温降下来，心跳慢下来</b>，能量消耗变得极少。');
-    if(!await tween(3400, t => {
+    if(!await tween(8000, t => {
       const e = easeInOut(t);
       this.set(root, lerp(37, 5, e), lerp(40, 8, e));
     }, alive)) return;
